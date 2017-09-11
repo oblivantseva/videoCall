@@ -31,6 +31,10 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
+<<<<<<< HEAD
+=======
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+>>>>>>> e29d49622b08ac23c08267a0b861b8100dfe7bce
             this.SuspendLayout();
             // 
             // comboBox1
@@ -60,11 +64,30 @@
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             // 
+<<<<<<< HEAD
+=======
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(278, 55);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(67, 17);
+            this.radioButton1.TabIndex = 3;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "лялялял";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+>>>>>>> e29d49622b08ac23c08267a0b861b8100dfe7bce
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(284, 262);
+=======
+            this.ClientSize = new System.Drawing.Size(506, 262);
+            this.Controls.Add(this.radioButton1);
+>>>>>>> e29d49622b08ac23c08267a0b861b8100dfe7bce
             this.Controls.Add(this.button1);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.comboBox1);
@@ -80,6 +103,10 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button button1;
+<<<<<<< HEAD
+=======
+        private System.Windows.Forms.RadioButton radioButton1;
+>>>>>>> e29d49622b08ac23c08267a0b861b8100dfe7bce
     }
 }
 
