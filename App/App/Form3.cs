@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace App
 {
-    public partial class Start : Form
+    public partial class Form3 : Form
     {
-        public Start()
+        public Form3()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
