@@ -60,6 +60,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(328, 21);
             this.textBox1.TabIndex = 1;
+            this.textBox1.Text = "Название события";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox2
@@ -71,6 +72,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(192, 21);
             this.textBox2.TabIndex = 2;
+            this.textBox2.Text = "Статус";
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // listBox1
@@ -152,7 +154,7 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "label1";
             // 
-            // Form1
+            // Start
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
@@ -172,7 +174,7 @@
             this.Controls.Add(this.comboBox1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "Form1";
+            this.Name = "Start";
             this.Text = "Видеообращение";
             this.ResumeLayout(false);
             this.PerformLayout();
