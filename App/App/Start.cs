@@ -22,7 +22,7 @@ namespace App
         public Start()
         {
             InitializeComponent();
-            connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\call2president.mdf;Integrated Security=True;";
+            connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True;";
             command.Connection = connection;
             events_Load();
         }
