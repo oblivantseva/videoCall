@@ -29,62 +29,53 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Start));
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.eventList = new System.Windows.Forms.ComboBox();
+            this.name = new System.Windows.Forms.TextBox();
+            this.status = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.login = new System.Windows.Forms.TextBox();
+            this.pass = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.description = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // eventList
             // 
-            this.comboBox1.BackColor = System.Drawing.Color.White;
-            this.comboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(19, 21);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(226, 21);
-            this.comboBox1.TabIndex = 0;
+            this.eventList.BackColor = System.Drawing.Color.White;
+            this.eventList.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.eventList.FormattingEnabled = true;
+            this.eventList.Location = new System.Drawing.Point(19, 21);
+            this.eventList.Name = "eventList";
+            this.eventList.Size = new System.Drawing.Size(226, 21);
+            this.eventList.TabIndex = 0;
+            this.eventList.SelectedIndexChanged += new System.EventHandler(this.eventList_SelectedIndexChanged);
+            this.eventList.SelectedValueChanged += new System.EventHandler(this.eventList_SelectedValueChanged);
+            this.eventList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.eventList_KeyDown);
+            this.eventList.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.eventList_KeyPress);
             // 
-            // textBox1
+            // name
             // 
-            this.textBox1.BackColor = System.Drawing.Color.AliceBlue;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.ForeColor = System.Drawing.Color.Red;
-            this.textBox1.Location = new System.Drawing.Point(268, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(328, 21);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "Название события";
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.name.BackColor = System.Drawing.Color.AliceBlue;
+            this.name.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.name.ForeColor = System.Drawing.Color.Red;
+            this.name.Location = new System.Drawing.Point(268, 19);
+            this.name.Name = "name";
+            this.name.Size = new System.Drawing.Size(328, 21);
+            this.name.TabIndex = 1;
+            this.name.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox2
+            // status
             // 
-            this.textBox2.BackColor = System.Drawing.Color.AliceBlue;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox2.ForeColor = System.Drawing.Color.Red;
-            this.textBox2.Location = new System.Drawing.Point(332, 61);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(192, 21);
-            this.textBox2.TabIndex = 2;
-            this.textBox2.Text = "Статус";
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // listBox1
-            // 
-            this.listBox1.BackColor = System.Drawing.Color.AliceBlue;
-            this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(19, 81);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.ScrollAlwaysVisible = true;
-            this.listBox1.Size = new System.Drawing.Size(263, 158);
-            this.listBox1.TabIndex = 3;
+            this.status.BackColor = System.Drawing.Color.AliceBlue;
+            this.status.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.status.ForeColor = System.Drawing.Color.Red;
+            this.status.Location = new System.Drawing.Point(332, 61);
+            this.status.Name = "status";
+            this.status.Size = new System.Drawing.Size(192, 21);
+            this.status.TabIndex = 2;
+            this.status.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // button1
             // 
@@ -122,28 +113,29 @@
             this.button3.TabIndex = 6;
             this.button3.Text = "Войти";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // textBox3
+            // login
             // 
-            this.textBox3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox3.ForeColor = System.Drawing.Color.Black;
-            this.textBox3.Location = new System.Drawing.Point(652, 62);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(136, 20);
-            this.textBox3.TabIndex = 7;
-            this.textBox3.Text = "Логин";
+            this.login.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.login.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.login.ForeColor = System.Drawing.Color.Black;
+            this.login.Location = new System.Drawing.Point(652, 62);
+            this.login.Name = "login";
+            this.login.Size = new System.Drawing.Size(136, 20);
+            this.login.TabIndex = 7;
+            this.login.Text = "Логин";
             // 
-            // textBox4
+            // pass
             // 
-            this.textBox4.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox4.ForeColor = System.Drawing.Color.Black;
-            this.textBox4.Location = new System.Drawing.Point(652, 99);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(136, 20);
-            this.textBox4.TabIndex = 8;
-            this.textBox4.Text = "Пароль";
+            this.pass.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pass.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.pass.ForeColor = System.Drawing.Color.Black;
+            this.pass.Location = new System.Drawing.Point(652, 99);
+            this.pass.Name = "pass";
+            this.pass.Size = new System.Drawing.Size(136, 20);
+            this.pass.TabIndex = 8;
+            this.pass.Text = "Пароль";
             // 
             // label1
             // 
@@ -154,6 +146,18 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "label1";
             // 
+            // description
+            // 
+            this.description.BackColor = System.Drawing.Color.AliceBlue;
+            this.description.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.description.ForeColor = System.Drawing.Color.Red;
+            this.description.Location = new System.Drawing.Point(19, 71);
+            this.description.Multiline = true;
+            this.description.Name = "description";
+            this.description.Size = new System.Drawing.Size(226, 177);
+            this.description.TabIndex = 10;
+            this.description.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // Start
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -162,16 +166,16 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(812, 319);
+            this.Controls.Add(this.description);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.pass);
+            this.Controls.Add(this.login);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.status);
+            this.Controls.Add(this.name);
+            this.Controls.Add(this.eventList);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Start";
@@ -183,16 +187,16 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ComboBox eventList;
+        private System.Windows.Forms.TextBox name;
+        private System.Windows.Forms.TextBox status;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox login;
+        private System.Windows.Forms.TextBox pass;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox description;
     }
 }
 
