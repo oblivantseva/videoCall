@@ -22,7 +22,7 @@ namespace App
         public Start()
         {
             InitializeComponent();
-            connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True;";
+            connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\call2president.mdf;Integrated Security=True;";
             command.Connection = connection;
             events_Load();
         }
@@ -41,7 +41,8 @@ namespace App
     }
     private void button1_Click(object sender, EventArgs e)
         {
-            
+            Form1 f1 = new Form1();
+            f1.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -125,6 +126,12 @@ namespace App
                 dr.Close();
                 connection.Close();
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form3 f = new Form3();
+            f.Show();
         }
     }
 }
