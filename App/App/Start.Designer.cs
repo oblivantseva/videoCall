@@ -102,6 +102,7 @@
             this.button2.TabIndex = 5;
             this.button2.Text = "Популярные обращения";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -134,9 +135,10 @@
             this.pass.ForeColor = System.Drawing.Color.Black;
             this.pass.Location = new System.Drawing.Point(591, 38);
             this.pass.Name = "pass";
+            this.pass.PasswordChar = '*';
             this.pass.Size = new System.Drawing.Size(136, 20);
             this.pass.TabIndex = 8;
-            this.pass.Text = "Пароль";
+            this.pass.Text = "******";
             // 
             // label1
             // 
@@ -146,7 +148,11 @@
             this.label1.ForeColor = System.Drawing.Color.DarkRed;
             this.label1.Location = new System.Drawing.Point(34, 346);
             this.label1.Name = "label1";
+<<<<<<< HEAD
             this.label1.Size = new System.Drawing.Size(0, 17);
+=======
+            this.label1.Size = new System.Drawing.Size(0, 13);
+>>>>>>> 0dc142e4262e4d29d87f105946c44f46081a5a41
             this.label1.TabIndex = 9;
             // 
             // description
