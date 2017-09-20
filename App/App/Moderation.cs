@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace App
 {
-    public partial class Form3 : Form
+    public partial class Moderation : Form
     {
-        public Form3()
+        public Moderation()
         {
             InitializeComponent();
         }
