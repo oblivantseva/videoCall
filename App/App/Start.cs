@@ -41,7 +41,7 @@ namespace App
     }
     private void button1_Click(object sender, EventArgs e)
         {
-            Form1 f1 = new Form1();
+            Event f1 = new Event();//переделала с Form1 на Event потому что ругалось
             f1.Show();
         }
 
@@ -130,7 +130,7 @@ namespace App
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form3 f = new Form3();
+            EventP f = new EventP();
             f.Show();
         }
     }

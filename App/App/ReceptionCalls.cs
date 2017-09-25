@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace App
 {
-    public partial class Event : Form
+    public partial class ReceptionCalls : Form
     {
-        public Event()
+        public ReceptionCalls()
         {
             InitializeComponent();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
