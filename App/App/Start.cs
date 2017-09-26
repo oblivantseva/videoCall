@@ -19,10 +19,13 @@ namespace App
         public SqlConnection connection = new SqlConnection();
         public SqlCommand command = new SqlCommand();
 
+
+        public string stringPath = Properties.Settings.Default.stringPath;
+
         public Start()
         {
             InitializeComponent();
-            connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\call2president.mdf;Integrated Security=True;";
+            connection.ConnectionString = stringPath;
             command.Connection = connection;
             events_Load();
         }
