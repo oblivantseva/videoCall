@@ -39,11 +39,12 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -141,14 +142,6 @@
             this.button3.Text = "Вперед";
             this.button3.UseVisualStyleBackColor = false;
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Location = new System.Drawing.Point(488, 123);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(283, 236);
-            this.panel1.TabIndex = 6;
-            // 
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.SystemColors.MenuBar;
@@ -183,6 +176,15 @@
             this.label2.Size = new System.Drawing.Size(0, 13);
             this.label2.TabIndex = 9;
             // 
+            // axWindowsMediaPlayer1
+            // 
+            this.axWindowsMediaPlayer1.Enabled = true;
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(505, 123);
+            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
+            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(266, 236);
+            this.axWindowsMediaPlayer1.TabIndex = 10;
+            // 
             // EventP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -191,10 +193,10 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(794, 428);
+            this.Controls.Add(this.axWindowsMediaPlayer1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.comboBox1);
@@ -203,6 +205,7 @@
             this.Name = "EventP";
             this.Text = "Популярные обращения";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -219,9 +222,9 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
     }
 }
