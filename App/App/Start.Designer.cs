@@ -148,7 +148,11 @@
             this.label1.ForeColor = System.Drawing.Color.DarkRed;
             this.label1.Location = new System.Drawing.Point(34, 346);
             this.label1.Name = "label1";
+
             this.label1.Size = new System.Drawing.Size(0, 17);
+
+            this.label1.Size = new System.Drawing.Size(0, 13);
+
             this.label1.TabIndex = 9;
             // 
             // description

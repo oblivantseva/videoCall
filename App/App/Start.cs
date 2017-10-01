@@ -44,7 +44,7 @@ namespace App
     }
     private void button1_Click(object sender, EventArgs e)
         {
-            Event f1 = new Event();
+            Event f1 = new Event();//переделала с Form1 на Event потому что ругалось
             f1.Show();
         }
 
