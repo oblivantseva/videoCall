@@ -133,7 +133,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <None Include="bin\Debug\фон.jpg" />
     <Content Include="BD_KP.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -142,8 +141,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>BD_KP.mdf</DependentUpon>
     </Content>
-=======
->>>>>>> c98abe767de1be2b0d6f27dfcd76e0b6dc9ca1cc
     <Content Include="call2president.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
