@@ -162,6 +162,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\Debug\фон.jpg" />
+    <Content Include="BD_KP.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="BD_KP_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>BD_KP.mdf</DependentUpon>
+    </Content>
     <Content Include="call2president.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
