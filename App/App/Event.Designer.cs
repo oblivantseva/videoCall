@@ -286,6 +286,7 @@
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Name = "Event";
             this.Text = "Подача обращения";
+            //this.Load += new System.EventHandler(this.Event_Load);
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
