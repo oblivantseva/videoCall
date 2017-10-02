@@ -60,6 +60,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EfirMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EfirMessage.Designer.cs">
+      <DependentUpon>EfirMessage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Event.cs">
       <SubType>Form</SubType>
     </Compile>
