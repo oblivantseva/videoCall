@@ -114,7 +114,7 @@
             this.description.BackColor = System.Drawing.Color.AliceBlue;
             this.description.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.description.ForeColor = System.Drawing.Color.Black;
-            this.description.Location = new System.Drawing.Point(16, 82);
+            this.description.Location = new System.Drawing.Point(12, 82);
             this.description.Multiline = true;
             this.description.Name = "description";
             this.description.Size = new System.Drawing.Size(289, 251);
@@ -128,7 +128,7 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(736, 390);
+            this.ClientSize = new System.Drawing.Size(736, 381);
             this.Controls.Add(this.description);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
