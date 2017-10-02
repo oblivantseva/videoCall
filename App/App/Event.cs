@@ -55,6 +55,19 @@ namespace App
             comboBox2.DataSource = tbl;
             comboBox2.DisplayMember = "message_categories";
             comboBox2.ValueMember = "Id_message_categories";
+<<<<<<< HEAD
+=======
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            axWindowsMediaPlayer1.URL = @"1.mp4";
+>>>>>>> 4026b3e715184d69d5fbfe94b4057dc599b6e6f7
         }
 
         private void button2_Click(object sender, EventArgs e)
