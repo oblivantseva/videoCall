@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Event));
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.eventbox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -38,31 +38,33 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.age = new System.Windows.Forms.TextBox();
+            this.tel = new System.Windows.Forms.TextBox();
+            this.mail = new System.Windows.Forms.TextBox();
+            this.fam = new System.Windows.Forms.TextBox();
+            this.otch = new System.Windows.Forms.TextBox();
+            this.name = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.quest = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.id = new System.Windows.Forms.TextBox();
+            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // eventbox
             // 
-            this.textBox1.Location = new System.Drawing.Point(124, 31);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(465, 20);
-            this.textBox1.TabIndex = 0;
+            this.eventbox.Location = new System.Drawing.Point(124, 31);
+            this.eventbox.Name = "eventbox";
+            this.eventbox.ReadOnly = true;
+            this.eventbox.Size = new System.Drawing.Size(465, 20);
+            this.eventbox.TabIndex = 0;
             // 
             // label1
             // 
@@ -141,47 +143,47 @@
             this.label7.TabIndex = 7;
             this.label7.Text = "Фед.округ";
             // 
-            // textBox2
+            // age
             // 
-            this.textBox2.Location = new System.Drawing.Point(80, 218);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(170, 20);
-            this.textBox2.TabIndex = 8;
+            this.age.Location = new System.Drawing.Point(80, 218);
+            this.age.Name = "age";
+            this.age.Size = new System.Drawing.Size(170, 20);
+            this.age.TabIndex = 8;
             // 
-            // textBox3
+            // tel
             // 
-            this.textBox3.Location = new System.Drawing.Point(80, 167);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(170, 20);
-            this.textBox3.TabIndex = 9;
+            this.tel.Location = new System.Drawing.Point(80, 167);
+            this.tel.Name = "tel";
+            this.tel.Size = new System.Drawing.Size(170, 20);
+            this.tel.TabIndex = 9;
             // 
-            // textBox4
+            // mail
             // 
-            this.textBox4.Location = new System.Drawing.Point(80, 193);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(170, 20);
-            this.textBox4.TabIndex = 10;
+            this.mail.Location = new System.Drawing.Point(80, 193);
+            this.mail.Name = "mail";
+            this.mail.Size = new System.Drawing.Size(170, 20);
+            this.mail.TabIndex = 10;
             // 
-            // textBox5
+            // fam
             // 
-            this.textBox5.Location = new System.Drawing.Point(80, 89);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(170, 20);
-            this.textBox5.TabIndex = 11;
+            this.fam.Location = new System.Drawing.Point(80, 89);
+            this.fam.Name = "fam";
+            this.fam.Size = new System.Drawing.Size(170, 20);
+            this.fam.TabIndex = 11;
             // 
-            // textBox6
+            // otch
             // 
-            this.textBox6.Location = new System.Drawing.Point(80, 141);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(170, 20);
-            this.textBox6.TabIndex = 12;
+            this.otch.Location = new System.Drawing.Point(80, 141);
+            this.otch.Name = "otch";
+            this.otch.Size = new System.Drawing.Size(170, 20);
+            this.otch.TabIndex = 12;
             // 
-            // textBox7
+            // name
             // 
-            this.textBox7.Location = new System.Drawing.Point(80, 115);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(170, 20);
-            this.textBox7.TabIndex = 13;
+            this.name.Location = new System.Drawing.Point(80, 115);
+            this.name.Name = "name";
+            this.name.Size = new System.Drawing.Size(170, 20);
+            this.name.TabIndex = 13;
             // 
             // comboBox1
             // 
@@ -191,13 +193,13 @@
             this.comboBox1.Size = new System.Drawing.Size(171, 21);
             this.comboBox1.TabIndex = 14;
             // 
-            // textBox8
+            // quest
             // 
-            this.textBox8.Location = new System.Drawing.Point(268, 88);
-            this.textBox8.Multiline = true;
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(217, 178);
-            this.textBox8.TabIndex = 15;
+            this.quest.Location = new System.Drawing.Point(268, 88);
+            this.quest.Multiline = true;
+            this.quest.Name = "quest";
+            this.quest.Size = new System.Drawing.Size(217, 178);
+            this.quest.TabIndex = 15;
             // 
             // button1
             // 
@@ -208,6 +210,7 @@
             this.button1.TabIndex = 16;
             this.button1.Text = "Выбрать видео";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -223,12 +226,13 @@
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.Blue;
-            this.button3.Location = new System.Drawing.Point(288, 309);
+            this.button3.Location = new System.Drawing.Point(278, 309);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(157, 41);
             this.button3.TabIndex = 18;
             this.button3.Text = "Подать обращение";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // comboBox2
             // 
@@ -248,15 +252,6 @@
             this.label8.TabIndex = 20;
             this.label8.Text = "Категория вопроса";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Location = new System.Drawing.Point(507, 89);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(211, 124);
-            this.pictureBox1.TabIndex = 21;
-            this.pictureBox1.TabStop = false;
-            // 
             // label9
             // 
             this.label9.BackColor = System.Drawing.Color.Transparent;
@@ -272,6 +267,23 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // id
+            // 
+            this.id.Location = new System.Drawing.Point(315, 320);
+            this.id.Name = "id";
+            this.id.Size = new System.Drawing.Size(29, 20);
+            this.id.TabIndex = 23;
+            this.id.Visible = false;
+            // 
+            // axWindowsMediaPlayer1
+            // 
+            this.axWindowsMediaPlayer1.Enabled = true;
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(507, 89);
+            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
+            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(204, 126);
+            this.axWindowsMediaPlayer1.TabIndex = 24;
+            // 
             // Event
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -280,21 +292,22 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(730, 362);
+            this.Controls.Add(this.axWindowsMediaPlayer1);
+            this.Controls.Add(this.id);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox8);
+            this.Controls.Add(this.quest);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.name);
+            this.Controls.Add(this.otch);
+            this.Controls.Add(this.fam);
+            this.Controls.Add(this.mail);
+            this.Controls.Add(this.tel);
+            this.Controls.Add(this.age);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -302,19 +315,17 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.eventbox);
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Name = "Event";
             this.Text = "Подача обращения";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -322,21 +333,23 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox age;
+        private System.Windows.Forms.TextBox tel;
+        private System.Windows.Forms.TextBox mail;
+        private System.Windows.Forms.TextBox fam;
+        private System.Windows.Forms.TextBox otch;
+        private System.Windows.Forms.TextBox name;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox quest;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        public System.Windows.Forms.TextBox id;
+        public System.Windows.Forms.TextBox eventbox;
+        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
     }
 }

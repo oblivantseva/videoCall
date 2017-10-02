@@ -48,6 +48,8 @@ namespace App
     private void button1_Click(object sender, EventArgs e)
         {
             Event f1 = new Event();//переделала с Form1 на Event потому что ругалось
+            f1.id.Text = eventList.SelectedValue.ToString();
+            f1.eventbox.Text = eventList.Text;
             f1.Show();
         }
 
