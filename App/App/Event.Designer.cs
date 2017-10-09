@@ -156,6 +156,7 @@
             this.tel.Name = "tel";
             this.tel.Size = new System.Drawing.Size(170, 20);
             this.tel.TabIndex = 9;
+            this.tel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tel_KeyPress);
             // 
             // mail
             // 
@@ -163,6 +164,7 @@
             this.mail.Name = "mail";
             this.mail.Size = new System.Drawing.Size(170, 20);
             this.mail.TabIndex = 10;
+            this.mail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mail_KeyPress);
             // 
             // fam
             // 
