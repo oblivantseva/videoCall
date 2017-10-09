@@ -31,8 +31,6 @@ namespace App
             button2.Enabled = false;
             button4.Enabled = false;
             button5.Enabled = false;
-            button6.Enabled = false;
-
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -67,23 +65,19 @@ namespace App
                                 dr2.Close();
                                 if (search == 1)
                                 {
-                                    button6.Enabled = true;
                                     button5.Enabled = true;
 
                                 }
                                 else if (search == 2)
                                 {
-                                    button6.Enabled = true;
                                     button4.Enabled = true;
                                 }
                                 else if (search == 3)
                                 {
-                                    button6.Enabled = true;
                                     button1.Enabled = true;
                                 }
                                 else if (search == 5)
                                 {
-                                    button6.Enabled = true;
                                     button2.Enabled = true;
                                 }
                             }
@@ -104,6 +98,20 @@ namespace App
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //string qs = "SELECT * FROM dbo.events Where ";
+            //SqlCommand command = new SqlCommand(qs, connection);
+            //System.Data.DataTable tbl = new System.Data.DataTable();
+            //SqlDataAdapter da = new SqlDataAdapter(command);
+            //da.Fill(tbl);
+            //string ev = "name";
+            string qs = "SELECT * FROM dbo.staff  WHERE log = '" + login.Text + "' and pass='" + pass.Text + "'";
+            SqlCommand command = new SqlCommand(qs, connection);
+            System.Data.DataTable tbl = new System.Data.DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(command);
+            da.Fill(tbl);
+           // string fio= tbl[2] + " "+ tbl[1] + " "+ tbl[3];
+           // string d =;
+            //Moderation mod = new Moderation(fio);
             Moderation mod = new Moderation();
             mod.Show();
         }
@@ -127,6 +135,16 @@ namespace App
         {
             Start st = new Start();
             st.Show();
+        }
+
+        private void login_Click(object sender, EventArgs e)
+        {
+            login.Clear();
+        }
+
+        private void pass_Click(object sender, EventArgs e)
+        {
+            pass.Clear();
         }
     }
 }

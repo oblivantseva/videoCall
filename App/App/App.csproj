@@ -72,6 +72,12 @@
     <Compile Include="Event.Designer.cs">
       <DependentUpon>Event.cs</DependentUpon>
     </Compile>
+    <Compile Include="EventManag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EventManag.Designer.cs">
+      <DependentUpon>EventManag.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +89,12 @@
     </Compile>
     <Compile Include="Moderation.Designer.cs">
       <DependentUpon>Moderation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReceptionCall.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReceptionCall.Designer.cs">
+      <DependentUpon>ReceptionCall.cs</DependentUpon>
     </Compile>
     <Compile Include="Start.cs">
       <SubType>Form</SubType>
@@ -98,14 +110,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="EfirMessage.resx">
+      <DependentUpon>EfirMessage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Event.resx">
       <DependentUpon>Event.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EventManag.resx">
+      <DependentUpon>EventManag.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Moderation.resx">
       <DependentUpon>Moderation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReceptionCall.resx">
+      <DependentUpon>ReceptionCall.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Start.resx">
       <DependentUpon>Start.cs</DependentUpon>

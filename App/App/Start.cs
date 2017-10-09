@@ -48,12 +48,25 @@ namespace App
     private void button1_Click(object sender, EventArgs e)
         {
             Event f1 = new Event();//переделала с Form1 на Event потому что ругалось
+            f1.id.Text = eventList.SelectedValue.ToString();
+            f1.eventbox.Text = eventList.Text;
             f1.Show();
         }
 
         
 
         private void eventList_KeyPress(object sender, KeyPressEventArgs e)
+        {
+          
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            EventP f = new EventP(name.Text);
+            f.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
         {
             connection.Open();
             if (eventList.SelectedIndex != -1)
@@ -65,14 +78,14 @@ namespace App
                 {
                     name.Text = dr.GetString(1);
                     description.Text = dr.GetString(2);
-                    if(DateTime.Now > dr.GetDateTime(3) && DateTime.Now < dr.GetDateTime(4))
+                    if (DateTime.Now > dr.GetDateTime(3) && DateTime.Now < dr.GetDateTime(4))
                     {
                         status.Text = "Проходит";
                         button1.Enabled = true;
                         button2.Enabled = true;
 
                     }
-                    else if(DateTime.Now > dr.GetDateTime(4))
+                    else if (DateTime.Now > dr.GetDateTime(4))
                     {
                         status.Text = "Окончен";
                         button1.Enabled = false;
@@ -88,12 +101,6 @@ namespace App
                 dr.Close();
                 connection.Close();
             }
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            EventP f = new EventP();
-            f.Show();
         }
     }
 }
