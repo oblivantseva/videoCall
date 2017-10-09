@@ -59,20 +59,55 @@ namespace App
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            string filename = "";
+            OpenFileDialog openFileDialog1 = new OpenFileDialog() { Filter = "Видео файлы(*.mp4)|*.mp4" };
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                filename = openFileDialog1.FileName;
+                axWindowsMediaPlayer1.URL = filename;
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            axWindowsMediaPlayer1.URL = @"1.mp4";
+            connection.Open();
+            string qs = @"INSERT INTO polz(first_name, second_name, patronymic, telephone, email,age, id_user_federal_districts) VALUES('" + fam.Text + "', '" + name.Text + "','" + otch.Text + "', '" + tel.Text + "','" + mail.Text + "','" + age.Text + "', '" + Convert.ToInt32(comboBox1.SelectedValue) + "')";
+            SqlCommand command = new SqlCommand(qs, connection);
+            int Zaversh = command.ExecuteNonQuery();
+            connection.Close();
+            if (Zaversh != 0)
+            {
+                MessageBox.Show("Новая квартира добавлена.");
+            }
+            else
+            {
+                MessageBox.Show("Ошибка при добавлении квартиры.");
+            }
+
+            //  connection.Open();
+            //  SqlCommand command2 = connection.CreateCommand();
+            //   command2.CommandText = "INSERT INTO dbo.[messages](datatime, Id_message_user, Id_message_type_message, message_text, Id_message_event, media_content, Id_message_message_categories) VALUES ('" + DateTime.Now + "','" + 1 + "', '4','" + quest.Text + "', '" + id + "','" + axWindowsMediaPlayer1.URL + "','" + Convert.ToInt32(comboBox1.SelectedValue) + "')";
+            //   int Zaversh2 = command2.ExecuteNonQuery();
+            //  if (Zaversh2 != 0)
+            //   {
+            //      MessageBox.Show("Новая квартира добавлена.");
+            //   }
+            //  else
+            //  {
+            //       MessageBox.Show("Ошибка при добавлении квартиры.");
+            //  }
+            //  connection.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string filename;
-            OpenFileDialog openFileDialog1 = new OpenFileDialog() { Filter = "Текстовые файлы(*.txt)|*.txt" };
+            string filename = "";
+            OpenFileDialog openFileDialog1 = new OpenFileDialog() { Filter = "Видео файлы(*.mp4)|*.mp4" };
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
                 filename = openFileDialog1.FileName;
+                axWindowsMediaPlayer1.URL = filename;
+            }
         }
     }
 }
