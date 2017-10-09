@@ -338,6 +338,7 @@
             this.Controls.Add(this.label2);
             this.Name = "EventManagement";
             this.Text = "Управление текущим или предстоящим мероприятием";
+            this.Load += new System.EventHandler(this.EventManagement_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
