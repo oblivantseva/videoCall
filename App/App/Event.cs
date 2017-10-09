@@ -85,28 +85,40 @@ namespace App
             SqlCommand command = new SqlCommand(qs, connection);
             int Zaversh = command.ExecuteNonQuery();
             connection.Close();
+            int idO;
             if (Zaversh != 0)
             {
-                MessageBox.Show("Новая квартира добавлена.");
+                connection.Open();
+                command.CommandText = "SELECT TOP 1 Id_user FROM dbo.[user] ORDER BY Id_user DESC";
+                SqlDataReader dr1 = command.ExecuteReader();
+                if (dr1.Read())
+                {
+                    idO = Convert.ToInt32(dr1[0].ToString());
+                    dr1.Close();
+                    SqlCommand command2 = connection.CreateCommand();
+                    command2.CommandText = @"INSERT INTO dbo.[messages](datatime, Id_message_user, Id_message_type_message, message_text, 
+                                             Id_message_event, media_content, Id_message_message_categories) 
+                                            VALUES ('" + DateTime.Now + "','" + idO + "', '4','" + quest.Text + 
+                                            "','" + Convert.ToInt32(id.Text) + 
+                                            "','" + axWindowsMediaPlayer1.URL + "','" + Convert.ToInt32(comboBox1.SelectedValue) + "')";
+                    int Zaversh2 = command2.ExecuteNonQuery();
+                    if (Zaversh2 != 0)
+                    {
+                        MessageBox.Show("Обращение отправлено.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ошибка при отправке обращения.");
+                    }
+                    connection.Close();
+                }
             }
             else
             {
-                MessageBox.Show("Ошибка при добавлении квартиры.");
+                MessageBox.Show("Ошибка при отправке обращения.");
             }
 
-            //  connection.Open();
-            //  SqlCommand command2 = connection.CreateCommand();
-            //   command2.CommandText = "INSERT INTO dbo.[messages](datatime, Id_message_user, Id_message_type_message, message_text, Id_message_event, media_content, Id_message_message_categories) VALUES ('" + DateTime.Now + "','" + 1 + "', '4','" + quest.Text + "', '" + id + "','" + axWindowsMediaPlayer1.URL + "','" + Convert.ToInt32(comboBox1.SelectedValue) + "')";
-            //   int Zaversh2 = command2.ExecuteNonQuery();
-            //  if (Zaversh2 != 0)
-            //   {
-            //      MessageBox.Show("Новая квартира добавлена.");
-            //   }
-            //  else
-            //  {
-            //       MessageBox.Show("Ошибка при добавлении квартиры.");
-            //  }
-            //  connection.Close();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -132,6 +144,7 @@ namespace App
                 e.Handled = true;   
         }
         
+<<<<<<< HEAD
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
@@ -185,6 +198,7 @@ namespace App
                 }
             }
         }
+=======
+>>>>>>> de0e0356c60644e9f9266073527cea649ac9e6bd
     }
 }
-    

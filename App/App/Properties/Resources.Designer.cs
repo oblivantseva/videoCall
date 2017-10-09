@@ -61,12 +61,20 @@ namespace App.Properties {
         }
         
         /// <summary>
+<<<<<<< HEAD
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap фон {
             get {
                 object obj = ResourceManager.GetObject("фон", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+=======
+        ///   Ищет локализованную строку, похожую на .
+        /// </summary>
+        internal static string stringPath {
+            get {
+                return ResourceManager.GetString("stringPath", resourceCulture);
+>>>>>>> de0e0356c60644e9f9266073527cea649ac9e6bd
             }
         }
     }
