@@ -71,7 +71,7 @@ namespace App
         private void button3_Click(object sender, EventArgs e)
         {
             connection.Open();
-            string qs = @"INSERT INTO polz(first_name, second_name, patronymic, telephone, email,age, id_user_federal_districts) VALUES('" + fam.Text + "', '" + name.Text + "','" + otch.Text + "', '" + tel.Text + "','" + mail.Text + "','" + age.Text + "', '" + Convert.ToInt32(comboBox1.SelectedValue) + "')";
+            string qs = @"INSERT INTO dbo.[user](first_name, second_name, patronymic, telephone, email,age, id_user_federal_districts) VALUES('" + fam.Text + "', '" + name.Text + "','" + otch.Text + "', '" + tel.Text + "','" + mail.Text + "','" + age.Text + "', '" + Convert.ToInt32(comboBox1.SelectedValue) + "')";
             SqlCommand command = new SqlCommand(qs, connection);
             int Zaversh = command.ExecuteNonQuery();
             connection.Close();
@@ -121,18 +121,7 @@ namespace App
             if ((e.KeyChar <= 48 || e.KeyChar >= 59) && e.KeyChar != 8)
                 e.Handled = true;   
         }
-
-        private void tel_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if ((e.KeyChar <= 48 || e.KeyChar >= 59) && e.KeyChar != 8)
-                e.Handled = true;
-        }
-
-        private void mail_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if ((e.KeyChar <= 48 || e.KeyChar >= 59) && e.KeyChar != 8)
-                e.Handled = true;   
-        }
+        
 
         private void Event_Load(object sender, EventArgs e)
         {

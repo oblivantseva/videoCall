@@ -42,7 +42,37 @@ namespace App
 
         private void EventP_Load(object sender, EventArgs e)
         {
+            string sql1 = "SELECT        SotrTable.ID_S, SkillsTable.NameSkill, Skill_Sotr.LevelSkill,SkillsTable.Id_Skill FROM            Skill_Sotr INNER JOIN " +
+                    "  SkillsTable ON Skill_Sotr.FK_Skill = SkillsTable.Id_Skill INNER JOIN SotrTable ON Skill_Sotr.FK_Sotr = SotrTable.ID_S " +
+                       "WHERE(SotrTable.ID_S = '" + (-1) + "') ";
 
+
+            string qs = "SELECT dbo.popular_group.content,dbo.events.name,dbo.popular_messages.vote,dbo.federal_districts.federal_districts FROM dbo.popular_group INNER JOIN  dbo.events  "+
+                "ON dbo.popular_group.Id_popular_group_event = dbo.events.Id_events INNER JOIN dbo.popular_messages ON  ";
+            SqlCommand command = new SqlCommand(qs, connection);
+            System.Data.DataTable tbl = new System.Data.DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(command);//
+            da.Fill(tbl);
+            //dataGridView1.DataSource= tbl;
+            //dataGridView1.Columns[0]= "Id_popular_group";
+
+
+
+  using (SqlConnection connection = new SqlConnection(stringPath))
+            {
+                connection.Open();
+                // Создаем объект DataAdapter
+                SqlDataAdapter adapter = new SqlDataAdapter(qs, connection);
+                // Создаем объект Dataset
+                DataSet ds = new DataSet();
+                // Заполняем Dataset
+                adapter.Fill(ds);
+                // Отображаем данные
+                dataGridView1.DataSource = ds.Tables[0];
+
+            
+
+        }
         }
 
         private void button1_Click(object sender, EventArgs e)
