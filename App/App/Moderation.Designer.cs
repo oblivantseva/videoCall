@@ -60,6 +60,7 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(12, 23);
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(154, 20);
             this.textBox1.TabIndex = 0;
             // 
@@ -67,6 +68,7 @@
             // 
             this.textBox2.Location = new System.Drawing.Point(14, 66);
             this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(152, 20);
             this.textBox2.TabIndex = 1;
             // 
@@ -96,6 +98,7 @@
             // 
             this.textBox3.Location = new System.Drawing.Point(211, 22);
             this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(375, 20);
             this.textBox3.TabIndex = 4;
             // 
@@ -319,6 +322,7 @@
             this.Controls.Add(this.textBox1);
             this.Name = "Moderation";
             this.Text = "Модерация обращений";
+            this.Load += new System.EventHandler(this.Moderation_Load);
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

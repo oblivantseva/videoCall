@@ -165,6 +165,11 @@
             this.mail.Size = new System.Drawing.Size(170, 20);
             this.mail.TabIndex = 10;
             this.mail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mail_KeyPress);
+            this.textBox4.Location = new System.Drawing.Point(80, 193);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(170, 20);
+            this.textBox4.TabIndex = 10;
+            this.textBox4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox4_KeyPress);
             // 
             // fam
             // 
@@ -234,6 +239,7 @@
             this.button3.TabIndex = 18;
             this.button3.Text = "Подать обращение";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click_1);
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // comboBox2
@@ -263,11 +269,21 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(100, 23);
             this.label9.TabIndex = 22;
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // axWindowsMediaPlayer1
+            // 
+            this.axWindowsMediaPlayer1.Enabled = true;
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(507, 88);
+            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
+            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(201, 136);
+            this.axWindowsMediaPlayer1.TabIndex = 23;
             // 
             // id
             // 
@@ -295,6 +311,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(730, 362);
             this.Controls.Add(this.axWindowsMediaPlayer1);
+            this.Controls.Add(this.axWindowsMediaPlayer1);
             this.Controls.Add(this.id);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -321,6 +338,8 @@
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Name = "Event";
             this.Text = "Подача обращения";
+            this.Load += new System.EventHandler(this.Event_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -350,6 +369,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
         public System.Windows.Forms.TextBox id;
         public System.Windows.Forms.TextBox eventbox;
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;

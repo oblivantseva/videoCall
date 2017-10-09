@@ -116,6 +116,9 @@
     <EmbeddedResource Include="Event.resx">
       <DependentUpon>Event.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EventManag.resx">
+      <DependentUpon>EventManag.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>

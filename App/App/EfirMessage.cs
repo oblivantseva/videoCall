@@ -16,5 +16,10 @@ namespace App
         {
             InitializeComponent();
         }
+
+        private void EfirAppeals_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -21,5 +21,10 @@ namespace App
         {
 
         }
+
+        private void EventManagement_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

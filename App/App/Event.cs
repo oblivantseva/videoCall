@@ -94,7 +94,7 @@ namespace App
                     int Zaversh2 = command2.ExecuteNonQuery();
                     if (Zaversh2 != 0)
                     {
-                        MessageBox.Show("Обращение отправленодобавлена.");
+                        MessageBox.Show("Обращение отправлено.");
                     }
                     else
                     {
