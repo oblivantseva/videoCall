@@ -167,20 +167,12 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug\фон.jpg" />
     <Content Include="BD_KP.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="BD_KP_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>BD_KP.mdf</DependentUpon>
-    </Content>
-    <Content Include="call2president.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="call2president_log.ldf">
-      <DependentUpon>call2president.mdf</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
@@ -201,6 +193,9 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

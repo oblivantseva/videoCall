@@ -59,5 +59,14 @@ namespace App.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на .
+        /// </summary>
+        internal static string stringPath {
+            get {
+                return ResourceManager.GetString("stringPath", resourceCulture);
+            }
+        }
     }
 }
