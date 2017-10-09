@@ -144,7 +144,7 @@ namespace App
                 e.Handled = true;   
         }
         
-<<<<<<< HEAD
+
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
@@ -198,7 +198,5 @@ namespace App
                 }
             }
         }
-=======
->>>>>>> de0e0356c60644e9f9266073527cea649ac9e6bd
-    }
+   }
 }

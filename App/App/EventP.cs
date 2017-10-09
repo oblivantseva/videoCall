@@ -18,7 +18,8 @@ namespace App
             connection.ConnectionString = stringPath;
             command.Connection = connection;
             textBox1.Text = nameEvent;
-           eventp_Load();
+            eventp_Load();
+            comboBox1.SelectedIndex = -1;
         }
 
         public DataSet DS;
@@ -42,37 +43,49 @@ namespace App
 
         private void EventP_Load(object sender, EventArgs e)
         {
-            string sql1 = "SELECT        SotrTable.ID_S, SkillsTable.NameSkill, Skill_Sotr.LevelSkill,SkillsTable.Id_Skill FROM            Skill_Sotr INNER JOIN " +
-                    "  SkillsTable ON Skill_Sotr.FK_Skill = SkillsTable.Id_Skill INNER JOIN SotrTable ON Skill_Sotr.FK_Sotr = SotrTable.ID_S " +
-                       "WHERE(SotrTable.ID_S = '" + (-1) + "') ";
+            string qs= " ";
+            qs = "SELECT       popular_group.Id_popular_group, popular_group.[content], messages.message_text, federal_districts.federal_districts, popular_messages.vote " +
+                   "FROM popular_messages INNER JOIN " +
+                   " messages ON popular_messages.Id_popular_messages_message = messages.Id_message INNER JOIN " +
+                   " popular_group ON popular_messages.Id_popular_messages_popular_group = popular_group.Id_popular_group INNER JOIN " +
+                   " [user] ON messages.Id_message_user = [user].Id_user INNER JOIN " +
+                   " federal_districts ON[user].id_user_federal_districts = federal_districts.Id_federal_districts";
 
+            if (comboBox1.SelectedIndex == -1)
+            {
+                
+            }
+            else { try
+                {
+                    qs = "SELECT       popular_group.Id_popular_group, popular_group.[content], messages.message_text, federal_districts.federal_districts, popular_messages.vote " +
+              "FROM popular_messages INNER JOIN " +
+              " messages ON popular_messages.Id_popular_messages_message = messages.Id_message INNER JOIN " +
+              " popular_group ON popular_messages.Id_popular_messages_popular_group = popular_group.Id_popular_group INNER JOIN " +
+              " [user] ON messages.Id_message_user = [user].Id_user INNER JOIN " +
+              " federal_districts ON[user].id_user_federal_districts = federal_districts.Id_federal_districts" +
+              "  WHERE(popular_group.Id_popular_group =" + Convert.ToInt32(comboBox1.SelectedValue) + ")";
+                }
+                catch { }
 
-            string qs = "SELECT dbo.popular_group.content,dbo.events.name,dbo.popular_messages.vote,dbo.federal_districts.federal_districts FROM dbo.popular_group INNER JOIN  dbo.events  "+
-                "ON dbo.popular_group.Id_popular_group_event = dbo.events.Id_events INNER JOIN dbo.popular_messages ON  ";
+            }
+            
             SqlCommand command = new SqlCommand(qs, connection);
             System.Data.DataTable tbl = new System.Data.DataTable();
             SqlDataAdapter da = new SqlDataAdapter(command);//
             da.Fill(tbl);
-            //dataGridView1.DataSource= tbl;
-            //dataGridView1.Columns[0]= "Id_popular_group";
 
-
-
-  using (SqlConnection connection = new SqlConnection(stringPath))
+            using (SqlConnection connection = new SqlConnection(stringPath))
             {
                 connection.Open();
-                // Создаем объект DataAdapter
                 SqlDataAdapter adapter = new SqlDataAdapter(qs, connection);
-                // Создаем объект Dataset
                 DataSet ds = new DataSet();
-                // Заполняем Dataset
                 adapter.Fill(ds);
-                // Отображаем данные
                 dataGridView1.DataSource = ds.Tables[0];
-
-            
-
-        }
+            }
+           dataGridView1.Columns[0].HeaderText = "Популярная группа";
+            dataGridView1.Columns[1].HeaderText = "Обращение";
+            dataGridView1.Columns[2].HeaderText = "Федеральный округ";
+            dataGridView1.Columns[3].HeaderText = "Голоса";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -84,7 +97,15 @@ namespace App
         {
             if (checkBox1.Checked)
                 comboBox1.Enabled = true;
-            else comboBox1.Enabled = false;
+            else { comboBox1.Enabled = false; comboBox1.SelectedIndex = -1; }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+          //  MessageBox.Show(comboBox1.SelectedValue.ToString());
+           
+   
+               EventP_Load(sender, e);
         }
     }
 }
