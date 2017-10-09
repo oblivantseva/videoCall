@@ -70,6 +70,16 @@ namespace App
 
         private void button3_Click(object sender, EventArgs e)
         {
+            if (fam.Text == "" || name.Text == "" || otch.Text == "" || tel.Text == "" || age.Text == "" || mail.Text == "" || comboBox1.Text == "")
+            {
+
+                label9.Text = "Проверьте правильность введеных вами данных!";
+                return;
+            }
+            else
+            {
+                label9.Text = "";
+            }
             connection.Open();
             string qs = @"INSERT INTO dbo.[user](first_name, second_name, patronymic, telephone, email,age, id_user_federal_districts) VALUES('" + fam.Text + "', '" + name.Text + "','" + otch.Text + "', '" + tel.Text + "','" + mail.Text + "','" + age.Text + "', '" + Convert.ToInt32(comboBox1.SelectedValue) + "')";
             SqlCommand command = new SqlCommand(qs, connection);
@@ -123,9 +133,58 @@ namespace App
         }
         
 
-        private void Event_Load(object sender, EventArgs e)
+        private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
         }
+
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                label9.Text = "Ошибка!";
+                e.Handled = true;
+            }
+            else
+            {
+                label9.Text = "";
+            }
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //private void button3_Click_1(object sender, EventArgs e)
+        //{
+        //    if (fam.Text == "" || name.Text == "" || otch.Text == "" || tel.Text == "" || age.Text == "" || textBox6.Text == "" || textBox7.Text == "" || comboBox1.Text == "")
+        //    {
+
+        //        label9.Text = "Проверьте правильность введеных вами данных!";
+        //        return;
+        //    }
+        //    else
+        //    {
+        //        label9.Text = "";
+        //    }
+        //}
+
+        private void textBox4_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            {
+                char l = e.KeyChar;
+                if ((l < 'A' || l > 'Z') && l != '\b' && l != '.' && l != '@' && l != '_' && l != '-')
+                {
+                    label9.Text = "Проверьте правильность введеных вами данных!";
+                    e.Handled = true;
+                }
+                else
+                {
+                    label9.Text = "";
+                }
+            }
+        }
     }
 }
+    
