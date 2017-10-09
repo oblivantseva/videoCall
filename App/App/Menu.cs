@@ -31,8 +31,6 @@ namespace App
             button2.Enabled = false;
             button4.Enabled = false;
             button5.Enabled = false;
-            button6.Enabled = false;
-
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -67,23 +65,19 @@ namespace App
                                 dr2.Close();
                                 if (search == 1)
                                 {
-                                    button6.Enabled = true;
                                     button5.Enabled = true;
 
                                 }
                                 else if (search == 2)
                                 {
-                                    button6.Enabled = true;
                                     button4.Enabled = true;
                                 }
                                 else if (search == 3)
                                 {
-                                    button6.Enabled = true;
                                     button1.Enabled = true;
                                 }
                                 else if (search == 5)
                                 {
-                                    button6.Enabled = true;
                                     button2.Enabled = true;
                                 }
                             }
