@@ -121,5 +121,17 @@ namespace App
             if ((e.KeyChar <= 48 || e.KeyChar >= 59) && e.KeyChar != 8)
                 e.Handled = true;   
         }
+
+        private void tel_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar <= 48 || e.KeyChar >= 59) && e.KeyChar != 8)
+                e.Handled = true;
+        }
+
+        private void mail_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar <= 48 || e.KeyChar >= 59) && e.KeyChar != 8)
+                e.Handled = true;   
+        }
     }
 }
