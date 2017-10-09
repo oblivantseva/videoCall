@@ -36,6 +36,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.description = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // eventList
@@ -55,7 +56,7 @@
             this.name.BackColor = System.Drawing.Color.AliceBlue;
             this.name.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.name.ForeColor = System.Drawing.Color.Black;
-            this.name.Location = new System.Drawing.Point(243, 40);
+            this.name.Location = new System.Drawing.Point(317, 41);
             this.name.Name = "name";
             this.name.Size = new System.Drawing.Size(320, 21);
             this.name.TabIndex = 1;
@@ -121,6 +122,19 @@
             this.description.TabIndex = 10;
             this.description.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.Blue;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button3.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.button3.Location = new System.Drawing.Point(247, 29);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(54, 47);
+            this.button3.TabIndex = 11;
+            this.button3.Text = "ОК";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // Start
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -129,6 +143,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(736, 381);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.description);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
@@ -155,6 +170,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox description;
+        private System.Windows.Forms.Button button3;
     }
 }
 

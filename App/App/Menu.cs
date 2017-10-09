@@ -128,5 +128,15 @@ namespace App
             Start st = new Start();
             st.Show();
         }
+
+        private void login_Click(object sender, EventArgs e)
+        {
+            login.Clear();
+        }
+
+        private void pass_Click(object sender, EventArgs e)
+        {
+            pass.Clear();
+        }
     }
 }

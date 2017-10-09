@@ -49,6 +49,7 @@
             this.pass.Size = new System.Drawing.Size(136, 26);
             this.pass.TabIndex = 11;
             this.pass.Text = "******";
+            this.pass.Click += new System.EventHandler(this.pass_Click);
             // 
             // login
             // 
@@ -60,6 +61,7 @@
             this.login.Size = new System.Drawing.Size(136, 26);
             this.login.TabIndex = 10;
             this.login.Text = "Логин";
+            this.login.Click += new System.EventHandler(this.login_Click);
             // 
             // button3
             // 
