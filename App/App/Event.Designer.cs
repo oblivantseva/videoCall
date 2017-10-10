@@ -55,7 +55,6 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.id = new System.Windows.Forms.TextBox();
             this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -288,14 +287,6 @@
             this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(204, 126);
             this.axWindowsMediaPlayer1.TabIndex = 24;
             // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(467, 63);
-            this.maskedTextBox1.Mask = "L????????00@LLL????????.ru";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(100, 20);
-            this.maskedTextBox1.TabIndex = 25;
-            // 
             // Event
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -304,7 +295,6 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(730, 362);
-            this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.axWindowsMediaPlayer1);
             this.Controls.Add(this.id);
             this.Controls.Add(this.label9);
@@ -364,6 +354,5 @@
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
         public System.Windows.Forms.TextBox id;
         public System.Windows.Forms.TextBox eventbox;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
     }
 }
