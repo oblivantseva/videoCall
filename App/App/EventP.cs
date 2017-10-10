@@ -66,8 +66,7 @@ namespace App
               "  WHERE(popular_group.Id_popular_group =" + Convert.ToInt32(comboBox1.SelectedValue) + ")";
                 }
                 catch { }
-
-            }
+                            }
             
             SqlCommand command = new SqlCommand(qs, connection);
             System.Data.DataTable tbl = new System.Data.DataTable();

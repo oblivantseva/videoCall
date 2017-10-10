@@ -55,6 +55,7 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.id = new System.Windows.Forms.TextBox();
             this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -149,6 +150,7 @@
             this.age.Name = "age";
             this.age.Size = new System.Drawing.Size(170, 20);
             this.age.TabIndex = 8;
+            this.age.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.age_KeyPress);
             // 
             // tel
             // 
@@ -228,7 +230,7 @@
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.Blue;
-            this.button3.Location = new System.Drawing.Point(278, 309);
+            this.button3.Location = new System.Drawing.Point(312, 312);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(157, 41);
             this.button3.TabIndex = 18;
@@ -261,7 +263,7 @@
             this.label9.ForeColor = System.Drawing.Color.DarkRed;
             this.label9.Location = new System.Drawing.Point(12, 323);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(100, 23);
+            this.label9.Size = new System.Drawing.Size(294, 30);
             this.label9.TabIndex = 22;
             // 
             // contextMenuStrip1
@@ -269,18 +271,9 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // axWindowsMediaPlayer1
-            // 
-            this.axWindowsMediaPlayer1.Enabled = true;
-            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(507, 88);
-            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
-            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(201, 136);
-            this.axWindowsMediaPlayer1.TabIndex = 23;
-            // 
             // id
             // 
-            this.id.Location = new System.Drawing.Point(315, 320);
+            this.id.Location = new System.Drawing.Point(682, 280);
             this.id.Name = "id";
             this.id.Size = new System.Drawing.Size(29, 20);
             this.id.TabIndex = 23;
@@ -295,6 +288,14 @@
             this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(204, 126);
             this.axWindowsMediaPlayer1.TabIndex = 24;
             // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(467, 63);
+            this.maskedTextBox1.Mask = "L????????00@LLL????????.ru";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(100, 20);
+            this.maskedTextBox1.TabIndex = 25;
+            // 
             // Event
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -303,7 +304,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(730, 362);
-            this.Controls.Add(this.axWindowsMediaPlayer1);
+            this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.axWindowsMediaPlayer1);
             this.Controls.Add(this.id);
             this.Controls.Add(this.label9);
@@ -331,7 +332,6 @@
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Name = "Event";
             this.Text = "Подача обращения";
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -364,5 +364,6 @@
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
         public System.Windows.Forms.TextBox id;
         public System.Windows.Forms.TextBox eventbox;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
     }
 }

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using System.Data.Sql;
+using System.Text.RegularExpressions;
 
 namespace App
 {
@@ -140,11 +141,44 @@ namespace App
 
         private void mail_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((e.KeyChar <= 48 || e.KeyChar >= 59) && e.KeyChar != 8)
-                e.Handled = true;   
-        }
-        
+            string pattern = "[.\\-_a-z0-9]+@([a-z0-9][\\-a-z0-9]+\\.)+[a-z]{2,6}";
+            Match isMatch = Regex.Match(mail.Text, pattern, RegexOptions.IgnoreCase);
 
+            if (isMatch.Success)
+            {
+               // return true;
+            }
+            else
+            {
+                label9.Text = "Проверьте правильность введеных вами данных!";
+                e.Handled = true;
+            }
+            //char l = e.KeyChar;
+            //if ((l < 'A' || l > 'Z') && l != '\b' && l != '.' && l != '@' && l != '_' && l != '-')
+            //{
+            //    label9.Text = "Проверьте правильность введеных вами данных!";
+            //    e.Handled = true;
+            //}
+            //else
+            //{
+            //    label9.Text = "";
+            //}
+        }
+
+        //public static bool isValid(string email)
+        //{
+        //    //string pattern = "[.\\-_a-z0-9]+@([a-z0-9][\\-a-z0-9]+\\.)+[a-z]{2,6}";
+        //    //Match isMatch = Regex.Match(email, pattern, RegexOptions.IgnoreCase);
+
+        //    //if (isMatch.Success)
+        //    //{
+        //    //    return true;
+        //    //}
+        //    //else
+        //    //{
+        //    //    return false;
+        //    //}
+        //}
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
@@ -198,5 +232,11 @@ namespace App
                 }
             }
         }
-   }
+
+        private void age_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar <= 48 || e.KeyChar >= 59) && e.KeyChar != 8)
+                e.Handled = true;
+        }
+    }
 }
