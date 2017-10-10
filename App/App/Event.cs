@@ -71,16 +71,6 @@ namespace App
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (fam.Text == "" || name.Text == "" || otch.Text == "" || tel.Text == "" || age.Text == "" || mail.Text == "" || comboBox1.Text == "")
-            {
-
-                label9.Text = "Проверьте правильность введеных вами данных!";
-                return;
-            }
-            else
-            {
-                label9.Text = "";
-            }
             connection.Open();
             string qs = @"INSERT INTO dbo.[user](first_name, second_name, patronymic, telephone, email,age, id_user_federal_districts) VALUES('" + fam.Text + "', '" + name.Text + "','" + otch.Text + "', '" + tel.Text + "','" + mail.Text + "','" + age.Text + "', '" + Convert.ToInt32(comboBox1.SelectedValue) + "')";
             SqlCommand command = new SqlCommand(qs, connection);
@@ -98,10 +88,10 @@ namespace App
                     dr1.Close();
                     SqlCommand command2 = connection.CreateCommand();
                     command2.CommandText = @"INSERT INTO dbo.[messages](datatime, Id_message_user, Id_message_type_message, message_text, 
-                                             Id_message_event, media_content, Id_message_message_categories) 
-                                            VALUES ('" + DateTime.Now + "','" + idO + "', '4','" + quest.Text + 
-                                            "','" + Convert.ToInt32(id.Text) + 
-                                            "','" + axWindowsMediaPlayer1.URL + "','" + Convert.ToInt32(comboBox1.SelectedValue) + "')";
+Id_message_event, media_content, Id_message_message_categories) 
+VALUES ('" + DateTime.Now + "','" + idO + "', '4','" + quest.Text +
+                    "','" + Convert.ToInt32(id.Text) +
+                    "','" + axWindowsMediaPlayer1.URL + "','" + Convert.ToInt32(comboBox1.SelectedValue) + "')";
                     int Zaversh2 = command2.ExecuteNonQuery();
                     if (Zaversh2 != 0)
                     {
@@ -118,8 +108,6 @@ namespace App
             {
                 MessageBox.Show("Ошибка при отправке обращения.");
             }
-
-            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -135,61 +123,25 @@ namespace App
 
         private void tel_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((e.KeyChar <= 48 || e.KeyChar >= 59) && e.KeyChar != 8)
-                e.Handled = true;
-        }
+            {
 
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                {
+                    label9.Text = "Неверный ввод";
+                    e.Handled = true;
+                }
+                else
+                {
+                    label9.Text = "";
+                }
+            }
+        }
         private void mail_KeyPress(object sender, KeyPressEventArgs e)
         {
-            string pattern = "[.\\-_a-z0-9]+@([a-z0-9][\\-a-z0-9]+\\.)+[a-z]{2,6}";
-            Match isMatch = Regex.Match(mail.Text, pattern, RegexOptions.IgnoreCase);
-
-            if (isMatch.Success)
+            string c = e.KeyChar.ToString();
+            if (!Regex.Match(c, @"\p{IsCyrillic}|\p{IsCyrillicSupplement}").Success)//запрет русских букв
             {
-               // return true;
-            }
-            else
-            {
-                label9.Text = "Проверьте правильность введеных вами данных!";
-                e.Handled = true;
-            }
-            //char l = e.KeyChar;
-            //if ((l < 'A' || l > 'Z') && l != '\b' && l != '.' && l != '@' && l != '_' && l != '-')
-            //{
-            //    label9.Text = "Проверьте правильность введеных вами данных!";
-            //    e.Handled = true;
-            //}
-            //else
-            //{
-            //    label9.Text = "";
-            //}
-        }
-
-        //public static bool isValid(string email)
-        //{
-        //    //string pattern = "[.\\-_a-z0-9]+@([a-z0-9][\\-a-z0-9]+\\.)+[a-z]{2,6}";
-        //    //Match isMatch = Regex.Match(email, pattern, RegexOptions.IgnoreCase);
-
-        //    //if (isMatch.Success)
-        //    //{
-        //    //    return true;
-        //    //}
-        //    //else
-        //    //{
-        //    //    return false;
-        //    //}
-        //}
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                label9.Text = "Ошибка!";
+                label9.Text = "Неверный ввод";
                 e.Handled = true;
             }
             else
@@ -197,33 +149,37 @@ namespace App
                 label9.Text = "";
             }
         }
-
-        private void label9_Click(object sender, EventArgs e)
+    private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        //private void button3_Click_1(object sender, EventArgs e)
-        //{
-        //    if (fam.Text == "" || name.Text == "" || otch.Text == "" || tel.Text == "" || age.Text == "" || textBox6.Text == "" || textBox7.Text == "" || comboBox1.Text == "")
-        //    {
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            if (tel.Text == "" || fam.Text == "" || name.Text == "" || otch.Text == "" || mail.Text == "" || age.Text == "" || comboBox1.Text == "")
+            {
 
-        //        label9.Text = "Проверьте правильность введеных вами данных!";
-        //        return;
-        //    }
-        //    else
-        //    {
-        //        label9.Text = "";
-        //    }
-        //}
+                label9.Text = "Проверьте правильность введеных вами данных!";
+                return;
+            }
+            else
+            {
+                label9.Text = "";
+            }
+        }
 
-        private void textBox4_KeyPress(object sender, KeyPressEventArgs e)
+        private void Event_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void age_KeyPress(object sender, KeyPressEventArgs e)
         {
             {
-                char l = e.KeyChar;
-                if ((l < 'A' || l > 'Z') && l != '\b' && l != '.' && l != '@' && l != '_' && l != '-')
+                
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
                 {
-                    label9.Text = "Проверьте правильность введеных вами данных!";
+                    label9.Text = "Неверный ввод";
                     e.Handled = true;
                 }
                 else
@@ -233,10 +189,21 @@ namespace App
             }
         }
 
-        private void age_KeyPress(object sender, KeyPressEventArgs e)
+        private void tel_TextChanged(object sender, EventArgs e)
         {
-            if ((e.KeyChar <= 48 || e.KeyChar >= 59) && e.KeyChar != 8)
-                e.Handled = true;
+            if (tel.Text.Length > 11)
+            {
+                MessageBox.Show("Номер телефона должен состоять из 11 цифр. Попробуйте ввести данные еще раз.", "Ошибка");
+                tel.ReadOnly = false;
+                tel.Clear();
+            }
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
         }
     }
-}
+        }
+   
+    
