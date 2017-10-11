@@ -65,7 +65,7 @@
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.Color.Blue;
+            this.button3.BackColor = System.Drawing.Color.Maroon;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button3.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.button3.Location = new System.Drawing.Point(188, 10);
@@ -81,7 +81,7 @@
             this.button1.BackColor = System.Drawing.Color.Blue;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(299, 76);
+            this.button1.Location = new System.Drawing.Point(149, 84);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(238, 31);
             this.button1.TabIndex = 12;
@@ -94,7 +94,7 @@
             this.button2.BackColor = System.Drawing.Color.Blue;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(299, 121);
+            this.button2.Location = new System.Drawing.Point(149, 121);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(238, 31);
             this.button2.TabIndex = 13;
@@ -107,7 +107,7 @@
             this.button4.BackColor = System.Drawing.Color.Blue;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button4.Location = new System.Drawing.Point(299, 166);
+            this.button4.Location = new System.Drawing.Point(149, 158);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(238, 31);
             this.button4.TabIndex = 14;
@@ -120,7 +120,7 @@
             this.button5.BackColor = System.Drawing.Color.Blue;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button5.Location = new System.Drawing.Point(299, 211);
+            this.button5.Location = new System.Drawing.Point(149, 195);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(238, 31);
             this.button5.TabIndex = 15;
@@ -133,7 +133,7 @@
             this.button6.BackColor = System.Drawing.Color.Blue;
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button6.Location = new System.Drawing.Point(299, 256);
+            this.button6.Location = new System.Drawing.Point(149, 232);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(238, 31);
             this.button6.TabIndex = 16;
@@ -147,7 +147,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HotTrack;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(560, 325);
+            this.ClientSize = new System.Drawing.Size(474, 294);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
