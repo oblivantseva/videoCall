@@ -62,10 +62,12 @@
             // 
             // eventbox
             // 
+            this.eventbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.eventbox.ForeColor = System.Drawing.Color.DarkRed;
             this.eventbox.Location = new System.Drawing.Point(114, 46);
             this.eventbox.Name = "eventbox";
             this.eventbox.ReadOnly = true;
-            this.eventbox.Size = new System.Drawing.Size(465, 20);
+            this.eventbox.Size = new System.Drawing.Size(465, 23);
             this.eventbox.TabIndex = 0;
             // 
             // label1
@@ -239,7 +241,7 @@
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.Color.Blue;
+            this.button3.BackColor = System.Drawing.Color.Maroon;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button3.Location = new System.Drawing.Point(266, 403);
             this.button3.Name = "button3";

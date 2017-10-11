@@ -55,7 +55,7 @@
             this.eventList.BackColor = System.Drawing.Color.White;
             this.eventList.Cursor = System.Windows.Forms.Cursors.Hand;
             this.eventList.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.eventList.ForeColor = System.Drawing.Color.Maroon;
+            this.eventList.ForeColor = System.Drawing.Color.Blue;
             this.eventList.FormattingEnabled = true;
             this.eventList.Location = new System.Drawing.Point(12, 33);
             this.eventList.Name = "eventList";
@@ -66,11 +66,11 @@
             // name
             // 
             this.name.BackColor = System.Drawing.Color.AliceBlue;
-            this.name.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.name.ForeColor = System.Drawing.Color.Navy;
+            this.name.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.name.ForeColor = System.Drawing.Color.Maroon;
             this.name.Location = new System.Drawing.Point(343, 33);
             this.name.Name = "name";
-            this.name.Size = new System.Drawing.Size(320, 21);
+            this.name.Size = new System.Drawing.Size(362, 23);
             this.name.TabIndex = 1;
             this.name.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
