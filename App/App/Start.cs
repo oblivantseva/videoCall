@@ -102,6 +102,16 @@ namespace App
                 connection.Close();
             }
         }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Start_Load(object sender, EventArgs e)
+        {
+          
+        }
     }
 }
 
