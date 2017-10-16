@@ -71,42 +71,53 @@ namespace App
 
         private void button3_Click(object sender, EventArgs e)
         {
-            connection.Open();
-            string qs = @"INSERT INTO dbo.[user](first_name, second_name, patronymic, telephone, email,age, id_user_federal_districts) VALUES('" + fam.Text + "', '" + name.Text + "','" + otch.Text + "', '" + tel.Text + "','" + mail.Text + "','" + age.Text + "', '" + Convert.ToInt32(comboBox1.SelectedValue) + "')";
-            SqlCommand command = new SqlCommand(qs, connection);
-            int Zaversh = command.ExecuteNonQuery();
-            connection.Close();
-            int idO;
-            if (Zaversh != 0)
+            var email = mail.Text;
+            const string cond = @"(\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*)";
+
+            if (Regex.IsMatch(email, cond))
             {
-                connection.Open();
-                command.CommandText = "SELECT TOP 1 Id_user FROM dbo.[user] ORDER BY Id_user DESC";
-                SqlDataReader dr1 = command.ExecuteReader();
-                if (dr1.Read())
-                {
-                    idO = Convert.ToInt32(dr1[0].ToString());
-                    dr1.Close();
-                    SqlCommand command2 = connection.CreateCommand();
-                    command2.CommandText = @"INSERT INTO dbo.[messages](datatime, Id_message_user, Id_message_type_message, message_text, 
-Id_message_event, media_content, processed, Id_message_message_categories) 
-VALUES ('" + DateTime.Now + "','" + idO + "', '4','" + quest.Text +
-                    "','" + Convert.ToInt32(id.Text) +
-                    "','" + axWindowsMediaPlayer1.URL + "', 'true', '" + Convert.ToInt32(comboBox1.SelectedValue) + "')";
-                    int Zaversh2 = command2.ExecuteNonQuery();
-                    if (Zaversh2 != 0)
-                    {
-                        MessageBox.Show("Обращение отправлено.");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Ошибка при отправке обращения.");
-                    }
-                    connection.Close();
-                }
+                MessageBox.Show("Ошибка ввода Email");
+
             }
             else
             {
-                MessageBox.Show("Ошибка при отправке обращения.");
+                connection.Open();
+                string qs = @"INSERT INTO dbo.[user](first_name, second_name, patronymic, telephone, email,age, id_user_federal_districts) VALUES('" + fam.Text + "', '" + name.Text + "','" + otch.Text + "', '" + tel.Text + "','" + mail.Text + "','" + age.Text + "', '" + Convert.ToInt32(comboBox1.SelectedValue) + "')";
+                SqlCommand command = new SqlCommand(qs, connection);
+                int Zaversh = command.ExecuteNonQuery();
+                connection.Close();
+                int idO;
+                if (Zaversh != 0)
+                {
+                    connection.Open();
+                    command.CommandText = "SELECT TOP 1 Id_user FROM dbo.[user] ORDER BY Id_user DESC";
+                    SqlDataReader dr1 = command.ExecuteReader();
+                    if (dr1.Read())
+                    {
+                        idO = Convert.ToInt32(dr1[0].ToString());
+                        dr1.Close();
+                        SqlCommand command2 = connection.CreateCommand();
+                        command2.CommandText = @"INSERT INTO dbo.[messages](datatime, Id_message_user, Id_message_type_message, message_text, 
+Id_message_event, media_content, Id_message_message_categories) 
+VALUES ('" + DateTime.Now + "','" + idO + "', '4','" + quest.Text +
+                        "','" + Convert.ToInt32(id.Text) +
+                        "','" + axWindowsMediaPlayer1.URL + "','" + Convert.ToInt32(comboBox1.SelectedValue) + "')";
+                        int Zaversh2 = command2.ExecuteNonQuery();
+                        if (Zaversh2 != 0)
+                        {
+                            MessageBox.Show("Обращение отправлено.");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Ошибка при отправке обращения.");
+                        }
+                        connection.Close();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Ошибка при отправке обращения.");
+                }
             }
         }
 
@@ -200,6 +211,11 @@ VALUES ('" + DateTime.Now + "','" + idO + "', '4','" + quest.Text +
         }
 
         private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Event_Load_1(object sender, EventArgs e)
         {
 
         }
