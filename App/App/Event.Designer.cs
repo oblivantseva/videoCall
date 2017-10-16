@@ -279,6 +279,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(247, 30);
             this.label9.TabIndex = 22;
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // contextMenuStrip1
             // 
@@ -363,6 +364,7 @@
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Name = "Event";
             this.Text = "Подача обращения";
+            this.Load += new System.EventHandler(this.Event_Load_2);
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

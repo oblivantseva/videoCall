@@ -110,7 +110,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(17, 145);
+            this.comboBox1.Location = new System.Drawing.Point(14, 106);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(216, 21);
             this.comboBox1.TabIndex = 5;
@@ -118,7 +118,7 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(17, 185);
+            this.comboBox2.Location = new System.Drawing.Point(16, 146);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(216, 21);
             this.comboBox2.TabIndex = 6;
@@ -126,7 +126,7 @@
             // comboBox3
             // 
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(16, 106);
+            this.comboBox3.Location = new System.Drawing.Point(17, 185);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(217, 21);
             this.comboBox3.TabIndex = 7;

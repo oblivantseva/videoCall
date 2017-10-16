@@ -219,6 +219,16 @@ VALUES ('" + DateTime.Now + "','" + idO + "', '4','" + quest.Text +
         {
 
         }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Event_Load_2(object sender, EventArgs e)
+        {
+
+        }
     }
         }
    
