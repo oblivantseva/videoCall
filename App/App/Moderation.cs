@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace App
 {
@@ -15,14 +16,13 @@ namespace App
         public Moderation(string fio)
         {
             InitializeComponent();
-           // textBox3.Text = eventName;
+            // textBox3.Text = eventName;
             textBox1.Text = fio;
             //textBox2.Text = dolgn;
 
-        }
-        public Moderation()
-        {
-            InitializeComponent();
+            {
+                InitializeComponent();
+            }
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -34,5 +34,14 @@ namespace App
         {
 
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Menu M = new Menu();
+            M.Show();
+
+        }
     }
-}
+    }
+
+
