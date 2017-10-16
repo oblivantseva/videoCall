@@ -138,16 +138,16 @@ VALUES ('" + DateTime.Now + "','" + idO + "', '4','" + quest.Text +
         }
         private void mail_KeyPress(object sender, KeyPressEventArgs e)
         {
-            string c = e.KeyChar.ToString();
-            if (!Regex.Match(c, @"\p{IsCyrillic}|\p{IsCyrillicSupplement}").Success)//запрет русских букв
-            {
-                label9.Text = "Неверный ввод";
-                e.Handled = true;
-            }
-            else
-            {
-                label9.Text = "";
-            }
+            //string c = e.KeyChar.ToString();
+            //if (!Regex.Match(c, @"\p{IsCyrillic}|\p{IsCyrillicSupplement}").Success)//запрет русских букв
+            //{
+            //    label9.Text = "Неверный ввод";
+            //    e.Handled = true;
+            //}
+            //else
+            //{
+            //    label9.Text = "";
+            //}
         }
     private void textBox2_TextChanged(object sender, EventArgs e)
         {
