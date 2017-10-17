@@ -124,9 +124,14 @@ namespace App
 
         private void button2_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
             string fio = "";
             int idT = 0;
-            int idM = 0;
+            int idOp = 0;
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = connection;
             connection.Open();
@@ -139,17 +144,12 @@ namespace App
                 {
                     fio = reader[2].ToString() + " " + reader[1].ToString() + " " + reader[3].ToString();
                     int.TryParse(reader[8].ToString(), out idT);
-                    int.TryParse(reader[0].ToString(), out idM);
+                    int.TryParse(reader[0].ToString(), out idOp);
                 }
             }
             connection.Close();
             EfirAppeals ef = new EfirAppeals(fio, idT, idOp);
             ef.Show();
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void button5_Click(object sender, EventArgs e)
