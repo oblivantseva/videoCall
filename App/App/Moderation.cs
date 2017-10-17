@@ -8,10 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-<<<<<<< HEAD
-=======
-
->>>>>>> 69b3b9954a511ec9e48b7c1934c80256a7ea0928
 namespace App
 {
     public partial class Moderation : Form
@@ -26,15 +22,11 @@ namespace App
             idModeration = idModer;
             connection.ConnectionString = stringPath;
             InitializeComponent();
-<<<<<<< HEAD
             process_Load();
             categor_Load();
             federals_Load();
             status_Load();
             popular_groupLoad();
-=======
-            // textBox3.Text = eventName;
->>>>>>> 69b3b9954a511ec9e48b7c1934c80256a7ea0928
             textBox1.Text = fio;
             fillTypeStaff(idType);
             comboBox1.SelectedIndex = -1;
@@ -49,7 +41,6 @@ namespace App
         }
         public void messageList(int idM)
         {
-            textBox4.Clear();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = connection;
             connection.Open();
@@ -77,17 +68,16 @@ namespace App
             {
                 if (reader.Read())
                 {
-                    textBox4.Text += reader[1].ToString() + " " + reader[2].ToString() + " " + reader[3].ToString() + "; \n"
+                    /*textBox4.Text += reader[1].ToString() + " " + reader[2].ToString() + " " + reader[3].ToString() + "; \n"
                         + "Логин: " + reader[4].ToString() + ";\nEmail: " + reader[6].ToString() + "; \nТелефон: "
                         + reader[7].ToString() + "; \nТекст сообщения: " + reader[10].ToString() + "; \nДата/Время обращения: "
                         + reader[11].ToString() + "; \nФедеральный округ: " + reader[12].ToString() + "; \nКатегория обращения: "
                         + reader[13].ToString() + "; \n Статус: " + reader[14].ToString() + "; \n Процесс: " + reader[15].ToString() + ".\n______________________________";
-
+*/
                 }
             }
             connection.Close();
 
-<<<<<<< HEAD
         }
         public void onlineTrue(int id)
         {
@@ -120,11 +110,6 @@ namespace App
         public Moderation()
         {
             InitializeComponent();
-=======
-            {
-                InitializeComponent();
-            }
->>>>>>> 69b3b9954a511ec9e48b7c1934c80256a7ea0928
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -136,7 +121,6 @@ namespace App
         {
 
         }
-<<<<<<< HEAD
         public void categor_Load()
         {
             string qs = "SELECT * FROM dbo.message_categories";
@@ -200,7 +184,6 @@ namespace App
         }
         public void formedQuer(object sender, EventArgs e)
         {
-            textBox4.Clear();
             string str = "";
             string[] z = new string[4];
             int count = 0;
@@ -221,10 +204,10 @@ namespace App
                 }
                 str = str_dop;
             }
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = connection;
+            //SqlCommand cmd = new SqlCommand();
+            // cmd.Connection = connection;
             connection.Open();
-            cmd.CommandText = "SELECT        staff.*, messages.message_text, messages.datatime, federal_districts.federal_districts, message_categories.message_categories, " +
+            string sql = "SELECT        [user].*, messages.message_text, messages.datatime, federal_districts.federal_districts, message_categories.message_categories, " +
                 " status_message.status_message, message_processing.answer_comment" +
                         " FROM            message_categories INNER JOIN " +
                         " messages ON message_categories.Id_message_categories = messages.id_message_message_categories INNER JOIN " +
@@ -233,21 +216,42 @@ namespace App
                         " message_processing ON messages.Id_message = message_processing.Id_message_processing_message INNER JOIN " +
                         "   staff ON message_processing.Id_message_processing_staff = staff.Id_staff INNER JOIN " +
                         " status_message ON message_processing.Id_message_processing_status_message = status_message.Id_status_message " +
-                        " WHERE staff.Id_staff ='" + idModeration + "'  " + str + "";
-            cmd.ExecuteNonQuery();
-            SqlDataReader reader = cmd.ExecuteReader();
-            if (reader != null)
+                        " WHERE staff.Id_staff  ='" + idModeration + "'  " + str + "";
+            // cmd.ExecuteNonQuery();
+            using (SqlConnection connection = new SqlConnection(stringPath))
             {
-                if (reader.Read())
+                connection.Open();
+                SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
+                DataSet ds = new DataSet();
+                adapter.Fill(ds);
+                foreach (DataTable dt in ds.Tables)
                 {
-                    textBox4.Text += reader[1].ToString() + " " + reader[2].ToString() + " " + reader[3].ToString() + "; \n"
-             + "Логин: " + reader[4].ToString() + ";\nEmail: " + reader[6].ToString() + "; \nТелефон: "
-             + reader[7].ToString() + "; \nТекст сообщения: " + reader[10].ToString() + "; \nДата/Время обращения: "
-             + reader[11].ToString() + "; \nФедеральный округ: " + reader[12].ToString() + "; \nКатегория обращения: "
-             + reader[13].ToString() + "; \n Статус: " + reader[14].ToString() + "; \n Процесс: " + reader[15].ToString() + ".\n______________________________";
-
+                    // перебор всех столбцов
+                    // foreach (DataColumn column in dt.Columns)
+                    // перебор всех строк таблицы
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        // получаем все ячейки строки
+                        var cells = row.ItemArray;
+                        row[1] = "ФИО:" + cells[1] + " " + cells[2] + " " + cells[3] + "; Телефон: " + cells[4] + "\n;email:" + cells[5] + "\n Возвраст:" + cells[6];
+                    }
                 }
-            }
+                dataGridView1.DataSource = ds.Tables[0];
+                            }
+            dataGridView1.Columns[0].Visible = false;
+            dataGridView1.Columns[2].Visible = false;
+            dataGridView1.Columns[3].Visible = false;
+            dataGridView1.Columns[4].Visible = false;
+            dataGridView1.Columns[5].Visible = false;
+            dataGridView1.Columns[6].Visible = false;
+            dataGridView1.Columns[7].Visible = false;
+
+            dataGridView1.Columns[1].HeaderText = "ФИО пользователя";
+            dataGridView1.Columns[11].HeaderText = "Категория";
+            dataGridView1.Columns[9].HeaderText = "Дата";
+            dataGridView1.Columns[10].HeaderText = "Федеральный округ";
+            dataGridView1.Columns[8].HeaderText = "Процесс";
+
             connection.Close();
         }
 
@@ -258,13 +262,13 @@ namespace App
 
         private void button6_Click(object sender, EventArgs e)
         {
-          
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = connection;
-                connection.Open();
-                cmd.CommandText = "INSERT INTO popular_group (content,Id_popular_group_event) values(N'" + comboBox5.Text + "','" + 1 + "')";
-                cmd.ExecuteNonQuery();
-                connection.Close();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = connection;
+            connection.Open();
+            cmd.CommandText = "INSERT INTO popular_group (content,Id_popular_group_event) values(N'" + comboBox5.Text + "','" + 1 + "')";
+            cmd.ExecuteNonQuery();
+            connection.Close();
 
 
 
@@ -288,7 +292,6 @@ namespace App
         {
             popular_groupLoad();
         }
-=======
 
         private void button7_Click(object sender, EventArgs e)
         {
@@ -297,7 +300,6 @@ namespace App
 
         }
     }
->>>>>>> 69b3b9954a511ec9e48b7c1934c80256a7ea0928
-    }
+}
 
 
