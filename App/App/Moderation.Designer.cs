@@ -42,7 +42,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -56,12 +55,23 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+<<<<<<< HEAD
             this.label10 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
+=======
+            this.button7 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+>>>>>>> 69b3b9954a511ec9e48b7c1934c80256a7ea0928
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
@@ -69,7 +79,7 @@
             this.textBox1.Location = new System.Drawing.Point(14, 23);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(179, 20);
+            this.textBox1.Size = new System.Drawing.Size(219, 20);
             this.textBox1.TabIndex = 0;
             // 
             // textBox2
@@ -77,7 +87,7 @@
             this.textBox2.Location = new System.Drawing.Point(16, 66);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(177, 20);
+            this.textBox2.Size = new System.Drawing.Size(217, 20);
             this.textBox2.TabIndex = 1;
             // 
             // label1
@@ -109,7 +119,7 @@
             this.textBox3.Location = new System.Drawing.Point(321, 23);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(460, 20);
+            this.textBox3.Size = new System.Drawing.Size(615, 20);
             this.textBox3.TabIndex = 4;
             // 
             // comboBox1
@@ -196,6 +206,7 @@
             this.label6.TabIndex = 12;
             this.label6.Text = "Процесс:";
             // 
+<<<<<<< HEAD
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(14, 263);
@@ -208,9 +219,14 @@
             // textBox5
             // 
             this.textBox5.Location = new System.Drawing.Point(323, 66);
+=======
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(17, 276);
+>>>>>>> 69b3b9954a511ec9e48b7c1934c80256a7ea0928
             this.textBox5.Multiline = true;
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(315, 221);
+            this.textBox5.Size = new System.Drawing.Size(216, 157);
             this.textBox5.TabIndex = 14;
             // 
             // textBox6
@@ -218,7 +234,7 @@
             this.textBox6.Location = new System.Drawing.Point(323, 304);
             this.textBox6.Multiline = true;
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(458, 34);
+            this.textBox6.Size = new System.Drawing.Size(559, 34);
             this.textBox6.TabIndex = 15;
             // 
             // button1
@@ -273,7 +289,11 @@
             // 
             this.button5.BackColor = System.Drawing.Color.Brown;
             this.button5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+<<<<<<< HEAD
             this.button5.Location = new System.Drawing.Point(789, 304);
+=======
+            this.button5.Location = new System.Drawing.Point(835, 304);
+>>>>>>> 69b3b9954a511ec9e48b7c1934c80256a7ea0928
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(147, 35);
             this.button5.TabIndex = 20;
@@ -304,7 +324,11 @@
             // axWindowsMediaPlayer1
             // 
             this.axWindowsMediaPlayer1.Enabled = true;
+<<<<<<< HEAD
             this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(648, 66);
+=======
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(690, 66);
+>>>>>>> 69b3b9954a511ec9e48b7c1934c80256a7ea0928
             this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
             this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
             this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(292, 221);
@@ -328,7 +352,11 @@
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label8.ForeColor = System.Drawing.SystemColors.ButtonFace;
+<<<<<<< HEAD
             this.label8.Location = new System.Drawing.Point(320, 50);
+=======
+            this.label8.Location = new System.Drawing.Point(13, 256);
+>>>>>>> 69b3b9954a511ec9e48b7c1934c80256a7ea0928
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(112, 13);
             this.label8.TabIndex = 25;
@@ -346,6 +374,7 @@
             this.label9.TabIndex = 26;
             this.label9.Text = "Контактная информация:";
             // 
+<<<<<<< HEAD
             // label10
             // 
             this.label10.AutoSize = true;
@@ -402,6 +431,60 @@
             this.checkBox4.TabIndex = 31;
             this.checkBox4.UseVisualStyleBackColor = false;
             this.checkBox4.Click += new System.EventHandler(this.formedQuer);
+=======
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.Blue;
+            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button7.Location = new System.Drawing.Point(880, 13);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(92, 36);
+            this.button7.TabIndex = 27;
+            this.button7.Text = "Выход";
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5});
+            this.dataGridView1.Location = new System.Drawing.Point(258, 66);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.Size = new System.Drawing.Size(426, 219);
+            this.dataGridView1.TabIndex = 28;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "ФИО пользователя";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Категория сообщения";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Дата обращения";
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Федеральный округ";
+            this.Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Процесс";
+            this.Column5.Name = "Column5";
+>>>>>>> 69b3b9954a511ec9e48b7c1934c80256a7ea0928
             // 
             // Moderation
             // 
@@ -409,12 +492,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(952, 449);
             this.Controls.Add(this.checkBox4);
             this.Controls.Add(this.checkBox3);
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.label10);
+=======
+            this.ClientSize = new System.Drawing.Size(994, 449);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.button7);
+>>>>>>> 69b3b9954a511ec9e48b7c1934c80256a7ea0928
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -428,7 +517,6 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -447,6 +535,7 @@
             this.Text = "Модерация обращений";
             this.Load += new System.EventHandler(this.Moderation_Load);
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -467,7 +556,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Button button1;
@@ -481,10 +569,20 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
+<<<<<<< HEAD
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox checkBox4;
+=======
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+>>>>>>> 69b3b9954a511ec9e48b7c1934c80256a7ea0928
     }
 }

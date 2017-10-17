@@ -8,6 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 69b3b9954a511ec9e48b7c1934c80256a7ea0928
 namespace App
 {
     public partial class Moderation : Form
@@ -22,11 +26,15 @@ namespace App
             idModeration = idModer;
             connection.ConnectionString = stringPath;
             InitializeComponent();
+<<<<<<< HEAD
             process_Load();
             categor_Load();
             federals_Load();
             status_Load();
             popular_groupLoad();
+=======
+            // textBox3.Text = eventName;
+>>>>>>> 69b3b9954a511ec9e48b7c1934c80256a7ea0928
             textBox1.Text = fio;
             fillTypeStaff(idType);
             comboBox1.SelectedIndex = -1;
@@ -79,6 +87,7 @@ namespace App
             }
             connection.Close();
 
+<<<<<<< HEAD
         }
         public void onlineTrue(int id)
         {
@@ -111,6 +120,11 @@ namespace App
         public Moderation()
         {
             InitializeComponent();
+=======
+            {
+                InitializeComponent();
+            }
+>>>>>>> 69b3b9954a511ec9e48b7c1934c80256a7ea0928
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -122,6 +136,7 @@ namespace App
         {
 
         }
+<<<<<<< HEAD
         public void categor_Load()
         {
             string qs = "SELECT * FROM dbo.message_categories";
@@ -273,5 +288,16 @@ namespace App
         {
             popular_groupLoad();
         }
+=======
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Menu M = new Menu();
+            M.Show();
+
+        }
     }
-}
+>>>>>>> 69b3b9954a511ec9e48b7c1934c80256a7ea0928
+    }
+
+
