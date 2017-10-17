@@ -55,18 +55,24 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+<<<<<<< HEAD
             this.label10 = new System.Windows.Forms.Label();
+=======
+>>>>>>> a0593062a462605c456d6d31c83e142b6e89a87f
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.button7 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+<<<<<<< HEAD
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+=======
+>>>>>>> a0593062a462605c456d6d31c83e142b6e89a87f
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -122,9 +128,9 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(14, 106);
+            this.comboBox1.Location = new System.Drawing.Point(16, 108);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(270, 21);
+            this.comboBox1.Size = new System.Drawing.Size(204, 21);
             this.comboBox1.TabIndex = 5;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.formedQuer);
             // 
@@ -133,7 +139,7 @@
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(16, 146);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(270, 21);
+            this.comboBox2.Size = new System.Drawing.Size(204, 21);
             this.comboBox2.TabIndex = 6;
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.formedQuer);
             // 
@@ -142,7 +148,7 @@
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Location = new System.Drawing.Point(17, 185);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(271, 21);
+            this.comboBox3.Size = new System.Drawing.Size(205, 21);
             this.comboBox3.TabIndex = 7;
             this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.formedQuer);
             // 
@@ -151,7 +157,7 @@
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Location = new System.Drawing.Point(16, 224);
             this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(271, 21);
+            this.comboBox4.Size = new System.Drawing.Size(205, 21);
             this.comboBox4.TabIndex = 8;
             this.comboBox4.SelectedIndexChanged += new System.EventHandler(this.formedQuer);
             // 
@@ -271,7 +277,11 @@
             // 
             this.button5.BackColor = System.Drawing.Color.Brown;
             this.button5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+<<<<<<< HEAD
             this.button5.Location = new System.Drawing.Point(789, 304);
+=======
+            this.button5.Location = new System.Drawing.Point(835, 304);
+>>>>>>> a0593062a462605c456d6d31c83e142b6e89a87f
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(147, 35);
             this.button5.TabIndex = 20;
@@ -302,7 +312,11 @@
             // axWindowsMediaPlayer1
             // 
             this.axWindowsMediaPlayer1.Enabled = true;
+<<<<<<< HEAD
             this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(648, 66);
+=======
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(690, 66);
+>>>>>>> a0593062a462605c456d6d31c83e142b6e89a87f
             this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
             this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
             this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(292, 221);
@@ -326,7 +340,10 @@
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label8.ForeColor = System.Drawing.SystemColors.ButtonFace;
+<<<<<<< HEAD
             this.label8.Location = new System.Drawing.Point(320, 50);
+=======
+>>>>>>> a0593062a462605c456d6d31c83e142b6e89a87f
             this.label8.Location = new System.Drawing.Point(13, 256);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(112, 13);
@@ -345,6 +362,7 @@
             this.label9.TabIndex = 26;
             this.label9.Text = "Контактная информация:";
             // 
+<<<<<<< HEAD
             // label10
             // 
             this.label10.AutoSize = true;
@@ -357,11 +375,13 @@
             this.label10.TabIndex = 27;
             this.label10.Text = "Обращения для модератора";
             // 
+=======
+>>>>>>> a0593062a462605c456d6d31c83e142b6e89a87f
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox1.Location = new System.Drawing.Point(290, 108);
+            this.checkBox1.Location = new System.Drawing.Point(226, 111);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(15, 14);
             this.checkBox1.TabIndex = 28;
@@ -373,7 +393,7 @@
             // 
             this.checkBox2.AutoSize = true;
             this.checkBox2.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox2.Location = new System.Drawing.Point(292, 149);
+            this.checkBox2.Location = new System.Drawing.Point(226, 146);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(15, 14);
             this.checkBox2.TabIndex = 29;
@@ -384,7 +404,7 @@
             // 
             this.checkBox3.AutoSize = true;
             this.checkBox3.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox3.Location = new System.Drawing.Point(292, 188);
+            this.checkBox3.Location = new System.Drawing.Point(228, 185);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(15, 14);
             this.checkBox3.TabIndex = 30;
@@ -395,12 +415,16 @@
             // 
             this.checkBox4.AutoSize = true;
             this.checkBox4.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox4.Location = new System.Drawing.Point(293, 227);
+            this.checkBox4.Location = new System.Drawing.Point(228, 224);
             this.checkBox4.Name = "checkBox4";
             this.checkBox4.Size = new System.Drawing.Size(15, 14);
             this.checkBox4.TabIndex = 31;
             this.checkBox4.UseVisualStyleBackColor = false;
             this.checkBox4.Click += new System.EventHandler(this.formedQuer);
+<<<<<<< HEAD
+=======
+            // 
+>>>>>>> a0593062a462605c456d6d31c83e142b6e89a87f
             // button7
             // 
             this.button7.BackColor = System.Drawing.Color.Blue;
@@ -417,18 +441,13 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5});
             this.dataGridView1.Location = new System.Drawing.Point(258, 66);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.Size = new System.Drawing.Size(426, 219);
             this.dataGridView1.TabIndex = 28;
             // 
+<<<<<<< HEAD
             // Column1
             // 
             this.Column1.HeaderText = "ФИО пользователя";
@@ -454,19 +473,28 @@
             this.Column5.HeaderText = "Процесс";
             this.Column5.Name = "Column5";
             // 
+=======
+>>>>>>> a0593062a462605c456d6d31c83e142b6e89a87f
             // Moderation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(952, 449);
+=======
+            this.ClientSize = new System.Drawing.Size(994, 449);
+>>>>>>> a0593062a462605c456d6d31c83e142b6e89a87f
             this.Controls.Add(this.checkBox4);
             this.Controls.Add(this.checkBox3);
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.checkBox1);
+<<<<<<< HEAD
             this.Controls.Add(this.label10);
             this.ClientSize = new System.Drawing.Size(994, 449);
+=======
+>>>>>>> a0593062a462605c456d6d31c83e142b6e89a87f
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.label9);
@@ -534,17 +562,23 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
+<<<<<<< HEAD
         private System.Windows.Forms.Label label10;
+=======
+>>>>>>> a0593062a462605c456d6d31c83e142b6e89a87f
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox checkBox4;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.DataGridView dataGridView1;
+<<<<<<< HEAD
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+=======
+>>>>>>> a0593062a462605c456d6d31c83e142b6e89a87f
     }
 }
