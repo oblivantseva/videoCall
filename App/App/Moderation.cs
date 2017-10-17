@@ -52,30 +52,50 @@ namespace App
             //    search = Convert.ToInt32(dr[0].ToString());
             //    dr.Close();
 
-            cmd.CommandText = "SELECT        staff.*, messages.message_text, messages.datatime, federal_districts.federal_districts, message_categories.message_categories, " +
-            " status_message.status_message, message_processing.answer_comment" +
-                    " FROM            message_categories INNER JOIN " +
-                    " messages ON message_categories.Id_message_categories = messages.id_message_message_categories INNER JOIN " +
-                    " [user] ON messages.Id_message_user = [user].Id_user INNER JOIN " +
-                    " federal_districts ON [user].id_user_federal_districts = federal_districts.Id_federal_districts INNER JOIN " +
-                    " message_processing ON messages.Id_message = message_processing.Id_message_processing_message INNER JOIN " +
-                    "   staff ON message_processing.Id_message_processing_staff = staff.Id_staff INNER JOIN " +
-                    " status_message ON message_processing.Id_message_processing_status_message = status_message.Id_status_message " +
-                    " WHERE staff.Id_staff ='" + idModeration + "'  ";
-            cmd.ExecuteNonQuery();
-            SqlDataReader reader = cmd.ExecuteReader();
-            if (reader != null)
+            string sql = "SELECT        [user].*, messages.message_text, messages.datatime, federal_districts.federal_districts, message_categories.message_categories, " +
+                 " status_message.status_message, message_processing.answer_comment" +
+                         " FROM            message_categories INNER JOIN " +
+                         " messages ON message_categories.Id_message_categories = messages.id_message_message_categories INNER JOIN " +
+                         " [user] ON messages.Id_message_user = [user].Id_user INNER JOIN " +
+                         " federal_districts ON [user].id_user_federal_districts = federal_districts.Id_federal_districts INNER JOIN " +
+                         " message_processing ON messages.Id_message = message_processing.Id_message_processing_message INNER JOIN " +
+                         "   staff ON message_processing.Id_message_processing_staff = staff.Id_staff INNER JOIN " +
+                         " status_message ON message_processing.Id_message_processing_status_message = status_message.Id_status_message " +
+                         " WHERE staff.Id_staff  ='" + idModeration + "' ";
+            // cmd.ExecuteNonQuery();
+            using (SqlConnection connection = new SqlConnection(stringPath))
             {
-                if (reader.Read())
+                connection.Open();
+                SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
+                DataSet ds = new DataSet();
+                adapter.Fill(ds);
+                foreach (DataTable dt in ds.Tables)
                 {
-                    /*textBox4.Text += reader[1].ToString() + " " + reader[2].ToString() + " " + reader[3].ToString() + "; \n"
-                        + "Логин: " + reader[4].ToString() + ";\nEmail: " + reader[6].ToString() + "; \nТелефон: "
-                        + reader[7].ToString() + "; \nТекст сообщения: " + reader[10].ToString() + "; \nДата/Время обращения: "
-                        + reader[11].ToString() + "; \nФедеральный округ: " + reader[12].ToString() + "; \nКатегория обращения: "
-                        + reader[13].ToString() + "; \n Статус: " + reader[14].ToString() + "; \n Процесс: " + reader[15].ToString() + ".\n______________________________";
-*/
+                    // перебор всех столбцов
+                    // foreach (DataColumn column in dt.Columns)
+                    // перебор всех строк таблицы
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        // получаем все ячейки строки
+                        var cells = row.ItemArray;
+                        row[1] = "ФИО:" + cells[1] + " " + cells[2] + " " + cells[3] + "; Телефон: " + cells[4] + "\n;email:" + cells[5] + "\n Возвраст:" + cells[6];
+                    }
                 }
+                dataGridView1.DataSource = ds.Tables[0];
             }
+            dataGridView1.Columns[0].Visible = false;
+            dataGridView1.Columns[2].Visible = false;
+            dataGridView1.Columns[3].Visible = false;
+            dataGridView1.Columns[4].Visible = false;
+            dataGridView1.Columns[5].Visible = false;
+            dataGridView1.Columns[6].Visible = false;
+            dataGridView1.Columns[7].Visible = false;
+
+            dataGridView1.Columns[1].HeaderText = "ФИО пользователя";
+            dataGridView1.Columns[11].HeaderText = "Категория";
+            dataGridView1.Columns[9].HeaderText = "Дата";
+            dataGridView1.Columns[10].HeaderText = "Федеральный округ";
+            dataGridView1.Columns[8].HeaderText = "Процесс";
             connection.Close();
 
         }
@@ -233,11 +253,11 @@ namespace App
                     {
                         // получаем все ячейки строки
                         var cells = row.ItemArray;
-                        row[1] = "ФИО:" + cells[1] + " " + cells[2] + " " + cells[3] + "; Телефон: " + cells[4] + "\n;email:" + cells[5] + "\n Возвраст:" + cells[6];
+                        row[1] = "ФИО:" + cells[1] + " " + cells[2] + " " + cells[3] + ";  Телефон: " + cells[4] + "\n;  email:" + cells[5] + "\n;   Возвраст:" + cells[6];
                     }
                 }
                 dataGridView1.DataSource = ds.Tables[0];
-                            }
+            }
             dataGridView1.Columns[0].Visible = false;
             dataGridView1.Columns[2].Visible = false;
             dataGridView1.Columns[3].Visible = false;
@@ -298,6 +318,11 @@ namespace App
             Menu M = new Menu();
             M.Show();
 
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            textBox6.Text = dataGridView1[1, dataGridView1.CurrentRow.Index].Value.ToString();
         }
     }
 }
