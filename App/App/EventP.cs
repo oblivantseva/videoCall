@@ -86,7 +86,6 @@ namespace App
             dataGridView1.Columns[2].HeaderText = "Обращение";
             dataGridView1.Columns[3].HeaderText = "Федеральный округ";
             dataGridView1.Columns[4].HeaderText = "Голоса";
-            //dataGridView1.Columns[5].Visible = false;
         }
 
         private void button1_Click(object sender, EventArgs e)

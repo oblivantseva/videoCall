@@ -81,7 +81,7 @@ namespace App
                                     button2.Enabled = true;
                                 }
                             }
-                            }
+                        }
                         else
                         {
                             MessageBox.Show("Неправильно указан логин/пароль.");
@@ -98,21 +98,27 @@ namespace App
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //string qs = "SELECT * FROM dbo.events Where ";
-            //SqlCommand command = new SqlCommand(qs, connection);
-            //System.Data.DataTable tbl = new System.Data.DataTable();
-            //SqlDataAdapter da = new SqlDataAdapter(command);
-            //da.Fill(tbl);
-            //string ev = "name";
-            string qs = "SELECT * FROM dbo.staff  WHERE log = '" + login.Text + "' and pass='" + pass.Text + "'";
-            SqlCommand command = new SqlCommand(qs, connection);
-            System.Data.DataTable tbl = new System.Data.DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(command);
-            da.Fill(tbl);
-           // string fio= tbl[2] + " "+ tbl[1] + " "+ tbl[3];
-           // string d =;
-            //Moderation mod = new Moderation(fio);
-            Moderation mod = new Moderation();
+            
+            string fio="";
+            int idT = 0;
+            int idM = 0;
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = connection;
+            connection.Open();
+            cmd.CommandText = "SELECT * FROM dbo.staff  WHERE log = '" + login.Text + "' and pass='" + pass.Text + "'";
+            cmd.ExecuteNonQuery();
+                        SqlDataReader reader = cmd.ExecuteReader();
+            if (reader != null)
+            {
+                if (reader.Read())
+                {
+                    fio = reader[2].ToString()+" "+ reader[1].ToString()+" "+ reader[3].ToString();
+                    int.TryParse(reader[8].ToString(), out idT);
+                    int.TryParse(reader[0].ToString(), out idM);
+                }
+            }
+            connection.Close();
+            Moderation mod = new Moderation(fio,idT,idM);
             mod.Show();
         }
 
