@@ -55,13 +55,11 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-<<<<<<< HEAD
             this.label10 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
-=======
             this.button7 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,7 +67,6 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
->>>>>>> 69b3b9954a511ec9e48b7c1934c80256a7ea0928
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -206,24 +203,9 @@
             this.label6.TabIndex = 12;
             this.label6.Text = "Процесс:";
             // 
-<<<<<<< HEAD
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(14, 263);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox4.Size = new System.Drawing.Size(273, 164);
-            this.textBox4.TabIndex = 13;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(323, 66);
-=======
             // textBox5
             // 
             this.textBox5.Location = new System.Drawing.Point(17, 276);
->>>>>>> 69b3b9954a511ec9e48b7c1934c80256a7ea0928
             this.textBox5.Multiline = true;
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(216, 157);
@@ -289,11 +271,7 @@
             // 
             this.button5.BackColor = System.Drawing.Color.Brown;
             this.button5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-<<<<<<< HEAD
             this.button5.Location = new System.Drawing.Point(789, 304);
-=======
-            this.button5.Location = new System.Drawing.Point(835, 304);
->>>>>>> 69b3b9954a511ec9e48b7c1934c80256a7ea0928
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(147, 35);
             this.button5.TabIndex = 20;
@@ -324,11 +302,7 @@
             // axWindowsMediaPlayer1
             // 
             this.axWindowsMediaPlayer1.Enabled = true;
-<<<<<<< HEAD
             this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(648, 66);
-=======
-            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(690, 66);
->>>>>>> 69b3b9954a511ec9e48b7c1934c80256a7ea0928
             this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
             this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
             this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(292, 221);
@@ -352,11 +326,8 @@
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label8.ForeColor = System.Drawing.SystemColors.ButtonFace;
-<<<<<<< HEAD
             this.label8.Location = new System.Drawing.Point(320, 50);
-=======
             this.label8.Location = new System.Drawing.Point(13, 256);
->>>>>>> 69b3b9954a511ec9e48b7c1934c80256a7ea0928
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(112, 13);
             this.label8.TabIndex = 25;
@@ -374,7 +345,6 @@
             this.label9.TabIndex = 26;
             this.label9.Text = "Контактная информация:";
             // 
-<<<<<<< HEAD
             // label10
             // 
             this.label10.AutoSize = true;
@@ -431,7 +401,6 @@
             this.checkBox4.TabIndex = 31;
             this.checkBox4.UseVisualStyleBackColor = false;
             this.checkBox4.Click += new System.EventHandler(this.formedQuer);
-=======
             // button7
             // 
             this.button7.BackColor = System.Drawing.Color.Blue;
@@ -484,7 +453,6 @@
             // 
             this.Column5.HeaderText = "Процесс";
             this.Column5.Name = "Column5";
->>>>>>> 69b3b9954a511ec9e48b7c1934c80256a7ea0928
             // 
             // Moderation
             // 
@@ -492,18 +460,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(952, 449);
             this.Controls.Add(this.checkBox4);
             this.Controls.Add(this.checkBox3);
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.label10);
-=======
             this.ClientSize = new System.Drawing.Size(994, 449);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button7);
->>>>>>> 69b3b9954a511ec9e48b7c1934c80256a7ea0928
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -569,13 +534,11 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-<<<<<<< HEAD
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox checkBox4;
-=======
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
@@ -583,6 +546,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
->>>>>>> 69b3b9954a511ec9e48b7c1934c80256a7ea0928
     }
 }

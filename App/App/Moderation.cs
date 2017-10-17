@@ -8,10 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-<<<<<<< HEAD
-=======
-
->>>>>>> 69b3b9954a511ec9e48b7c1934c80256a7ea0928
 namespace App
 {
     public partial class Moderation : Form
@@ -26,15 +22,12 @@ namespace App
             idModeration = idModer;
             connection.ConnectionString = stringPath;
             InitializeComponent();
-<<<<<<< HEAD
             process_Load();
             categor_Load();
             federals_Load();
             status_Load();
             popular_groupLoad();
-=======
             // textBox3.Text = eventName;
->>>>>>> 69b3b9954a511ec9e48b7c1934c80256a7ea0928
             textBox1.Text = fio;
             fillTypeStaff(idType);
             comboBox1.SelectedIndex = -1;
@@ -49,7 +42,6 @@ namespace App
         }
         public void messageList(int idM)
         {
-            textBox4.Clear();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = connection;
             connection.Open();
@@ -77,17 +69,15 @@ namespace App
             {
                 if (reader.Read())
                 {
-                    textBox4.Text += reader[1].ToString() + " " + reader[2].ToString() + " " + reader[3].ToString() + "; \n"
+                    /*textBox4.Text += reader[1].ToString() + " " + reader[2].ToString() + " " + reader[3].ToString() + "; \n"
                         + "Логин: " + reader[4].ToString() + ";\nEmail: " + reader[6].ToString() + "; \nТелефон: "
                         + reader[7].ToString() + "; \nТекст сообщения: " + reader[10].ToString() + "; \nДата/Время обращения: "
                         + reader[11].ToString() + "; \nФедеральный округ: " + reader[12].ToString() + "; \nКатегория обращения: "
                         + reader[13].ToString() + "; \n Статус: " + reader[14].ToString() + "; \n Процесс: " + reader[15].ToString() + ".\n______________________________";
-
+                        */
                 }
             }
             connection.Close();
-
-<<<<<<< HEAD
         }
         public void onlineTrue(int id)
         {
@@ -120,11 +110,6 @@ namespace App
         public Moderation()
         {
             InitializeComponent();
-=======
-            {
-                InitializeComponent();
-            }
->>>>>>> 69b3b9954a511ec9e48b7c1934c80256a7ea0928
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -136,7 +121,6 @@ namespace App
         {
 
         }
-<<<<<<< HEAD
         public void categor_Load()
         {
             string qs = "SELECT * FROM dbo.message_categories";
@@ -200,7 +184,7 @@ namespace App
         }
         public void formedQuer(object sender, EventArgs e)
         {
-            textBox4.Clear();
+            //textBox4.Clear();
             string str = "";
             string[] z = new string[4];
             int count = 0;
@@ -240,12 +224,12 @@ namespace App
             {
                 if (reader.Read())
                 {
-                    textBox4.Text += reader[1].ToString() + " " + reader[2].ToString() + " " + reader[3].ToString() + "; \n"
+                    /*textBox4.Text += reader[1].ToString() + " " + reader[2].ToString() + " " + reader[3].ToString() + "; \n"
              + "Логин: " + reader[4].ToString() + ";\nEmail: " + reader[6].ToString() + "; \nТелефон: "
              + reader[7].ToString() + "; \nТекст сообщения: " + reader[10].ToString() + "; \nДата/Время обращения: "
              + reader[11].ToString() + "; \nФедеральный округ: " + reader[12].ToString() + "; \nКатегория обращения: "
              + reader[13].ToString() + "; \n Статус: " + reader[14].ToString() + "; \n Процесс: " + reader[15].ToString() + ".\n______________________________";
-
+             */
                 }
             }
             connection.Close();
@@ -288,7 +272,6 @@ namespace App
         {
             popular_groupLoad();
         }
-=======
 
         private void button7_Click(object sender, EventArgs e)
         {
@@ -297,7 +280,6 @@ namespace App
 
         }
     }
->>>>>>> 69b3b9954a511ec9e48b7c1934c80256a7ea0928
     }
 
 
