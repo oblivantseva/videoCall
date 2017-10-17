@@ -8,6 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+
+using System.Data.SqlTypes;
+using System.Data.Sql;
+
 namespace App
 {
     public partial class Moderation : Form
@@ -36,7 +40,23 @@ namespace App
             comboBox5.SelectedIndex = -1;
             onlineTrue(idModer);
             messageList(idModer);
+            print_event(idModer);
+        }
 
+        public void print_event(int id)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = connection;
+            connection.Open();
+            SqlCommand command = connection.CreateCommand();
+            command.CommandText = "SELECT events.name FROM dbo.events, dbo.staff_event where events.Id_events=staff_event.Id_staff_event_event and staff_event.Id_staff_event_staff='" + id + "'";
+            SqlDataReader dr1 = command.ExecuteReader();
+            if (dr1.Read())
+            {
+                textBox3.Text = dr1[0].ToString();
+                dr1.Close();
+            }
+            connection.Close();
 
         }
         public void messageList(int idM)
@@ -240,12 +260,14 @@ namespace App
                         " status_message ON message_processing.Id_message_processing_status_message = status_message.Id_status_message " +
                         " WHERE staff.Id_staff  ='" + idModeration + "'  " + str + "";
             // cmd.ExecuteNonQuery();
+
             using (SqlConnection connection = new SqlConnection(stringPath))
             {
                 connection.Open();
                 SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
                 DataSet ds = new DataSet();
                 adapter.Fill(ds);
+                string query = "";
                 foreach (DataTable dt in ds.Tables)
                 {
                     // перебор всех столбцов
@@ -256,7 +278,18 @@ namespace App
                         // получаем все ячейки строки
                         var cells = row.ItemArray;
                         row[1] = "ФИО:" + cells[1] + " " + cells[2] + " " + cells[3] + ";  Телефон: " + cells[4] + "\n;  email:" + cells[5] + "\n;   Возвраст:" + cells[6];
+                        query = "select media_content from dbo.messages where messages.Id_message_user='" + cells[0] + "'";
                     }
+                }
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+                SqlCommand command = connection.CreateCommand();
+                command.CommandText = query;
+                SqlDataReader dr1 = command.ExecuteReader();
+                if (dr1.Read())
+                {
+                    axWindowsMediaPlayer1.URL = dr1[0].ToString(); 
                 }
                 dataGridView1.DataSource = ds.Tables[0];
             }
@@ -290,24 +323,11 @@ namespace App
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = connection;
             connection.Open();
-            cmd.CommandText = "INSERT INTO popular_group (content,Id_popular_group_event) values(N'" + comboBox5.Text + "','" + 1 + "')";
+            cmd.CommandText = "INSERT INTO popular_group (content,Id_popular_group_event) values(N'" + comboBox5.Text + "','" + 5 + "')";
+
             cmd.ExecuteNonQuery();
             connection.Close();
-
-
-
-
-
-            //if (comboBox5.Text != "")
-            //{
-            //    connection.Open();
-            //string qs = @"INSERT INTO dbo.popular_group(content,Id_popular_group_event) VALUES(N'" + comboBox5.Text + "','" + 1 + "')";
-            //SqlCommand command = new SqlCommand(qs, connection);
-            //int Zaversh = command.ExecuteNonQuery();
-            //connection.Close();
-            //    MessageBox.Show("Группа добавлена!", "Добавление", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //}
-            //else MessageBox.Show("Заполните все поля!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            popular_groupLoad();
 
 
         }
@@ -328,6 +348,11 @@ namespace App
         {
             textBox6.Text = dataGridView1[1, dataGridView1.CurrentRow.Index].Value.ToString();
             textBox5.Text = dataGridView1[8, dataGridView1.CurrentRow.Index].Value.ToString();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
