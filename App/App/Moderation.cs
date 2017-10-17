@@ -41,6 +41,11 @@ namespace App
             M.Show();
 
         }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
     }
 
