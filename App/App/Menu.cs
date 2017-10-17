@@ -124,7 +124,27 @@ namespace App
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            string fio = "";
+            int idT = 0;
+            int idM = 0;
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = connection;
+            connection.Open();
+            cmd.CommandText = "SELECT * FROM dbo.staff  WHERE log = '" + login.Text + "' and pass='" + pass.Text + "'";
+            cmd.ExecuteNonQuery();
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader != null)
+            {
+                if (reader.Read())
+                {
+                    fio = reader[2].ToString() + " " + reader[1].ToString() + " " + reader[3].ToString();
+                    int.TryParse(reader[8].ToString(), out idT);
+                    int.TryParse(reader[0].ToString(), out idM);
+                }
+            }
+            connection.Close();
+            EfirAppeals ef = new EfirAppeals(fio, idT, idOp);
+            ef.Show();
         }
 
         private void button4_Click(object sender, EventArgs e)
