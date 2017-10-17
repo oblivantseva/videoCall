@@ -115,7 +115,7 @@
             this.textBox3.Location = new System.Drawing.Point(321, 23);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(615, 20);
+            this.textBox3.Size = new System.Drawing.Size(527, 20);
             this.textBox3.TabIndex = 4;
             // 
             // comboBox1
@@ -204,7 +204,7 @@
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(17, 276);
+            this.textBox5.Location = new System.Drawing.Point(17, 271);
             this.textBox5.Multiline = true;
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(216, 157);
@@ -269,7 +269,7 @@
             // 
             // button5
             // 
-            this.button5.BackColor = System.Drawing.Color.Brown;
+            this.button5.BackColor = System.Drawing.Color.Red;
             this.button5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button5.Location = new System.Drawing.Point(835, 304);
             this.button5.Name = "button5";
@@ -290,7 +290,7 @@
             // 
             // button6
             // 
-            this.button6.BackColor = System.Drawing.Color.Brown;
+            this.button6.BackColor = System.Drawing.Color.Red;
             this.button6.Location = new System.Drawing.Point(323, 353);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(34, 25);
@@ -326,7 +326,7 @@
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label8.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label8.Location = new System.Drawing.Point(13, 256);
+            this.label8.Location = new System.Drawing.Point(13, 250);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(112, 13);
             this.label8.TabIndex = 25;
@@ -394,7 +394,7 @@
             this.button7.BackColor = System.Drawing.Color.Blue;
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button7.Location = new System.Drawing.Point(880, 13);
+            this.button7.Location = new System.Drawing.Point(890, 12);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(92, 36);
             this.button7.TabIndex = 27;
