@@ -101,6 +101,7 @@ namespace App
             
             string fio="";
             int idT = 0;
+            int idM = 0;
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = connection;
             connection.Open();
@@ -113,10 +114,11 @@ namespace App
                 {
                     fio = reader[2].ToString()+" "+ reader[1].ToString()+" "+ reader[3].ToString();
                     int.TryParse(reader[8].ToString(), out idT);
+                    int.TryParse(reader[0].ToString(), out idM);
                 }
             }
             connection.Close();
-            Moderation mod = new Moderation(fio,idT);
+            Moderation mod = new Moderation(fio,idT,idM);
             mod.Show();
         }
 
