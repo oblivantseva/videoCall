@@ -53,7 +53,7 @@ namespace App
             //    dr.Close();
 
             string sql = "SELECT        [user].*, messages.message_text, messages.datatime, federal_districts.federal_districts, message_categories.message_categories, " +
-                 " status_message.status_message, message_processing.answer_comment" +
+                 " status_message.status_message, message_processing.answer_comment ,messages.processed" +
                          " FROM            message_categories INNER JOIN " +
                          " messages ON message_categories.Id_message_categories = messages.id_message_message_categories INNER JOIN " +
                          " [user] ON messages.Id_message_user = [user].Id_user INNER JOIN " +
@@ -90,12 +90,14 @@ namespace App
             dataGridView1.Columns[5].Visible = false;
             dataGridView1.Columns[6].Visible = false;
             dataGridView1.Columns[7].Visible = false;
-
+            dataGridView1.Columns[8].Visible = false;
+            dataGridView1.Columns[12].Visible = false;
+            dataGridView1.Columns[13].Visible = false;
             dataGridView1.Columns[1].HeaderText = "ФИО пользователя";
             dataGridView1.Columns[11].HeaderText = "Категория";
             dataGridView1.Columns[9].HeaderText = "Дата";
             dataGridView1.Columns[10].HeaderText = "Федеральный округ";
-            dataGridView1.Columns[8].HeaderText = "Процесс";
+            dataGridView1.Columns[14].HeaderText = "Процесс";
             connection.Close();
 
         }
@@ -228,7 +230,7 @@ namespace App
             // cmd.Connection = connection;
             connection.Open();
             string sql = "SELECT        [user].*, messages.message_text, messages.datatime, federal_districts.federal_districts, message_categories.message_categories, " +
-                " status_message.status_message, message_processing.answer_comment" +
+                " status_message.status_message, message_processing.answer_comment,messages.processed" +
                         " FROM            message_categories INNER JOIN " +
                         " messages ON message_categories.Id_message_categories = messages.id_message_message_categories INNER JOIN " +
                         " [user] ON messages.Id_message_user = [user].Id_user INNER JOIN " +
@@ -265,12 +267,14 @@ namespace App
             dataGridView1.Columns[5].Visible = false;
             dataGridView1.Columns[6].Visible = false;
             dataGridView1.Columns[7].Visible = false;
-
+            dataGridView1.Columns[8].Visible = false;
+            dataGridView1.Columns[12].Visible = false;
+            dataGridView1.Columns[13].Visible = false;
             dataGridView1.Columns[1].HeaderText = "ФИО пользователя";
             dataGridView1.Columns[11].HeaderText = "Категория";
             dataGridView1.Columns[9].HeaderText = "Дата";
             dataGridView1.Columns[10].HeaderText = "Федеральный округ";
-            dataGridView1.Columns[8].HeaderText = "Процесс";
+            dataGridView1.Columns[14].HeaderText = "Процесс";
 
             connection.Close();
         }
@@ -323,6 +327,7 @@ namespace App
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             textBox6.Text = dataGridView1[1, dataGridView1.CurrentRow.Index].Value.ToString();
+            textBox5.Text = dataGridView1[8, dataGridView1.CurrentRow.Index].Value.ToString();
         }
     }
 }
