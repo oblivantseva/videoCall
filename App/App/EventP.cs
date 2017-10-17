@@ -57,7 +57,11 @@ namespace App
             }
             else { try
                 {
+<<<<<<< HEAD
+                    qs = "SELECT       popular_group.Id_popular_group, popular_group.[content], messages.message_text, federal_districts.federal_districts, popular_messages.vote " +
+=======
                     qs = "SELECT       popular_group.Id_popular_group, popular_group.[content], messages.message_text, federal_districts.federal_districts, popular_messages.vote  " +
+>>>>>>> 89df7911a885f129e8ac0f46f9d252aed860e14b
               "FROM popular_messages INNER JOIN " +
               " messages ON popular_messages.Id_popular_messages_message = messages.Id_message INNER JOIN " +
               " popular_group ON popular_messages.Id_popular_messages_popular_group = popular_group.Id_popular_group INNER JOIN " +
@@ -86,7 +90,11 @@ namespace App
             dataGridView1.Columns[2].HeaderText = "Обращение";
             dataGridView1.Columns[3].HeaderText = "Федеральный округ";
             dataGridView1.Columns[4].HeaderText = "Голоса";
+<<<<<<< HEAD
+           // dataGridView1.Columns[5].Visible = false;
+=======
             //dataGridView1.Columns[5].Visible = false;
+>>>>>>> 89df7911a885f129e8ac0f46f9d252aed860e14b
         }
 
         private void button1_Click(object sender, EventArgs e)
