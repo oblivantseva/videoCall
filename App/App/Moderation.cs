@@ -286,11 +286,12 @@ namespace App
                 cmd.Connection = connection;
                 SqlCommand command = connection.CreateCommand();
                 command.CommandText = query;
-                SqlDataReader dr1 = command.ExecuteReader();
-                if (dr1.Read())
-                {
-                    axWindowsMediaPlayer1.URL = dr1[0].ToString(); 
-                }
+                //нужно поменять название видео файлов,поэтому заккоментила
+                //SqlDataReader dr1 = command.ExecuteReader();
+                //if (dr1.Read())
+                //{
+                //    axWindowsMediaPlayer1.URL = dr1[0].ToString();
+                //}
                 dataGridView1.DataSource = ds.Tables[0];
             }
             dataGridView1.Columns[0].Visible = false;
@@ -323,7 +324,7 @@ namespace App
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = connection;
             connection.Open();
-            cmd.CommandText = "INSERT INTO popular_group (content,Id_popular_group_event) values(N'" + comboBox5.Text + "','" + 5 + "')";
+            cmd.CommandText = "INSERT INTO popular_group (content,Id_popular_group_event) values(N'" + comboBox5.Text + "','" + 1 + "')";
 
             cmd.ExecuteNonQuery();
             connection.Close();
@@ -351,6 +352,11 @@ namespace App
         }
 
         private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }
