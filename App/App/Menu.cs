@@ -29,8 +29,8 @@ namespace App
             InitializeComponent();
             button1.Enabled = false;
             button2.Enabled = false;
-            button4.Enabled = false;
-            button5.Enabled = false;
+            //button4.Enabled = false;
+            //button5.Enabled = false;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -154,7 +154,8 @@ namespace App
 
         private void button5_Click(object sender, EventArgs e)
         {
-
+            EventManagement bg = new EventManagement();
+            bg.Show();
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -171,6 +172,11 @@ namespace App
         private void pass_Click(object sender, EventArgs e)
         {
             pass.Clear();
+        }
+
+        private void Menu_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
