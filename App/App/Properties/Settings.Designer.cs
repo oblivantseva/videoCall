@@ -26,13 +26,13 @@ namespace App.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-<<<<<<< HEAD
+
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\NewBase.mdf;I" +
             "ntegrated Security=True;Connect Timeout=30")]
-=======
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Database1.mdf" +
-            ";Integrated Security=True;Connect Timeout=30")]
->>>>>>> ac34c14005c89ceb07d693d3b602def84c0880e9
+
+        //[global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Database1.mdf" +
+        //    ";Integrated Security=True;Connect Timeout=30")]
+
         public string stringPath {
             get {
                 return ((string)(this["stringPath"]));
