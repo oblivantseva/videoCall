@@ -90,6 +90,7 @@
             // 
             this.textBox2.Location = new System.Drawing.Point(38, 84);
             this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(226, 21);
             this.textBox2.TabIndex = 27;
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -98,6 +99,7 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(38, 37);
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(226, 21);
             this.textBox1.TabIndex = 26;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -113,6 +115,7 @@
             this.button1.TabIndex = 30;
             this.button1.Text = "Выход";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // comboBox1
             // 
@@ -350,6 +353,7 @@
             // 
             this.textBox9.Location = new System.Drawing.Point(275, 37);
             this.textBox9.Name = "textBox9";
+            this.textBox9.ReadOnly = true;
             this.textBox9.Size = new System.Drawing.Size(352, 21);
             this.textBox9.TabIndex = 56;
             this.textBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
