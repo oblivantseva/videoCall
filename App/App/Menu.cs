@@ -69,16 +69,16 @@ namespace App
 
                                 }
                                 else if (search == 2)
-                                {
-                                    button4.Enabled = true;
+                                {//изменила 4-2
+                                    button2.Enabled = true;
                                 }
                                 else if (search == 3)
                                 {
                                     button1.Enabled = true;
                                 }
-                                else if (search == 5)
-                                {
-                                    button2.Enabled = true;
+                                else if (search == 4)//изменила на 4
+                                {//изменила 2-4
+                                    button4.Enabled = true;
                                 }
                             }
                         }
@@ -124,11 +124,6 @@ namespace App
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
             string fio = "";
             int idT = 0;
             int idOp = 0;
@@ -148,8 +143,33 @@ namespace App
                 }
             }
             connection.Close();
-            EfirAppeals ef = new EfirAppeals(fio, idT, idOp,this);
+            EfirAppeals ef = new EfirAppeals(fio, idT, idOp, this);
             ef.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string fio = "";
+            int idT = 0;
+            int idOper = 0;
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = connection;
+            connection.Open();
+            cmd.CommandText = "SELECT * FROM dbo.staff  WHERE log = '" + login.Text + "' and pass='" + pass.Text + "'";
+            cmd.ExecuteNonQuery();
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader != null)
+            {
+                if (reader.Read())
+                {
+                    fio = reader[2].ToString() + " " + reader[1].ToString() + " " + reader[3].ToString();
+                    int.TryParse(reader[8].ToString(), out idT);
+                    int.TryParse(reader[0].ToString(), out idOper);
+                }
+            }
+            connection.Close();
+            ReceptionCalls reC = new ReceptionCalls(fio, idT, idOper, this);
+            reC.Show();
         }
         public void ClearForm()
         {

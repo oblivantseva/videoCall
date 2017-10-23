@@ -58,6 +58,7 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(35, 32);
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(205, 20);
             this.textBox1.TabIndex = 0;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -66,6 +67,7 @@
             // 
             this.textBox2.Location = new System.Drawing.Point(35, 81);
             this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(205, 20);
             this.textBox2.TabIndex = 1;
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -247,6 +249,7 @@
             this.textBox4.ForeColor = System.Drawing.Color.Maroon;
             this.textBox4.Location = new System.Drawing.Point(246, 31);
             this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
             this.textBox4.Size = new System.Drawing.Size(462, 20);
             this.textBox4.TabIndex = 30;
             // 
