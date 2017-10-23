@@ -241,7 +241,7 @@
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.Color.Maroon;
+            this.button3.BackColor = System.Drawing.Color.DarkRed;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button3.Location = new System.Drawing.Point(266, 403);
             this.button3.Name = "button3";
