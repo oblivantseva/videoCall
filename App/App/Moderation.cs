@@ -126,7 +126,7 @@ namespace App
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = connection;
             connection.Open();
-            cmd.CommandText = "Update staff set online='" + "False" + "' Where Id_staff='" + id + "'";
+            cmd.CommandText = "Update staff set online=1 Where Id_staff='" + id + "'";
             cmd.ExecuteNonQuery();
             cmd.Clone();
             connection.Close();

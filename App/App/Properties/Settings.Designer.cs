@@ -30,7 +30,7 @@ namespace App.Properties {
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\NewBase.mdf;I" +
             "ntegrated Security=True;Connect Timeout=30")]
 
-        //[global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Database1.mdf" +
+        //[global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLoca  lDB;AttachDbFilename=|DataDirectory|\\Database1.mdf" +
         //    ";Integrated Security=True;Connect Timeout=30")]
 
         public string stringPath {

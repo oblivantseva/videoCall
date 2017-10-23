@@ -148,10 +148,18 @@ namespace App
                 }
             }
             connection.Close();
-            EfirAppeals ef = new EfirAppeals(fio, idT, idOp);
+            EfirAppeals ef = new EfirAppeals(fio, idT, idOp,this);
             ef.Show();
         }
-
+        public void ClearForm()
+        {
+            button1.Enabled = false;
+            button2.Enabled = false;
+            button3.Enabled = false;
+            button4.Enabled = false;
+            pass.Clear();
+            login.Clear();
+        }
         private void button5_Click(object sender, EventArgs e)
         {
             Event st = new Event();//хз на какую форму надо?
