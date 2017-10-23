@@ -35,18 +35,18 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.name = new System.Windows.Forms.TextBox();
+            this.otch = new System.Windows.Forms.TextBox();
+            this.fam = new System.Windows.Forms.TextBox();
+            this.age = new System.Windows.Forms.TextBox();
+            this.telephone = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.quest = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
@@ -57,6 +57,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.id = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label5
@@ -126,42 +127,42 @@
             this.comboBox1.Size = new System.Drawing.Size(227, 23);
             this.comboBox1.TabIndex = 45;
             // 
-            // textBox7
+            // name
             // 
-            this.textBox7.Location = new System.Drawing.Point(38, 193);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(226, 21);
-            this.textBox7.TabIndex = 44;
+            this.name.Location = new System.Drawing.Point(38, 193);
+            this.name.Name = "name";
+            this.name.Size = new System.Drawing.Size(226, 21);
+            this.name.TabIndex = 44;
             // 
-            // textBox6
+            // otch
             // 
-            this.textBox6.Location = new System.Drawing.Point(38, 237);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(226, 21);
-            this.textBox6.TabIndex = 43;
+            this.otch.Location = new System.Drawing.Point(38, 237);
+            this.otch.Name = "otch";
+            this.otch.Size = new System.Drawing.Size(226, 21);
+            this.otch.TabIndex = 43;
             // 
-            // textBox5
+            // fam
             // 
-            this.textBox5.Location = new System.Drawing.Point(38, 149);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(226, 21);
-            this.textBox5.TabIndex = 42;
+            this.fam.Location = new System.Drawing.Point(38, 149);
+            this.fam.Name = "fam";
+            this.fam.Size = new System.Drawing.Size(226, 21);
+            this.fam.TabIndex = 42;
             // 
-            // textBox3
+            // age
             // 
-            this.textBox3.Location = new System.Drawing.Point(38, 280);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(226, 21);
-            this.textBox3.TabIndex = 40;
-            this.textBox3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox3_KeyPress);
+            this.age.Location = new System.Drawing.Point(38, 280);
+            this.age.Name = "age";
+            this.age.Size = new System.Drawing.Size(226, 21);
+            this.age.TabIndex = 40;
+            this.age.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox3_KeyPress);
             // 
-            // textBox8
+            // telephone
             // 
-            this.textBox8.Location = new System.Drawing.Point(40, 326);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(226, 21);
-            this.textBox8.TabIndex = 39;
-            this.textBox8.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox8_KeyPress);
+            this.telephone.Location = new System.Drawing.Point(40, 326);
+            this.telephone.Name = "telephone";
+            this.telephone.Size = new System.Drawing.Size(226, 21);
+            this.telephone.TabIndex = 39;
+            this.telephone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox8_KeyPress);
             // 
             // label7
             // 
@@ -247,13 +248,13 @@
             this.label10.Text = "Фамилия";
             this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
-            // textBox4
+            // quest
             // 
-            this.textBox4.Location = new System.Drawing.Point(274, 95);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(506, 189);
-            this.textBox4.TabIndex = 47;
+            this.quest.Location = new System.Drawing.Point(274, 95);
+            this.quest.Multiline = true;
+            this.quest.Name = "quest";
+            this.quest.Size = new System.Drawing.Size(506, 189);
+            this.quest.TabIndex = 47;
             // 
             // button2
             // 
@@ -266,6 +267,7 @@
             this.button2.TabIndex = 48;
             this.button2.Text = "Принять обращение";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -278,6 +280,7 @@
             this.button3.TabIndex = 49;
             this.button3.Text = "Указать как популярное";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label11
             // 
@@ -372,6 +375,14 @@
             this.label2.TabIndex = 57;
             this.label2.Text = "Текст сообщения";
             // 
+            // id
+            // 
+            this.id.Location = new System.Drawing.Point(751, 60);
+            this.id.Name = "id";
+            this.id.Size = new System.Drawing.Size(29, 21);
+            this.id.TabIndex = 58;
+            this.id.Visible = false;
+            // 
             // ReceptionCalls
             // 
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.IpAddress;
@@ -381,6 +392,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(792, 470);
+            this.Controls.Add(this.id);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox9);
             this.Controls.Add(this.label1);
@@ -391,13 +403,13 @@
             this.Controls.Add(this.label11);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.quest);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox8);
+            this.Controls.Add(this.name);
+            this.Controls.Add(this.otch);
+            this.Controls.Add(this.fam);
+            this.Controls.Add(this.age);
+            this.Controls.Add(this.telephone);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label3);
@@ -426,18 +438,18 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox name;
+        private System.Windows.Forms.TextBox otch;
+        private System.Windows.Forms.TextBox fam;
+        private System.Windows.Forms.TextBox age;
+        private System.Windows.Forms.TextBox telephone;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox quest;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label11;
@@ -448,5 +460,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Label label2;
+        public System.Windows.Forms.TextBox id;
     }
 }

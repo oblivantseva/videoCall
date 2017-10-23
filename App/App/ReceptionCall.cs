@@ -24,12 +24,13 @@ namespace App
             InitializeComponent();
             fillTypeStaff(idType);
             textBox1.Text = fio;
-            comboBox1.SelectedIndex = -1;
-            comboBox2.SelectedIndex = -1;
-            comboBox3.SelectedIndex = -1;
             print_event(idOper);
             onlineTrue(idOper);
             categor_Load(); federals_Load(); popular_groupLoad();
+
+            comboBox1.SelectedIndex = -1;
+            comboBox2.SelectedIndex = -1;
+            comboBox3.SelectedIndex = -1;
         }
         public void print_event(int id)
         {
@@ -91,7 +92,7 @@ namespace App
 
         private void ReceptionCalls_Load(object sender, EventArgs e)
         {
-
+           id.Text = textBox9.ToString();
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -198,6 +199,64 @@ namespace App
             this.Close();
             f.Activate();
             f.ClearForm();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+         
+                connection.Open();
+                string qs = @"INSERT INTO dbo.[user](first_name, second_name, patronymic, telephone, age, id_user_federal_districts) VALUES('" + fam.Text + "', '" + name.Text + "','" + otch.Text + "', '" + telephone.Text + "','" + age.Text + "', '" + Convert.ToInt32(comboBox1.SelectedValue) + "')";
+                SqlCommand command = new SqlCommand(qs, connection);
+                int Zaversh = command.ExecuteNonQuery();
+                connection.Close();
+                int idO;
+                if (Zaversh != 0)
+                {
+                    connection.Open();
+                    command.CommandText = "SELECT TOP 1 Id_user FROM dbo.[user] ORDER BY Id_user DESC";
+                    SqlDataReader dr1 = command.ExecuteReader();
+                    if (dr1.Read())
+                    {
+                        idO = Convert.ToInt32(dr1[0].ToString());
+                        dr1.Close();
+                        SqlCommand command2 = connection.CreateCommand();
+                    command2.CommandText = @"INSERT INTO dbo.[messages](datatime, Id_message_user, Id_message_type_message, message_text, 
+Id_message_event,  Id_message_message_categories) 
+VALUES ('12.12.2017 0:00:00','4', '1','ляля','1','1')";
+                    //                        command2.CommandText = @"INSERT INTO dbo.[messages](datatime, Id_message_user, Id_message_type_message, message_text, 
+                    //Id_message_event,  Id_message_message_categories) 
+                    //VALUES ('12.12.2017 0:00:00','" + idO + "', '1','" + quest.Text +
+                    //                        "','" + Convert.ToInt32(id.Text) + "','" + Convert.ToInt32(comboBox2.SelectedValue) + "')";
+                    int Zaversh2 = command2.ExecuteNonQuery();
+                        if (Zaversh2 != 0)
+                        {
+                            MessageBox.Show("Обращение отправлено.");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Ошибка при отправке обращения.");
+                        }
+                        connection.Close();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Ошибка при отправке обращения.");
+                }
+            fam.Clear();name.Clear();otch.Clear();telephone.Clear();age.Clear();quest.Clear();
+            button3.Text = "Указать как популярное";
+            button3.Enabled = true;
+
+            comboBox1.SelectedIndex = -1;
+            comboBox2.SelectedIndex = -1;
+            comboBox3.SelectedIndex = -1;
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            button3.Text = "Указано";
+            button3.Enabled = false;
         }
     }
 }
