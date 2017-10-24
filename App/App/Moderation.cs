@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+
 using System.Data.SqlTypes;
 using System.Data.Sql;
 
@@ -125,7 +126,7 @@ namespace App
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = connection;
             connection.Open();
-            cmd.CommandText = "Update staff set online=1 Where Id_staff='" + id + "'";
+            cmd.CommandText = "Update staff set online='" + "False" + "' Where Id_staff='" + id + "'";
             cmd.ExecuteNonQuery();
             cmd.Clone();
             connection.Close();
@@ -285,11 +286,18 @@ namespace App
                 cmd.Connection = connection;
                 SqlCommand command = connection.CreateCommand();
                 command.CommandText = query;
+<<<<<<< HEAD
                 //нужно поменять название видео файлов,поэтому заккоментила
                 SqlDataReader dr1 = command.ExecuteReader();
                 if (dr1.Read())
                 {
                     axWindowsMediaPlayer1.URL = dr1[0].ToString();
+=======
+                SqlDataReader dr1 = command.ExecuteReader();
+                if (dr1.Read())
+                {
+                    axWindowsMediaPlayer1.URL = dr1[0].ToString(); 
+>>>>>>> 50f8968d7f32a93dd5edeea1513c02f1a8941bf6
                 }
                 dataGridView1.DataSource = ds.Tables[0];
             }
@@ -323,7 +331,7 @@ namespace App
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = connection;
             connection.Open();
-            cmd.CommandText = "INSERT INTO popular_group (content,Id_popular_group_event) values(N'" + comboBox5.Text + "','" + 1 + "')";
+            cmd.CommandText = "INSERT INTO popular_group (content,Id_popular_group_event) values(N'" + comboBox5.Text + "','" + 5 + "')";
 
             cmd.ExecuteNonQuery();
             connection.Close();
@@ -355,7 +363,7 @@ namespace App
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
