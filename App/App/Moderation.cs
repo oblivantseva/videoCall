@@ -286,38 +286,39 @@ namespace App
                 cmd.Connection = connection;
                 SqlCommand command = connection.CreateCommand();
                 command.CommandText = query;
-<<<<<<< HEAD
+
                 //нужно поменять название видео файлов,поэтому заккоментила
                 SqlDataReader dr1 = command.ExecuteReader();
                 if (dr1.Read())
                 {
                     axWindowsMediaPlayer1.URL = dr1[0].ToString();
-=======
-                SqlDataReader dr1 = command.ExecuteReader();
-                if (dr1.Read())
-                {
-                    axWindowsMediaPlayer1.URL = dr1[0].ToString(); 
->>>>>>> 50f8968d7f32a93dd5edeea1513c02f1a8941bf6
-                }
-                dataGridView1.DataSource = ds.Tables[0];
-            }
-            dataGridView1.Columns[0].Visible = false;
-            dataGridView1.Columns[2].Visible = false;
-            dataGridView1.Columns[3].Visible = false;
-            dataGridView1.Columns[4].Visible = false;
-            dataGridView1.Columns[5].Visible = false;
-            dataGridView1.Columns[6].Visible = false;
-            dataGridView1.Columns[7].Visible = false;
-            dataGridView1.Columns[8].Visible = false;
-            dataGridView1.Columns[12].Visible = false;
-            dataGridView1.Columns[13].Visible = false;
-            dataGridView1.Columns[1].HeaderText = "ФИО пользователя";
-            dataGridView1.Columns[11].HeaderText = "Категория";
-            dataGridView1.Columns[9].HeaderText = "Дата";
-            dataGridView1.Columns[10].HeaderText = "Федеральный округ";
-            dataGridView1.Columns[14].HeaderText = "Процесс";
 
-            connection.Close();
+                    //SqlDataReader dr1 = command.ExecuteReader();
+                    if (dr1.Read())
+                    {
+                        axWindowsMediaPlayer1.URL = dr1[0].ToString();
+
+                    }
+                    dataGridView1.DataSource = ds.Tables[0];
+                }
+                dataGridView1.Columns[0].Visible = false;
+                dataGridView1.Columns[2].Visible = false;
+                dataGridView1.Columns[3].Visible = false;
+                dataGridView1.Columns[4].Visible = false;
+                dataGridView1.Columns[5].Visible = false;
+                dataGridView1.Columns[6].Visible = false;
+                dataGridView1.Columns[7].Visible = false;
+                dataGridView1.Columns[8].Visible = false;
+                dataGridView1.Columns[12].Visible = false;
+                dataGridView1.Columns[13].Visible = false;
+                dataGridView1.Columns[1].HeaderText = "ФИО пользователя";
+                dataGridView1.Columns[11].HeaderText = "Категория";
+                dataGridView1.Columns[9].HeaderText = "Дата";
+                dataGridView1.Columns[10].HeaderText = "Федеральный округ";
+                dataGridView1.Columns[14].HeaderText = "Процесс";
+
+                connection.Close();
+            }
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)

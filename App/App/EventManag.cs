@@ -36,11 +36,11 @@ namespace App
         public void VivodD()
         {
 
-            //            //string[] words = tbl.Rows[0][1].ToString().Split(new char[] { ' ' });
+          //string[] words = tbl.Rows[0][1].ToString().Split(new char[] { ' ' });
             dataGridView1.Visible = true;
         SqlConnection conn = new SqlConnection(stringPath);
             conn.Open();
-            SqlDataAdapter adapter = new SqlDataAdapter("SELECT Id_staff, concat(staff.first_name, staff.second_name , staff.patronymic) as ФИО,type_staff.type_staff,events.name FROM staff_event, staff,events,type_staff WHERE staff_event.Id_staff_event = staff.Id_staff and staff.Id_staff_type_staff =type_staff.Id_type_staff and staff_event.Id_staff_event_event= events.Id_events", conn);
+            SqlDataAdapter adapter = new SqlDataAdapter("SELECT Id_staff, concat(staff.first_name,' ', staff.second_name ,' ', staff.patronymic) as ФИО,type_staff.type_staff as Должность,events.name as 'Название мероприятия' FROM staff_event, staff,events,type_staff WHERE staff_event.Id_staff_event = staff.Id_staff and staff.Id_staff_type_staff =type_staff.Id_type_staff and staff_event.Id_staff_event_event= events.Id_events", conn);
             SqlCommandBuilder command = new SqlCommandBuilder(adapter);
             DataTable ds = new DataTable();
             adapter.Fill(ds);
