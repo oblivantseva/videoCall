@@ -459,6 +459,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Name = "ReceptionCalls";
             this.Text = "Прием обращений-звонок";
+            this.Load += new System.EventHandler(this.ReceptionCalls_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

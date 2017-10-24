@@ -285,5 +285,10 @@ namespace App
             else { label11.Text = "Выберите популярную группу"; }
      
         }
+
+        private void ReceptionCalls_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

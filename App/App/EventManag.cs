@@ -17,14 +17,14 @@ namespace App
     public partial class EventManagement : Form
     {
         public DataSet DS;
-        public SqlConnection connection = new SqlConnection();int idAdmin;
-        public SqlCommand command = new SqlCommand();Menu f;
+        public SqlConnection connection = new SqlConnection(); int idAdmin;
+        public SqlCommand command = new SqlCommand(); Menu f;
         public string stringPath = Properties.Settings.Default.stringPath;
-        public EventManagement(string fio, int idType, int idModer,Menu form)
+        public EventManagement(string fio, int idType, int idModer, Menu form)
 
         {
             idAdmin = idModer;
-            f = form; 
+            f = form;
             connection.ConnectionString = stringPath;
             InitializeComponent();
             textBox1.Text = fio;
@@ -51,35 +51,106 @@ namespace App
         }
         public void print_event(int id)
         {
+            //SqlCommand command2 = connection.CreateCommand();
+
+            //command2.CommandText = "GETDATE ( )";
+
             SqlCommand cmd = new SqlCommand();
+            //int Zaversh2 = cmd.ExecuteNonQuery();
+            //SqlDataReader dr2 = cmd.ExecuteReader();
+            //if (dr2.Read())
+            //{
+            //    var dat = Convert.ToInt32(dr2[0].ToString());
+            //    dr2.Close();
+            //}
+
+
+
+            //d1.Date.Equals(d2.Date);
             cmd.Connection = connection;
             connection.Open();
             SqlCommand command = connection.CreateCommand();
-            command.CommandText = "SELECT events.name FROM dbo.events, dbo.staff_event where events.Id_events=staff_event.Id_staff_event_event and staff_event.Id_staff_event_staff='" + id + "'";
+            command.CommandText = "SELECT events.name,events.datatime_end FROM dbo.events, dbo.staff_event where events.Id_events=staff_event.Id_staff_event_event and staff_event.Id_staff_event_staff='" + id + "'";
             SqlDataReader dr1 = command.ExecuteReader();
             if (dr1.Read())
             {
                 textBox5.Text = dr1[0].ToString();
+                var strDate1 = Convert.ToDateTime(dr1[1].ToString().Remove(11)).ToString("dd.MM.yyyy");
+                string strDate2 = DateTime.Now.ToString("dd.MM.yyyy");
+                DateTime d2 = DateTime.ParseExact(strDate2, "dd.MM.yyyy", null);
+                //string strDate1 = "select convert(nvarchar(20), getdate(), 104)";
+                DateTime d1 = DateTime.ParseExact(strDate1, "dd.MM.yyyy", null);
+
+                if (d1.Date >= d2.Date) {
+                    button2.Visible = true;
+                    button3.Visible = true;
+                    button4.Visible = true;
+                }
+                else { button2.Visible = false;
+                    button3.Visible = false;
+                    button4.Visible = false;
+                }
+
                 dr1.Close();
+
             }
             connection.Close();
 
         }
         private void button2_Click(object sender, EventArgs e)
         {
-          
-          dataGridView1.Visible = false;
+
+            dataGridView1.Visible = false;
             groupBox1.Visible = true;
             groupBox1.Text = "Добавить";
+            Staf();
         }
+        public void Staf()
+        {
+
+            SqlConnection conn1 = new SqlConnection(stringPath);
+            conn1.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter("SELECT Id_staff, (staff.first_name+' '+staff.second_name+' '+staff.patronymic) as fio FROM staff", conn1);
+            SqlCommandBuilder command1 = new SqlCommandBuilder(adapter);
+            DataTable ds = new DataTable();
+            adapter.Fill(ds);
+            comboBox2.ValueMember = "Id_staff";
+            comboBox2.DisplayMember = "fio";
+            comboBox2.DataSource = ds;
+            conn1.Close();
+            //string qs = "SELECT * FROM dbo.staff";
+            //SqlCommand command = new SqlCommand(qs, connection);
+            //System.Data.DataTable tbl = new System.Data.DataTable();
+            //SqlDataAdapter da = new SqlDataAdapter(command);
+            //da.Fill(tbl);
+
+            //comboBox2.DataSource = tbl;
+            //comboBox2.DisplayMember = "first_name";//+ " second_name "+ " patronymic";
+           
+            //comboBox2.ValueMember = "Id_staff";
+        }
+        public void eventsss()
+      
+        {
+            string qs = "SELECT * FROM dbo.events";
+            SqlCommand command = new SqlCommand(qs, connection);
+            System.Data.DataTable tbl = new System.Data.DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(command);
+            da.Fill(tbl);
+
+            comboBox1.DataSource = tbl;
+            comboBox1.DisplayMember = "name";
+            comboBox1.ValueMember = "Id_events";
+        
+    }
         public void VivodD()
         {
 
             //            //string[] words = tbl.Rows[0][1].ToString().Split(new char[] { ' ' });
             dataGridView1.Visible = true;
-        SqlConnection conn = new SqlConnection(stringPath);
+            SqlConnection conn = new SqlConnection(stringPath);
             conn.Open();
-            SqlDataAdapter adapter = new SqlDataAdapter("SELECT Id_staff, concat(staff.first_name, staff.second_name , staff.patronymic) as ФИО,type_staff.type_staff,events.name FROM staff_event, staff,events,type_staff WHERE staff_event.Id_staff_event = staff.Id_staff and staff.Id_staff_type_staff =type_staff.Id_type_staff and staff_event.Id_staff_event_event= events.Id_events", conn);
+            SqlDataAdapter adapter = new SqlDataAdapter("SELECT Id_staff, concat(staff.first_name,' ', staff.second_name ,' ', staff.patronymic) as ФИО,type_staff.type_staff as Должность ,events.name as 'Название мероприятия' FROM staff_event, staff,events,type_staff WHERE staff_event.Id_staff_event = staff.Id_staff and staff.Id_staff_type_staff =type_staff.Id_type_staff and staff_event.Id_staff_event_event= events.Id_events", conn);
             SqlCommandBuilder command = new SqlCommandBuilder(adapter);
             DataTable ds = new DataTable();
             adapter.Fill(ds);
@@ -115,6 +186,5 @@ namespace App
     }
 }
 
-    
 
-      
+
