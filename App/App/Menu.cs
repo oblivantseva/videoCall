@@ -29,7 +29,7 @@ namespace App
             InitializeComponent();
             button1.Enabled = false;
             button2.Enabled = false;
-            //button4.Enabled = false;
+            button4.Enabled = false;
             //button5.Enabled = false;
         }
 
