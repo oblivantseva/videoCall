@@ -30,7 +30,7 @@ namespace App
             button1.Enabled = false;
             button2.Enabled = false;
             button4.Enabled = false;
-            button5.Enabled = false;
+            //button5.Enabled = false;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -118,7 +118,7 @@ namespace App
                 }
             }
             connection.Close();
-            Moderation mod = new Moderation(fio,idT,idM);
+            Moderation mod = new Moderation(fio,idT,idM,this);
             mod.Show();
         }
 
@@ -169,6 +169,7 @@ namespace App
             }
             connection.Close();
             ReceptionCalls reC = new ReceptionCalls(fio, idT, idOper, this);
+       
             reC.Show();
         }
         public void ClearForm()
@@ -182,8 +183,29 @@ namespace App
         }
         private void button5_Click(object sender, EventArgs e)
         {
-            Event st = new Event();//хз на какую форму надо?
-            st.Show();
+            //Event st = new Event();//хз на какую форму надо?
+            //st.Show();
+            string fio = "";
+            int idT = 0;
+            int idOper = 0;
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = connection;
+            connection.Open();
+            cmd.CommandText = "SELECT * FROM dbo.staff  WHERE log = '" + login.Text + "' and pass='" + pass.Text + "'";
+            cmd.ExecuteNonQuery();
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader != null)
+            {
+                if (reader.Read())
+                {
+                    fio = reader[2].ToString() + " " + reader[1].ToString() + " " + reader[3].ToString();
+                    int.TryParse(reader[8].ToString(), out idT);
+                    int.TryParse(reader[0].ToString(), out idOper);
+                }
+            }
+            connection.Close();
+            EventManagement bg = new EventManagement(fio, idT, idOper, this);
+            bg.Show();
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -200,6 +222,11 @@ namespace App
         private void pass_Click(object sender, EventArgs e)
         {
             pass.Clear();
+        }
+
+        private void Menu_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
