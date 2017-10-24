@@ -240,12 +240,13 @@ namespace App
 
                     cmd.ExecuteNonQuery();
                     connection.Close();
-                    button3.Text = "Указано";
-                    button3.Enabled = false; label11.Text = "";
-                    fam.Clear(); name.Clear(); otch.Clear(); telephone.Clear(); age.Clear(); quest.Clear();
-                    comboBox1.SelectedIndex = -1;
-                    comboBox2.SelectedIndex = -1;
-                    comboBox3.SelectedIndex = -1;
+                    //button3.Text = "Указано";
+                    //button3.Enabled = false;
+                label11.Text = "";
+                    //fam.Clear(); name.Clear(); otch.Clear(); telephone.Clear(); age.Clear(); quest.Clear();
+                    //comboBox1.SelectedIndex = -1;
+                    //comboBox2.SelectedIndex = -1;
+                    //comboBox3.SelectedIndex = -1;
                 
             }
         }
