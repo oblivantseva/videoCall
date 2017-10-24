@@ -17,15 +17,54 @@ namespace App
     public partial class EventManagement : Form
     {
         public DataSet DS;
-        public SqlConnection connection = new SqlConnection();
-        public SqlCommand command = new SqlCommand();
+        public SqlConnection connection = new SqlConnection();int idAdmin;
+        public SqlCommand command = new SqlCommand();Menu f;
         public string stringPath = Properties.Settings.Default.stringPath;
-        public EventManagement()
+        public EventManagement(string fio, int idType, int idModer,Menu form)
 
         {
+            idAdmin = idModer;
+            f = form; 
+            connection.ConnectionString = stringPath;
             InitializeComponent();
+            textBox1.Text = fio;
+            print_event(idModer);
+            fillTypeStaff(idType);
         }
+        public void fillTypeStaff(int idType)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = connection;
+            connection.Open();
+            cmd.CommandText = "SELECT * FROM type_staff  WHERE Id_type_staff= '" + idType + "'";
+            cmd.ExecuteNonQuery();
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader != null)
+            {
+                if (reader.Read())
+                {
+                    textBox2.Text = reader[1].ToString();
 
+                }
+            }
+            connection.Close();
+        }
+        public void print_event(int id)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = connection;
+            connection.Open();
+            SqlCommand command = connection.CreateCommand();
+            command.CommandText = "SELECT events.name FROM dbo.events, dbo.staff_event where events.Id_events=staff_event.Id_staff_event_event and staff_event.Id_staff_event_staff='" + id + "'";
+            SqlDataReader dr1 = command.ExecuteReader();
+            if (dr1.Read())
+            {
+                textBox5.Text = dr1[0].ToString();
+                dr1.Close();
+            }
+            connection.Close();
+
+        }
         private void button2_Click(object sender, EventArgs e)
         {
           
@@ -58,6 +97,20 @@ namespace App
         {
             groupBox1.Visible = false;
             VivodD();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = connection;
+            connection.Open();
+            cmd.CommandText = "Update staff set online=0 Where Id_staff='" + idAdmin + "'";
+            cmd.ExecuteNonQuery();
+            cmd.Clone();
+            connection.Close();
+            this.Close();
+            f.Activate();
+            f.ClearForm();
         }
     }
 }
