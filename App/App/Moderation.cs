@@ -21,12 +21,8 @@ namespace App
         public SqlCommand command = new SqlCommand();Menu f;
         public string stringPath = Properties.Settings.Default.stringPath;
         int idModeration;
-<<<<<<< HEAD
         public int message;
-        public Moderation(string fio, int idType, int idModer)
-=======
         public Moderation(string fio, int idType, int idModer,Menu form)
->>>>>>> 9955c571e60038386304f99dc9bd1296b5ba2dbf
         {
             f = form;
             idModeration = idModer;
@@ -79,7 +75,7 @@ namespace App
             //    dr.Close();
 
             string sql = "SELECT        [user].*, messages.message_text, messages.datatime, federal_districts.federal_districts, message_categories.message_categories, " +
-                 " status_message.status_message, message_processing.answer_comment ,messages.processed" +
+                 " status_message.status_message, message_processing.answer_comment ,messages.processed, messages.Id_message" +
                          " FROM            message_categories INNER JOIN " +
                          " messages ON message_categories.Id_message_categories = messages.id_message_message_categories INNER JOIN " +
                          " [user] ON messages.Id_message_user = [user].Id_user INNER JOIN " +
@@ -257,7 +253,7 @@ namespace App
             // cmd.Connection = connection;
             connection.Open();
             string sql = "SELECT        [user].*, messages.message_text, messages.datatime, federal_districts.federal_districts, message_categories.message_categories, " +
-                " status_message.status_message, message_processing.answer_comment,messages.processed, messages.Id_messages" +
+                " status_message.status_message, message_processing.answer_comment,messages.processed, messages.Id_message" +
                         " FROM            message_categories INNER JOIN " +
                         " messages ON message_categories.Id_message_categories = messages.id_message_message_categories INNER JOIN " +
                         " [user] ON messages.Id_message_user = [user].Id_user INNER JOIN " +
@@ -377,16 +373,16 @@ namespace App
 
         private void button2_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
             connection.Open();
             string qs = @"INSERT INTO dbo.[message_processing](Id_message_processing_staff, Id_message_processing_message, Id_message_processing_status_message) VALUES('" + idModeration + "', '" + message + "','" + 1 + "')";
             SqlCommand command = new SqlCommand(qs, connection);
             int Zaversh = command.ExecuteNonQuery();
             connection.Close();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+          
             
         }
     }
