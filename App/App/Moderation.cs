@@ -21,12 +21,8 @@ namespace App
         public SqlCommand command = new SqlCommand();Menu f;
         public string stringPath = Properties.Settings.Default.stringPath;
         int idModeration;
-<<<<<<< HEAD
         public int message;
-        public Moderation(string fio, int idType, int idModer)
-=======
         public Moderation(string fio, int idType, int idModer,Menu form)
->>>>>>> 9955c571e60038386304f99dc9bd1296b5ba2dbf
         {
             f = form;
             idModeration = idModer;
