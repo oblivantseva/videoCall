@@ -81,12 +81,15 @@ namespace App
                 //string strDate1 = "select convert(nvarchar(20), getdate(), 104)";
                 DateTime d1 = DateTime.ParseExact(strDate1, "dd.MM.yyyy", null);
 
-                if (d1.Date >= d2.Date) {
+                if (d1.Date >= d2.Date)
+                {
                     button2.Visible = true;
                     button3.Visible = true;
                     button4.Visible = true;
                 }
-                else { button2.Visible = false;
+                else
+                {
+                    button2.Visible = false;
                     button3.Visible = false;
                     button4.Visible = false;
                 }
@@ -104,6 +107,8 @@ namespace App
             groupBox1.Visible = true;
             groupBox1.Text = "Добавить";
             Staf();
+            dol();
+
         }
         public void Staf()
         {
@@ -126,11 +131,11 @@ namespace App
 
             //comboBox2.DataSource = tbl;
             //comboBox2.DisplayMember = "first_name";//+ " second_name "+ " patronymic";
-           
+
             //comboBox2.ValueMember = "Id_staff";
         }
         public void eventsss()
-      
+
         {
             string qs = "SELECT * FROM dbo.events";
             SqlCommand command = new SqlCommand(qs, connection);
@@ -141,8 +146,8 @@ namespace App
             comboBox1.DataSource = tbl;
             comboBox1.DisplayMember = "name";
             comboBox1.ValueMember = "Id_events";
-        
-    }
+
+        }
         public void VivodD()
         {
 
@@ -183,8 +188,72 @@ namespace App
             f.Activate();
             f.ClearForm();
         }
+        public void dol()
+        {
+            string qs = "SELECT * FROM dbo.type_staff";
+            SqlCommand command = new SqlCommand(qs, connection);
+            System.Data.DataTable tbl = new System.Data.DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(command);
+            da.Fill(tbl);
+
+            comboBox3.DataSource = tbl;
+            comboBox3.DisplayMember = "type_staff";
+            comboBox3.ValueMember = "Id_type_staff";
+        }
+
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            {
+                if (comboBox1.Text == "" || comboBox2.Text == "" || comboBox3.Text == "")
+                {
+
+                    MessageBox.Show("Проверьте правильность введеных вами данных!", "Ошибка");
+                    return;
+                }
+                SqlConnection conn = new SqlConnection(stringPath);
+                conn.Open();
+                dataGridView1.Visible = true;
+                groupBox1.Visible = false;
+                button1.Enabled = true;
+                button2.Enabled = true;
+                //SqlCommand ID = new SqlCommand(@"select IdMagazine from Magazine where IdMagazine = (select max(IdMagazine) from Magazine)", conn);//последний id
+                //ID.ExecuteScalar();
+                string sql = "INSERT INTO Magazine VALUES ('" + comboBox2.Text.Trim() + "','" + comboBox1.Text.Trim() + "','" + comboBox3.Text.Trim() + "')";
+                SqlCommand command = conn.CreateCommand();
+                command.CommandText = sql;
+                command.ExecuteNonQuery();
+                conn.Close();
+                VivodD();
+                dataGridView1.Rows[dataGridView1.Rows.Count - 1].Selected = true;
+                dataGridView1.CurrentCell = dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells[1];
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            {
+
+                if (dataGridView1.SelectedCells.Count != 0)
+                {
+                    if (MessageBox.Show("Вы действительно хотите удалить запись?", "Удаление записи", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                    {
+
+                        SqlConnection conn = new SqlConnection(stringPath);
+                        conn.Open();
+                        string sql = "DELETE FROM staff_event  WHERE Id_staff_event=" + dataGridView1[0, dataGridView1.SelectedRows[0].Index].Value;
+                        SqlCommand command = conn.CreateCommand();
+                        command.CommandText = sql;
+                        command.ExecuteNonQuery();
+                        conn.Close();
+                        VivodD();
+                    }
+                }
+            }
+        }
     }
 }
+
 
 
 
