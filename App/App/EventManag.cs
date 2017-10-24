@@ -219,7 +219,7 @@ namespace App
                 button2.Enabled = true;
                 //SqlCommand ID = new SqlCommand(@"select IdMagazine from Magazine where IdMagazine = (select max(IdMagazine) from Magazine)", conn);//последний id
                 //ID.ExecuteScalar();
-                string sql = "INSERT INTO Magazine VALUES ('" + comboBox2.Text.Trim() + "','" + comboBox1.Text.Trim() + "','" + comboBox3.Text.Trim() + "')";
+                string sql = "INSERT INTO staff_event(Id_staff_event_staff,Id_staff_event_event) VALUES ('" + Convert.ToInt32(comboBox2.SelectedValue) + "','" + Convert.ToInt32(comboBox1.SelectedValue) + "')";// "','" + Convert.ToInt32(comboBox3.SelectedValue) + "')";
                 SqlCommand command = conn.CreateCommand();
                 command.CommandText = sql;
                 command.ExecuteNonQuery();
