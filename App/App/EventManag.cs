@@ -29,7 +29,7 @@ namespace App
             InitializeComponent();
             textBox1.Text = fio;
             print_event(idModer);
-            fillTypeStaff(idType);
+            fillTypeStaff(idType); eventsss();
         }
         public void fillTypeStaff(int idType)
         {
