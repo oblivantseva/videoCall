@@ -20,6 +20,7 @@ namespace App
         public SqlCommand command = new SqlCommand();
         public string stringPath = Properties.Settings.Default.stringPath;
         int idModeration;
+        public int message;
         public Moderation(string fio, int idType, int idModer)
         {
             idModeration = idModer;
@@ -249,7 +250,7 @@ namespace App
             // cmd.Connection = connection;
             connection.Open();
             string sql = "SELECT        [user].*, messages.message_text, messages.datatime, federal_districts.federal_districts, message_categories.message_categories, " +
-                " status_message.status_message, message_processing.answer_comment,messages.processed" +
+                " status_message.status_message, message_processing.answer_comment,messages.processed, messages.Id_messages" +
                         " FROM            message_categories INNER JOIN " +
                         " messages ON message_categories.Id_message_categories = messages.id_message_message_categories INNER JOIN " +
                         " [user] ON messages.Id_message_user = [user].Id_user INNER JOIN " +
@@ -348,6 +349,7 @@ namespace App
         {
             textBox6.Text = dataGridView1[1, dataGridView1.CurrentRow.Index].Value.ToString();
             textBox5.Text = dataGridView1[8, dataGridView1.CurrentRow.Index].Value.ToString();
+            message = Convert.ToInt32(dataGridView1[15, dataGridView1.CurrentRow.Index].Value.ToString());
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -357,7 +359,12 @@ namespace App
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            connection.Open();
+            string qs = @"INSERT INTO dbo.[message_processing](Id_message_processing_staff, Id_message_processing_message, Id_message_processing_status_message) VALUES('" + idModeration + "', '" + message + "','" + 1 + "')";
+            SqlCommand command = new SqlCommand(qs, connection);
+            int Zaversh = command.ExecuteNonQuery();
+            connection.Close();
+            
         }
     }
 }
