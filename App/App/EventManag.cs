@@ -108,6 +108,7 @@ namespace App
             groupBox1.Text = "Добавить";
             Staf();
             dol();
+            
 
         }
         public void Staf()
@@ -123,6 +124,7 @@ namespace App
             comboBox2.DisplayMember = "fio";
             comboBox2.DataSource = ds;
             conn1.Close();
+         
             //string qs = "SELECT * FROM dbo.staff";
             //SqlCommand command = new SqlCommand(qs, connection);
             //System.Data.DataTable tbl = new System.Data.DataTable();
@@ -228,6 +230,7 @@ namespace App
                 dataGridView1.Rows[dataGridView1.Rows.Count - 1].Selected = true;
                 dataGridView1.CurrentCell = dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells[1];
             }
+            EventManagement_Load(sender, e);
         }
 
         private void button3_Click(object sender, EventArgs e)
