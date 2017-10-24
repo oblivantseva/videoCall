@@ -99,7 +99,7 @@ namespace App
                         SqlCommand command2 = connection.CreateCommand();
                         command2.CommandText = @"INSERT INTO dbo.[messages](datatime, Id_message_user, Id_message_type_message, message_text, 
 Id_message_event, media_content, Id_message_message_categories) 
-VALUES ('" + DateTime.Now + "','" + idO + "', '4','" + quest.Text +
+VALUES (GETDATE (),'" + idO + "', '4','" + quest.Text +
                         "','" + Convert.ToInt32(id.Text) +
                         "','" + axWindowsMediaPlayer1.URL + "','" + Convert.ToInt32(comboBox1.SelectedValue) + "')";
                         int Zaversh2 = command2.ExecuteNonQuery();
