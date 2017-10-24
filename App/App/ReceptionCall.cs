@@ -19,6 +19,7 @@ namespace App
         public string stringPath = Properties.Settings.Default.stringPath;
         public ReceptionCalls(string fio, int idType, int idOper, Menu form)
         {
+            f = form;
             connection.ConnectionString = stringPath;
             idOp = idOper;
             InitializeComponent();
@@ -38,11 +39,12 @@ namespace App
             cmd.Connection = connection;
             connection.Open();
             SqlCommand command = connection.CreateCommand();
-            command.CommandText = "SELECT events.name FROM dbo.events, dbo.staff_event where events.Id_events=staff_event.Id_staff_event_event and staff_event.Id_staff_event_staff='" + id + "'";
+            command.CommandText = "SELECT events.name,Id_events FROM dbo.events, dbo.staff_event where events.Id_events=staff_event.Id_staff_event_event and staff_event.Id_staff_event_staff='" + id + "'";
             SqlDataReader dr1 = command.ExecuteReader();
             if (dr1.Read())
             {
                 textBox9.Text = dr1[0].ToString();
+                idTb.Text = dr1[1].ToString();
                 dr1.Close();
             }
             connection.Close();
@@ -90,65 +92,7 @@ namespace App
                 e.Handled = true;
         }
 
-        private void ReceptionCalls_Load(object sender, EventArgs e)
-        {
-           id.Text = textBox9.ToString();
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label12_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label13_Click(object sender, EventArgs e)
-        {
-
-        }
+ 
         public void federals_Load()
         {
             string qs = "SELECT * FROM dbo.federal_districts";
@@ -161,7 +105,7 @@ namespace App
             comboBox1.DisplayMember = "federal_districts";
             comboBox1.ValueMember = "Id_federal_districts";
         }
-  
+
         public void categor_Load()
         {
             string qs = "SELECT * FROM dbo.message_categories";
@@ -203,7 +147,8 @@ namespace App
 
         private void button2_Click(object sender, EventArgs e)
         {
-         
+            if (comboBox1.Text != "" && quest.Text != "" && comboBox2.Text != "")
+            {
                 connection.Open();
                 string qs = @"INSERT INTO dbo.[user](first_name, second_name, patronymic, telephone, age, id_user_federal_districts) VALUES('" + fam.Text + "', '" + name.Text + "','" + otch.Text + "', '" + telephone.Text + "','" + age.Text + "', '" + Convert.ToInt32(comboBox1.SelectedValue) + "')";
                 SqlCommand command = new SqlCommand(qs, connection);
@@ -220,43 +165,125 @@ namespace App
                         idO = Convert.ToInt32(dr1[0].ToString());
                         dr1.Close();
                         SqlCommand command2 = connection.CreateCommand();
-                    command2.CommandText = @"INSERT INTO dbo.[messages](datatime, Id_message_user, Id_message_type_message, message_text, 
-Id_message_event,  Id_message_message_categories) 
-VALUES ('12.12.2017 0:00:00','4', '1','ляля','1','1')";
-                    //                        command2.CommandText = @"INSERT INTO dbo.[messages](datatime, Id_message_user, Id_message_type_message, message_text, 
-                    //Id_message_event,  Id_message_message_categories) 
-                    //VALUES ('12.12.2017 0:00:00','" + idO + "', '1','" + quest.Text +
-                    //                        "','" + Convert.ToInt32(id.Text) + "','" + Convert.ToInt32(comboBox2.SelectedValue) + "')";
-                    int Zaversh2 = command2.ExecuteNonQuery();
+
+                        command2.CommandText = @"INSERT INTO dbo.[messages](datatime, Id_message_user, Id_message_type_message, message_text, 
+                    Id_message_event,  Id_message_message_categories,processed) 
+                    VALUES (GETDATE ( ),'" + idO + "', '1', N'" + quest.Text +
+                        "','" + Convert.ToInt32(idTb.Text) + "','" + Convert.ToInt32(comboBox2.SelectedValue) + "',1)";
+                        int Zaversh2 = command2.ExecuteNonQuery();
                         if (Zaversh2 != 0)
                         {
+                            connection.Close();
+                            ModerOnline(); 
+
                             MessageBox.Show("Обращение отправлено.");
                         }
                         else
                         {
+                            connection.Close();
+
                             MessageBox.Show("Ошибка при отправке обращения.");
                         }
-                        connection.Close();
+                    
                     }
                 }
                 else
                 {
                     MessageBox.Show("Ошибка при отправке обращения.");
                 }
-            fam.Clear();name.Clear();otch.Clear();telephone.Clear();age.Clear();quest.Clear();
-            button3.Text = "Указать как популярное";
-            button3.Enabled = true;
+                connection.Close();
+                //
+                button3.Text = "Указать как популярное";
+                button3.Enabled = true;
 
-            comboBox1.SelectedIndex = -1;
-            comboBox2.SelectedIndex = -1;
-            comboBox3.SelectedIndex = -1;
+                label11.Text = "";
+            }
+            else { label11.Text = "Федеральный округ,текст сообщения и категория сообщения-поля обязательные для заполнения!!! "; }
 
+        }
+        public void ModerOnline()
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = connection;
+            int idM = 0;
+            connection.Open();
+            cmd.CommandText = "SELECT TOP 1 Id_message FROM dbo.[messages] ORDER BY Id_message DESC";
+            cmd.ExecuteNonQuery();
+            SqlDataReader dr1 = cmd.ExecuteReader();
+            if (dr1.Read())
+            {
+                idM = Convert.ToInt32(dr1[0].ToString());
+                dr1.Close();
+                connection.Close();
+               // SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+                int idS = 0;
+                connection.Open();
+                cmd.CommandText = "SELECT TOP 1 Id_staff FROM dbo.[staff] Where Id_staff_type_staff='"+3+"' And online='true'";
+                cmd.ExecuteNonQuery();
+                SqlDataReader dr2 = cmd.ExecuteReader();
+                if (dr2.Read())
+                {
+                    idS = Convert.ToInt32(dr2[0].ToString());
+                    dr2.Close();
+                    connection.Close();
+                }
+                else
+                {
+                    idS = 4;
+                    dr2.Close();
+                    connection.Close();
+                }
+                    cmd.Connection = connection;
+                    connection.Open();
+                    cmd.CommandText = "INSERT INTO message_processing (Id_message_processing_staff,Id_message_processing_message,Id_message_processing_status_message) values('" + idM + "','" + idM + "','" + 2 + "')";
+
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                    button3.Text = "Указано";
+                    button3.Enabled = false; label11.Text = "";
+                    fam.Clear(); name.Clear(); otch.Clear(); telephone.Clear(); age.Clear(); quest.Clear();
+                    comboBox1.SelectedIndex = -1;
+                    comboBox2.SelectedIndex = -1;
+                    comboBox3.SelectedIndex = -1;
+                
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            button3.Text = "Указано";
-            button3.Enabled = false;
+            
+            if (comboBox3.Text!="")
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+                int idM=0;
+                connection.Open();
+                cmd.CommandText = "SELECT TOP 1 Id_message FROM dbo.[messages] ORDER BY Id_message DESC";
+                cmd.ExecuteNonQuery();
+                SqlDataReader dr1 = cmd.ExecuteReader();
+                if (dr1.Read())
+                {
+                    idM = Convert.ToInt32(dr1[0].ToString());
+                    dr1.Close();
+                    connection.Close();
+                
+                cmd.Connection = connection;
+                connection.Open();
+                cmd.CommandText = "INSERT INTO popular_messages (Id_popular_messages_message,Id_popular_messages_popular_group,vote) values('" + idM+ "','" + Convert.ToInt32(comboBox3.SelectedValue) + "','" + 1 + "')";
+
+                cmd.ExecuteNonQuery();
+                connection.Close();
+                button3.Text = "Указано";
+                button3.Enabled = false;label11.Text = "";
+                fam.Clear(); name.Clear(); otch.Clear(); telephone.Clear(); age.Clear(); quest.Clear();
+                comboBox1.SelectedIndex = -1;
+                comboBox2.SelectedIndex = -1;
+                comboBox3.SelectedIndex = -1;
+                }
+            }
+            else { label11.Text = "Выберите популярную группу"; }
+     
         }
     }
 }
