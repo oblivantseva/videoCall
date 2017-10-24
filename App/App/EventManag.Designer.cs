@@ -123,7 +123,7 @@
             this.button2.BackColor = System.Drawing.Color.Maroon;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button2.Location = new System.Drawing.Point(563, 160);
+            this.button2.Location = new System.Drawing.Point(563, 152);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(148, 40);
             this.button2.TabIndex = 56;
@@ -136,7 +136,7 @@
             this.button3.BackColor = System.Drawing.Color.Maroon;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button3.Location = new System.Drawing.Point(563, 295);
+            this.button3.Location = new System.Drawing.Point(563, 280);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(148, 40);
             this.button3.TabIndex = 57;
@@ -148,7 +148,7 @@
             this.button4.BackColor = System.Drawing.Color.Maroon;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button4.Location = new System.Drawing.Point(563, 203);
+            this.button4.Location = new System.Drawing.Point(563, 199);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(148, 40);
             this.button4.TabIndex = 58;
@@ -168,9 +168,9 @@
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.groupBox1.Location = new System.Drawing.Point(18, 160);
+            this.groupBox1.Location = new System.Drawing.Point(12, 147);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(542, 187);
+            this.groupBox1.Size = new System.Drawing.Size(548, 200);
             this.groupBox1.TabIndex = 59;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Добавление";
