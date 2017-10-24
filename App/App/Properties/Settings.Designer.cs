@@ -27,12 +27,17 @@ namespace App.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
 
+<<<<<<< HEAD
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Database1.mdf" +
+            ";Integrated Security=True;Connect Timeout=30")]
+=======
         //[global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\call2presiden" +
         //    "t.mdf;Integrated Security=True;Connect Timeout=30")]
 
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Database1.mdf" +
             ";Integrated Security=True;Connect Timeout=30")]
 
+>>>>>>> eb0136dbeaf613aa360e658e16abccb6a4eb2a60
         public string stringPath {
             get {
                 return ((string)(this["stringPath"]));
