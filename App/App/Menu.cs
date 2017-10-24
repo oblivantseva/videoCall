@@ -169,6 +169,7 @@ namespace App
             }
             connection.Close();
             ReceptionCalls reC = new ReceptionCalls(fio, idT, idOper, this);
+       
             reC.Show();
         }
         public void ClearForm()

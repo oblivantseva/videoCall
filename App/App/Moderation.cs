@@ -286,10 +286,18 @@ namespace App
                 cmd.Connection = connection;
                 SqlCommand command = connection.CreateCommand();
                 command.CommandText = query;
+<<<<<<< HEAD
+                //нужно поменять название видео файлов,поэтому заккоментила
+                SqlDataReader dr1 = command.ExecuteReader();
+                if (dr1.Read())
+                {
+                    axWindowsMediaPlayer1.URL = dr1[0].ToString();
+=======
                 SqlDataReader dr1 = command.ExecuteReader();
                 if (dr1.Read())
                 {
                     axWindowsMediaPlayer1.URL = dr1[0].ToString(); 
+>>>>>>> 50f8968d7f32a93dd5edeea1513c02f1a8941bf6
                 }
                 dataGridView1.DataSource = ds.Tables[0];
             }
