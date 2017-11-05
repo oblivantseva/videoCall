@@ -332,15 +332,21 @@ namespace App
 
         private void button6_Click(object sender, EventArgs e)
         {
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+                connection.Open();
+                cmd.CommandText = "INSERT INTO popular_group (content,Id_popular_group_event) values(N'" + comboBox5.Text + "','" + 5 + "')";
 
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = connection;
-            connection.Open();
-            cmd.CommandText = "INSERT INTO popular_group (content,Id_popular_group_event) values(N'" + comboBox5.Text + "','" + 5 + "')";
-
-            cmd.ExecuteNonQuery();
-            connection.Close();
-            popular_groupLoad();
+                cmd.ExecuteNonQuery();
+                connection.Close();
+                popular_groupLoad();
+            }
+            catch (Exception ex)
+            {
+                connection.Close();
+            }
 
 
         }
@@ -374,11 +380,11 @@ namespace App
 
         private void button2_Click(object sender, EventArgs e)
         {
-            connection.Open();
-            string qs = @"INSERT INTO dbo.[message_processing](Id_message_processing_staff, Id_message_processing_message, Id_message_processing_status_message) VALUES('" + idModeration + "', '" + message + "','" + 1 + "')";
-            SqlCommand command = new SqlCommand(qs, connection);
-            int Zaversh = command.ExecuteNonQuery();
-            connection.Close();
+            //connection.Open();
+            //string qs = @"INSERT INTO dbo.[message_processing](Id_message_processing_staff, Id_message_processing_message, Id_message_processing_status_message) VALUES('" + idModeration + "', '" + message + "','" + 1 + "')";
+            //SqlCommand command = new SqlCommand(qs, connection);
+            //int Zaversh = command.ExecuteNonQuery();
+            //connection.Close();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

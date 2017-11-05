@@ -237,10 +237,10 @@ namespace App
             connection.Open();
             cmd.CommandText = "INSERT INTO staff_event(Id_staff_event_staff, Id_staff_event_event) VALUES('" + Convert.ToInt32(comboBox2.SelectedValue) + "', '" + Convert.ToInt32(comboBox1.SelectedValue) + "')";// "','" + Convert.ToInt32(comboBox3.SelectedValue) + "')";
 
-             cmd.CommandText = "SELECT MAX(ID_S)FROM SotrTable";
+             //cmd.CommandText = "SELECT MAX(ID_S)FROM SotrTable";
             cmd.ExecuteNonQuery();
 
-            SqlDataReader reader = cmd.ExecuteReader();
+          //  SqlDataReader reader = cmd.ExecuteReader();
             //if (reader != null)
             //{
             //    if (reader.Read())
@@ -248,7 +248,7 @@ namespace App
             //        int.TryParse(reader[0].ToString(), out id);
             //    }
             //}
-            //connection.Close();
+            connection.Close();
         }
 
         private void button3_Click(object sender, EventArgs e)

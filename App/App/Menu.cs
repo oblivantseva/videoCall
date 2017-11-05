@@ -30,7 +30,7 @@ namespace App
             button1.Enabled = false;
             button2.Enabled = false;
             button4.Enabled = false;
-            //button5.Enabled = false;
+            button5.Enabled = false;
         }
 
         private void button3_Click(object sender, EventArgs e)
