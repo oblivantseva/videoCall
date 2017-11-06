@@ -206,31 +206,49 @@ namespace App
 
         private void button5_Click(object sender, EventArgs e)
         {
-            {
-                if (comboBox1.Text == "" || comboBox2.Text == "" || comboBox3.Text == "")
-                {
+            //{
+            //    if (comboBox1.Text == "" || comboBox2.Text == "" || comboBox3.Text == "")
+            //    {
 
-                    MessageBox.Show("Проверьте правильность введеных вами данных!", "Ошибка");
-                    return;
-                }
-                SqlConnection conn = new SqlConnection(stringPath);
-                conn.Open();
-                dataGridView1.Visible = true;
-                groupBox1.Visible = false;
-                button1.Enabled = true;
-                button2.Enabled = true;
-                //SqlCommand ID = new SqlCommand(@"select IdMagazine from Magazine where IdMagazine = (select max(IdMagazine) from Magazine)", conn);//последний id
-                //ID.ExecuteScalar();
-                string sql = "INSERT INTO staff_event(Id_staff_event_staff,Id_staff_event_event) VALUES ('" + Convert.ToInt32(comboBox2.SelectedValue) + "','" + Convert.ToInt32(comboBox1.SelectedValue) + "')";// "','" + Convert.ToInt32(comboBox3.SelectedValue) + "')";
-                SqlCommand command = conn.CreateCommand();
-                command.CommandText = sql;
-                command.ExecuteNonQuery();
-                conn.Close();
-                VivodD();
-                dataGridView1.Rows[dataGridView1.Rows.Count - 1].Selected = true;
-                dataGridView1.CurrentCell = dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells[1];
-            }
-            EventManagement_Load(sender, e);
+            //        MessageBox.Show("Проверьте правильность введеных вами данных!", "Ошибка");
+            //        return;
+            //    }
+            //    SqlConnection conn = new SqlConnection(stringPath);
+            //    conn.Open();
+            //    dataGridView1.Visible = true;
+            //    groupBox1.Visible = false;
+            //    button1.Enabled = true;
+            //    button2.Enabled = true;
+            //    //SqlCommand ID = new SqlCommand(@"select IdMagazine from Magazine where IdMagazine = (select max(IdMagazine) from Magazine)", conn);//последний id
+            //    //ID.ExecuteScalar();
+            //    string sql = "INSERT INTO staff_event(Id_staff_event_staff,Id_staff_event_event) VALUES ('" + Convert.ToInt32(comboBox2.SelectedValue) + "','" + Convert.ToInt32(comboBox1.SelectedValue) + "')";// "','" + Convert.ToInt32(comboBox3.SelectedValue) + "')";
+            //    SqlCommand command = conn.CreateCommand();
+            //    command.CommandText = sql;
+            //    command.ExecuteNonQuery();
+            //    conn.Close();
+            //    VivodD();
+            //    dataGridView1.Rows[dataGridView1.Rows.Count - 1].Selected = true;
+            //    dataGridView1.CurrentCell = dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells[1];
+            //}
+            //EventManagement_Load(sender, e);
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = connection;
+
+            connection.Open();
+            cmd.CommandText = "INSERT INTO staff_event(Id_staff_event_staff, Id_staff_event_event) VALUES('" + Convert.ToInt32(comboBox2.SelectedValue) + "', '" + Convert.ToInt32(comboBox1.SelectedValue) + "')";// "','" + Convert.ToInt32(comboBox3.SelectedValue) + "')";
+
+             //cmd.CommandText = "SELECT MAX(ID_S)FROM SotrTable";
+            cmd.ExecuteNonQuery();
+
+          //  SqlDataReader reader = cmd.ExecuteReader();
+            //if (reader != null)
+            //{
+            //    if (reader.Read())
+            //    {
+            //        int.TryParse(reader[0].ToString(), out id);
+            //    }
+            //}
+            connection.Close();
         }
 
         private void button3_Click(object sender, EventArgs e)
