@@ -224,9 +224,13 @@ namespace App
             pass.Clear();
         }
 
-        private void Menu_Load(object sender, EventArgs e)
+        private void Menu_DoubleClick(object sender, EventArgs e)
         {
-
+            button1.Enabled = true;
+            button2.Enabled = true;
+            button3.Enabled = true;
+            button4.Enabled = true;
+            button5.Enabled = true;
         }
     }
 }

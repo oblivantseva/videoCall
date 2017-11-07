@@ -76,7 +76,7 @@ namespace App
 
             if (Regex.IsMatch(email, cond))
             {
-                MessageBox.Show("Ошибка ввода Email");
+                label9.Text = "Ошибка ввода Email";
 
             }
             else
@@ -98,25 +98,36 @@ namespace App
                         dr1.Close();
                         SqlCommand command2 = connection.CreateCommand();
                         command2.CommandText = @"INSERT INTO dbo.[messages](datatime, Id_message_user, Id_message_type_message, message_text, 
-Id_message_event, media_content, Id_message_message_categories) 
-VALUES (GETDATE (),'" + idO + "', '4','" + quest.Text +
+                        Id_message_event, media_content, Id_message_message_categories) 
+                        VALUES (GETDATE (),'" + idO + "', '4','" + quest.Text +
                         "','" + Convert.ToInt32(id.Text) +
                         "','" + axWindowsMediaPlayer1.URL + "','" + Convert.ToInt32(comboBox1.SelectedValue) + "')";
                         int Zaversh2 = command2.ExecuteNonQuery();
                         if (Zaversh2 != 0)
                         {
-                            MessageBox.Show("Обращение отправлено.");
+                            label9.Text = "Обращение отправлено.";
                         }
                         else
                         {
-                            MessageBox.Show("Ошибка при отправке обращения.");
+                            label9.Text = "Ошибка при отправке обращения.";
+                        }
+
+                        command.CommandText = "SELECT TOP 1 Id_message FROM dbo.[messages] ORDER BY Id_message DESC";
+                        SqlDataReader dr2 = command.ExecuteReader();
+                        if (dr2.Read())
+                        {
+                            int idM = Convert.ToInt32(dr2[0].ToString());
+                            dr2.Close();
+                            command2.CommandText = @"INSERT INTO dbo.message_processing(Id_message_processing_staff, Id_message_processing_message, Id_message_processing_status_message) 
+                                                    VALUES (2,'" + idM + "', '4')";
+                            Zaversh2 = command2.ExecuteNonQuery();
                         }
                         connection.Close();
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Ошибка при отправке обращения.");
+                    label9.Text = "Ошибка при отправке обращения.";
                 }
             }
         }
@@ -160,7 +171,7 @@ VALUES (GETDATE (),'" + idO + "', '4','" + quest.Text +
             //    label9.Text = "";
             //}
         }
-    private void textBox2_TextChanged(object sender, EventArgs e)
+        private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -187,7 +198,7 @@ VALUES (GETDATE (),'" + idO + "', '4','" + quest.Text +
         private void age_KeyPress(object sender, KeyPressEventArgs e)
         {
             {
-                
+
                 if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
                 {
                     label9.Text = "Неверный ввод";
@@ -204,32 +215,13 @@ VALUES (GETDATE (),'" + idO + "', '4','" + quest.Text +
         {
             if (tel.Text.Length > 11)
             {
-                MessageBox.Show("Номер телефона должен состоять из 11 цифр. Попробуйте ввести данные еще раз.", "Ошибка");
+                label9.Text = "Номер телефона должен состоять из 11 цифр. Попробуйте ввести данные еще раз.";
                 tel.ReadOnly = false;
                 tel.Clear();
             }
         }
 
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Event_Load_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Event_Load_2(object sender, EventArgs e)
-        {
-
-        }
     }
-        }
-   
-    
+}
+
+

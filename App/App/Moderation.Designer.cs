@@ -66,6 +66,8 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -208,7 +210,7 @@
             this.textBox5.Location = new System.Drawing.Point(17, 271);
             this.textBox5.Multiline = true;
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(216, 157);
+            this.textBox5.Size = new System.Drawing.Size(216, 114);
             this.textBox5.TabIndex = 14;
             // 
             // textBox6
@@ -269,6 +271,7 @@
             this.button4.TabIndex = 19;
             this.button4.Text = "В группу популярных";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
@@ -444,6 +447,25 @@
             this.Column5.HeaderText = "Процесс";
             this.Column5.Name = "Column5";
             // 
+            // id
+            // 
+            this.id.Location = new System.Drawing.Point(258, 312);
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Size = new System.Drawing.Size(26, 20);
+            this.id.TabIndex = 32;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label10.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label10.Location = new System.Drawing.Point(14, 402);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(0, 13);
+            this.label10.TabIndex = 33;
+            // 
             // Moderation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
@@ -451,6 +473,8 @@
             this.BackColor = System.Drawing.SystemColors.HotTrack;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(994, 449);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.id);
             this.Controls.Add(this.checkBox4);
             this.Controls.Add(this.checkBox3);
             this.Controls.Add(this.checkBox2);
@@ -535,6 +559,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-
+        private System.Windows.Forms.TextBox id;
+        private System.Windows.Forms.Label label10;
     }
 }

@@ -160,7 +160,7 @@
             this.Controls.Add(this.button3);
             this.Name = "Menu";
             this.Text = "Menu";
-            this.Load += new System.EventHandler(this.Menu_Load);
+            this.DoubleClick += new System.EventHandler(this.Menu_DoubleClick);
             this.ResumeLayout(false);
             this.PerformLayout();
 
