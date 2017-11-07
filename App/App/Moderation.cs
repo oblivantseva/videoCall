@@ -159,7 +159,11 @@ namespace App
 
         private void button5_Click(object sender, EventArgs e)
         {
-
+            connection.Open();
+            string qs = @"INSERT INTO dbo.[message_processing](Id_message_processing_staff, Id_message_processing_message, Id_message_processing_status_message) VALUES('" + idModeration + "', '" + message + "','" + 4 + "')";
+            SqlCommand command = new SqlCommand(qs, connection);
+            int Zaversh = command.ExecuteNonQuery();
+            connection.Close();
         }
 
         private void Moderation_Load(object sender, EventArgs e)
@@ -291,19 +295,34 @@ namespace App
                 command.CommandText = query;
 
                 //нужно поменять название видео файлов,поэтому заккоментила
-                SqlDataReader dr1 = command.ExecuteReader();
-                if (dr1.Read())
-                {
+<<<<<<< HEAD
+               // SqlDataReader dr1 = command.ExecuteReader();
+               // if (dr1.Read())
+               // {
+                  //  axWindowsMediaPlayer1.URL = dr1[0].ToString();
+                  //  SqlDataReader dr1 = command.ExecuteReader();
+                //    if (dr1.Read())
+                 //   {
+                    //    axWindowsMediaPlayer1.URL = dr1[0].ToString();
 
-                    axWindowsMediaPlayer1.URL = dr1[0].ToString();
-                    //  SqlDataReader dr1 = command.ExecuteReader();
-                    if (dr1.Read())
-                    {
-                        axWindowsMediaPlayer1.URL = dr1[0].ToString();
-
-                    }
+                 //   }
                     dataGridView1.DataSource = ds.Tables[0];
-                }
+               // }
+=======
+                //SqlDataReader dr1 = command.ExecuteReader();
+                //if (dr1.Read())
+                //{
+                   
+                //    axWindowsMediaPlayer1.URL = dr1[0].ToString();
+                //  //  SqlDataReader dr1 = command.ExecuteReader();
+                //    if (dr1.Read())
+                //    {
+                //        axWindowsMediaPlayer1.URL = dr1[0].ToString();
+
+                //    }
+                    dataGridView1.DataSource = ds.Tables[0];
+                //}
+>>>>>>> 46f95c0050393322ef6c773326ff75979c10513a
                 dataGridView1.Columns[0].Visible = false;
                 dataGridView1.Columns[2].Visible = false;
                 dataGridView1.Columns[3].Visible = false;
@@ -339,6 +358,16 @@ namespace App
                 connection.Open();
                 cmd.CommandText = "INSERT INTO popular_group (content,Id_popular_group_event) values(N'" + comboBox5.Text + "','" + 5 + "')";
 
+<<<<<<< HEAD
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = connection;
+            connection.Open();
+            cmd.CommandText = "INSERT INTO popular_group (content,Id_popular_group_event) values(N'" + comboBox5.Text + "','" + 6 + "')";
+
+            cmd.ExecuteNonQuery();
+            connection.Close();
+            popular_groupLoad();
+=======
                 cmd.ExecuteNonQuery();
                 connection.Close();
                 popular_groupLoad();
@@ -347,6 +376,7 @@ namespace App
             {
                 connection.Close();
             }
+>>>>>>> 46f95c0050393322ef6c773326ff75979c10513a
 
 
         }
@@ -380,17 +410,43 @@ namespace App
 
         private void button2_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
+            connection.Open();
+            string qs = @"INSERT INTO dbo.[message_processing](Id_message_processing_staff, Id_message_processing_message, Id_message_processing_status_message) VALUES('" + idModeration + "', '" + message + "','" + 2 + "')";
+            SqlCommand command = new SqlCommand(qs, connection);
+            int Zaversh = command.ExecuteNonQuery();
+            connection.Close();
+=======
             //connection.Open();
             //string qs = @"INSERT INTO dbo.[message_processing](Id_message_processing_staff, Id_message_processing_message, Id_message_processing_status_message) VALUES('" + idModeration + "', '" + message + "','" + 1 + "')";
             //SqlCommand command = new SqlCommand(qs, connection);
             //int Zaversh = command.ExecuteNonQuery();
             //connection.Close();
+>>>>>>> 46f95c0050393322ef6c773326ff75979c10513a
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
           
             
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            connection.Open();
+            string qs = @"INSERT INTO dbo.[message_processing](Id_message_processing_staff, Id_message_processing_message, Id_message_processing_status_message) VALUES('" + idModeration + "', '" + message + "','" + 1 + "')";
+            SqlCommand command = new SqlCommand(qs, connection);
+            int Zaversh = command.ExecuteNonQuery();
+            connection.Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            connection.Open();
+            string qs = @"INSERT INTO dbo.[message_processing](Id_message_processing_staff, Id_message_processing_message, Id_message_processing_status_message) VALUES('" + idModeration + "', '" + message + "','" + 3 + "')";
+            SqlCommand command = new SqlCommand(qs, connection);
+            int Zaversh = command.ExecuteNonQuery();
+            connection.Close();
         }
     }
 }
