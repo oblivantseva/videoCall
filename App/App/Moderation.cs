@@ -295,7 +295,7 @@ namespace App
                 command.CommandText = query;
 
                 //нужно поменять название видео файлов,поэтому заккоментила
-<<<<<<< HEAD
+
                // SqlDataReader dr1 = command.ExecuteReader();
                // if (dr1.Read())
                // {
@@ -308,7 +308,7 @@ namespace App
                  //   }
                     dataGridView1.DataSource = ds.Tables[0];
                // }
-=======
+
                 //SqlDataReader dr1 = command.ExecuteReader();
                 //if (dr1.Read())
                 //{
@@ -322,7 +322,6 @@ namespace App
                 //    }
                     dataGridView1.DataSource = ds.Tables[0];
                 //}
->>>>>>> 46f95c0050393322ef6c773326ff75979c10513a
                 dataGridView1.Columns[0].Visible = false;
                 dataGridView1.Columns[2].Visible = false;
                 dataGridView1.Columns[3].Visible = false;
@@ -353,12 +352,12 @@ namespace App
         {
             try
             {
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = connection;
-                connection.Open();
-                cmd.CommandText = "INSERT INTO popular_group (content,Id_popular_group_event) values(N'" + comboBox5.Text + "','" + 5 + "')";
+                //SqlCommand cmd = new SqlCommand();
+                //cmd.Connection = connection;
+                //connection.Open();
+                //cmd.CommandText = "INSERT INTO popular_group (content,Id_popular_group_event) values(N'" + comboBox5.Text + "','" + 5 + "')";
 
-<<<<<<< HEAD
+
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = connection;
             connection.Open();
@@ -367,7 +366,7 @@ namespace App
             cmd.ExecuteNonQuery();
             connection.Close();
             popular_groupLoad();
-=======
+
                 cmd.ExecuteNonQuery();
                 connection.Close();
                 popular_groupLoad();
@@ -376,7 +375,6 @@ namespace App
             {
                 connection.Close();
             }
->>>>>>> 46f95c0050393322ef6c773326ff75979c10513a
 
 
         }
@@ -410,19 +408,16 @@ namespace App
 
         private void button2_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
             connection.Open();
             string qs = @"INSERT INTO dbo.[message_processing](Id_message_processing_staff, Id_message_processing_message, Id_message_processing_status_message) VALUES('" + idModeration + "', '" + message + "','" + 2 + "')";
             SqlCommand command = new SqlCommand(qs, connection);
             int Zaversh = command.ExecuteNonQuery();
             connection.Close();
-=======
             //connection.Open();
             //string qs = @"INSERT INTO dbo.[message_processing](Id_message_processing_staff, Id_message_processing_message, Id_message_processing_status_message) VALUES('" + idModeration + "', '" + message + "','" + 1 + "')";
             //SqlCommand command = new SqlCommand(qs, connection);
             //int Zaversh = command.ExecuteNonQuery();
             //connection.Close();
->>>>>>> 46f95c0050393322ef6c773326ff75979c10513a
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
