@@ -295,6 +295,10 @@ namespace App
                 command.CommandText = query;
 
                 //нужно поменять название видео файлов,поэтому заккоментила
+<<<<<<< HEAD
+=======
+
+>>>>>>> 07a4ecec446bef27675a7d2dde2ebca350bd74ae
                // SqlDataReader dr1 = command.ExecuteReader();
                // if (dr1.Read())
                // {
@@ -307,6 +311,10 @@ namespace App
                  //   }
                     dataGridView1.DataSource = ds.Tables[0];
                // }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 07a4ecec446bef27675a7d2dde2ebca350bd74ae
                 //SqlDataReader dr1 = command.ExecuteReader();
                 //if (dr1.Read())
                 //{
@@ -350,16 +358,33 @@ namespace App
         {
             try
             {
+<<<<<<< HEAD
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = connection;
                 connection.Open();
                 cmd.CommandText = "INSERT INTO popular_group (content,Id_popular_group_event) values(N'" + comboBox5.Text + "','" + 5 + "')";
                 
            // cmd.CommandText = "INSERT INTO popular_group (content,Id_popular_group_event) values(N'" + comboBox5.Text + "','" + 6 + "')";
+=======
+                //SqlCommand cmd = new SqlCommand();
+                //cmd.Connection = connection;
+                //connection.Open();
+                //cmd.CommandText = "INSERT INTO popular_group (content,Id_popular_group_event) values(N'" + comboBox5.Text + "','" + 5 + "')";
+
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = connection;
+            connection.Open();
+            cmd.CommandText = "INSERT INTO popular_group (content,Id_popular_group_event) values(N'" + comboBox5.Text + "','" + 6 + "')";
+>>>>>>> 07a4ecec446bef27675a7d2dde2ebca350bd74ae
 
             cmd.ExecuteNonQuery();
             connection.Close();
             popular_groupLoad();
+<<<<<<< HEAD
+=======
+
+>>>>>>> 07a4ecec446bef27675a7d2dde2ebca350bd74ae
                 cmd.ExecuteNonQuery();
                 connection.Close();
                 popular_groupLoad();
