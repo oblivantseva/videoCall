@@ -176,20 +176,20 @@ namespace App
                             connection.Close();
                             ModerOnline(); 
 
-                            MessageBox.Show("Обращение отправлено.");
+                            label11.Text = "Обращение отправлено.";
                         }
                         else
                         {
                             connection.Close();
 
-                            MessageBox.Show("Ошибка при отправке обращения.");
+                            label11.Text = "Ошибка при отправке обращения.";
                         }
                     
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Ошибка при отправке обращения.");
+                    label11.Text = "Ошибка при отправке обращения.";
                 }
                 connection.Close();
                 //

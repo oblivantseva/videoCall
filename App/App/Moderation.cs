@@ -66,16 +66,9 @@ namespace App
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = connection;
             connection.Open();
-            //command.CommandText = "SELECT COUNT(*) FROM dbo.staff WHERE staff.Id_staff = '" + idModeration + "'";
-            //SqlDataReader dr = command.ExecuteReader();
-            //if (dr.Read())
-            //{
-            //    int search = 0;
-            //    search = Convert.ToInt32(dr[0].ToString());
-            //    dr.Close();
 
             string sql = "SELECT        [user].*, messages.message_text, messages.datatime, federal_districts.federal_districts, message_categories.message_categories, " +
-                 " status_message.status_message, message_processing.answer_comment ,messages.processed, messages.Id_message,messages.Id_message_message_categories" +
+                 " status_message.status_message, message_processing.answer_comment ,messages.processed, messages.Id_message,messages.Id_message_message_categories, messages.media_content" +
                          " FROM            message_categories INNER JOIN " +
                          " messages ON message_categories.Id_message_categories = messages.id_message_message_categories INNER JOIN " +
                          " [user] ON messages.Id_message_user = [user].Id_user INNER JOIN " +
@@ -116,6 +109,9 @@ namespace App
             dataGridView1.Columns[8].Visible = false;
             dataGridView1.Columns[12].Visible = false;
             dataGridView1.Columns[13].Visible = false;
+            dataGridView1.Columns[15].Visible = false;
+            dataGridView1.Columns[16].Visible = false;
+            dataGridView1.Columns[17].Visible = false;
             dataGridView1.Columns[1].HeaderText = "ФИО пользователя";
             dataGridView1.Columns[11].HeaderText = "Категория";
             dataGridView1.Columns[9].HeaderText = "Дата";
@@ -160,15 +156,11 @@ namespace App
         private void button5_Click(object sender, EventArgs e)
         {
             connection.Open();
-            string qs = @"INSERT INTO dbo.[message_processing](Id_message_processing_staff, Id_message_processing_message, Id_message_processing_status_message) VALUES('" + idModeration + "', '" + message + "','" + 4 + "')";
+            string qs = @"INSERT INTO dbo.[message_processing](Id_message_processing_staff, Id_message_processing_message, Id_message_processing_status_message) VALUES('" + idModeration + "', '" + message + "','" + 2 + "')";
             SqlCommand command = new SqlCommand(qs, connection);
             int Zaversh = command.ExecuteNonQuery();
             connection.Close();
-        }
-
-        private void Moderation_Load(object sender, EventArgs e)
-        {
-
+            label10.Text = "Обращение добавлено в эфир";
         }
         public void categor_Load()
         {
@@ -257,7 +249,7 @@ namespace App
             // cmd.Connection = connection;
             connection.Open();
             string sql = "SELECT        [user].*, messages.message_text, messages.datatime, federal_districts.federal_districts, message_categories.message_categories, " +
-                " status_message.status_message, message_processing.answer_comment,messages.processed, messages.Id_message, messages.Id_message_message_categories" +
+                " status_message.status_message, message_processing.answer_comment,messages.processed, messages.Id_message, messages.Id_message_message_categories, messages.media_content" +
                         " FROM            message_categories INNER JOIN " +
                         " messages ON message_categories.Id_message_categories = messages.id_message_message_categories INNER JOIN " +
                         " [user] ON messages.Id_message_user = [user].Id_user INNER JOIN " +
@@ -285,7 +277,6 @@ namespace App
                         // получаем все ячейки строки
                         var cells = row.ItemArray;
                         row[1] = "ФИО:" + cells[1] + " " + cells[2] + " " + cells[3] + ";  Телефон: " + cells[4] + "\n;  email:" + cells[5] + "\n;   Возвраст:" + cells[6];
-                        query = "select media_content from dbo.messages where messages.Id_message_user='" + cells[0] + "'";
                     }
                 }
 
@@ -294,40 +285,8 @@ namespace App
                 SqlCommand command = connection.CreateCommand();
                 command.CommandText = query;
 
-                //нужно поменять название видео файлов,поэтому заккоментила
-<<<<<<< HEAD
-=======
-
->>>>>>> 07a4ecec446bef27675a7d2dde2ebca350bd74ae
-               // SqlDataReader dr1 = command.ExecuteReader();
-               // if (dr1.Read())
-               // {
-                  //  axWindowsMediaPlayer1.URL = dr1[0].ToString();
-                  //  SqlDataReader dr1 = command.ExecuteReader();
-                //    if (dr1.Read())
-                 //   {
-                    //    axWindowsMediaPlayer1.URL = dr1[0].ToString();
-
-                 //   }
                     dataGridView1.DataSource = ds.Tables[0];
-               // }
-<<<<<<< HEAD
-=======
 
->>>>>>> 07a4ecec446bef27675a7d2dde2ebca350bd74ae
-                //SqlDataReader dr1 = command.ExecuteReader();
-                //if (dr1.Read())
-                //{
-                   
-                //    axWindowsMediaPlayer1.URL = dr1[0].ToString();
-                //  //  SqlDataReader dr1 = command.ExecuteReader();
-                //    if (dr1.Read())
-                //    {
-                //        axWindowsMediaPlayer1.URL = dr1[0].ToString();
-
-                //    }
-                    dataGridView1.DataSource = ds.Tables[0];
-                //}
                 dataGridView1.Columns[0].Visible = false;
                 dataGridView1.Columns[2].Visible = false;
                 dataGridView1.Columns[3].Visible = false;
@@ -338,6 +297,9 @@ namespace App
                 dataGridView1.Columns[8].Visible = false;
                 dataGridView1.Columns[12].Visible = false;
                 dataGridView1.Columns[13].Visible = false;
+                dataGridView1.Columns[15].Visible = false;
+                dataGridView1.Columns[16].Visible = false;
+                dataGridView1.Columns[17].Visible = false;
                 dataGridView1.Columns[1].HeaderText = "ФИО пользователя";
                 dataGridView1.Columns[11].HeaderText = "Категория";
                 dataGridView1.Columns[9].HeaderText = "Дата";
@@ -358,36 +320,21 @@ namespace App
         {
             try
             {
-<<<<<<< HEAD
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = connection;
                 connection.Open();
-                cmd.CommandText = "INSERT INTO popular_group (content,Id_popular_group_event) values(N'" + comboBox5.Text + "','" + 5 + "')";
+               // cmd.CommandText = "INSERT INTO popular_group (content,Id_popular_group_event) values(N'" + comboBox5.Text + "','" + 5 + "')";
                 
-           // cmd.CommandText = "INSERT INTO popular_group (content,Id_popular_group_event) values(N'" + comboBox5.Text + "','" + 6 + "')";
-=======
+            cmd.CommandText = "INSERT INTO popular_group (content,Id_popular_group_event) values(N'" + comboBox5.Text + "','" + 6 + "')";
                 //SqlCommand cmd = new SqlCommand();
                 //cmd.Connection = connection;
                 //connection.Open();
                 //cmd.CommandText = "INSERT INTO popular_group (content,Id_popular_group_event) values(N'" + comboBox5.Text + "','" + 5 + "')";
-
-
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = connection;
-            connection.Open();
-            cmd.CommandText = "INSERT INTO popular_group (content,Id_popular_group_event) values(N'" + comboBox5.Text + "','" + 6 + "')";
->>>>>>> 07a4ecec446bef27675a7d2dde2ebca350bd74ae
+                
 
             cmd.ExecuteNonQuery();
             connection.Close();
             popular_groupLoad();
-<<<<<<< HEAD
-=======
-
->>>>>>> 07a4ecec446bef27675a7d2dde2ebca350bd74ae
-                cmd.ExecuteNonQuery();
-                connection.Close();
-                popular_groupLoad();
             }
             catch (Exception ex)
             {
@@ -417,26 +364,14 @@ namespace App
 
         }
 
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            textBox6.Text = dataGridView1[1, dataGridView1.CurrentRow.Index].Value.ToString();
-            textBox5.Text = dataGridView1[8, dataGridView1.CurrentRow.Index].Value.ToString();
-            message = Convert.ToInt32(dataGridView1[15, dataGridView1.CurrentRow.Index].Value.ToString());
-            id.Text= dataGridView1[16, dataGridView1.CurrentRow.Index].Value.ToString();
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             connection.Open();
-            string qs = @"INSERT INTO dbo.[message_processing](Id_message_processing_staff, Id_message_processing_message, Id_message_processing_status_message) VALUES('" + idModeration + "', '" + message + "','" + 2 + "')";
+            string qs = @"INSERT INTO dbo.[message_processing](Id_message_processing_staff, Id_message_processing_message, Id_message_processing_status_message) VALUES('" + idModeration + "', '" + message + "','" + 4 + "')";
             SqlCommand command = new SqlCommand(qs, connection);
             int Zaversh = command.ExecuteNonQuery();
             connection.Close();
-            //connection.Open();
-            //string qs = @"INSERT INTO dbo.[message_processing](Id_message_processing_staff, Id_message_processing_message, Id_message_processing_status_message) VALUES('" + idModeration + "', '" + message + "','" + 1 + "')";
-            //SqlCommand command = new SqlCommand(qs, connection);
-            //int Zaversh = command.ExecuteNonQuery();
-            //connection.Close();
+            label10.Text = "Обращение добавлено в обработку";
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -452,6 +387,7 @@ namespace App
             SqlCommand command = new SqlCommand(qs, connection);
             int Zaversh = command.ExecuteNonQuery();
             connection.Close();
+            label10.Text = "Обращение отклонено";
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -461,6 +397,7 @@ namespace App
             SqlCommand command = new SqlCommand(qs, connection);
             int Zaversh = command.ExecuteNonQuery();
             connection.Close();
+            label10.Text = "Обращение завершено";
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -471,6 +408,25 @@ namespace App
             int Zaversh = command.ExecuteNonQuery();
             connection.Close();
             label10.Text = "Обращение добавлено в популярные обращения";
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            DataGridViewCell cell = null;
+            foreach (DataGridViewCell selectedCell in dataGridView1.SelectedCells)
+            {
+                cell = selectedCell;
+                break;
+            }
+            if (cell != null)
+            {
+                DataGridViewRow row = cell.OwningRow;
+                textBox6.Text = row.Cells[1].Value.ToString();
+                textBox5.Text = row.Cells[8].Value.ToString();
+                message = Convert.ToInt32(row.Cells[15].Value.ToString());
+                id.Text = row.Cells[16].Value.ToString();
+                axWindowsMediaPlayer1.URL = row.Cells[17].Value.ToString();
+            }
         }
     }
 }

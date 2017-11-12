@@ -94,6 +94,9 @@ namespace App
                     SqlDataReader dr1 = command.ExecuteReader();
                     if (dr1.Read())
                     {
+                        Char delimiter = '/';
+                        String[] substrings = axWindowsMediaPlayer1.URL.Split(delimiter);
+
                         idO = Convert.ToInt32(dr1[0].ToString());
                         dr1.Close();
                         SqlCommand command2 = connection.CreateCommand();
@@ -101,7 +104,7 @@ namespace App
                         Id_message_event, media_content, Id_message_message_categories) 
                         VALUES (GETDATE (),'" + idO + "', '4','" + quest.Text +
                         "','" + Convert.ToInt32(id.Text) +
-                        "','" + axWindowsMediaPlayer1.URL + "','" + Convert.ToInt32(comboBox1.SelectedValue) + "')";
+                        "','" + substrings[substrings.Length-1] + "','" + Convert.ToInt32(comboBox1.SelectedValue) + "')";
                         int Zaversh2 = command2.ExecuteNonQuery();
                         if (Zaversh2 != 0)
                         {

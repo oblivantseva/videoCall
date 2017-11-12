@@ -113,7 +113,6 @@ namespace App
         }
         public void Staf()
         {
-
             SqlConnection conn1 = new SqlConnection(stringPath);
             conn1.Open();
             SqlDataAdapter adapter = new SqlDataAdapter("SELECT Id_staff, (staff.first_name+' '+staff.second_name+' '+staff.patronymic) as fio FROM staff", conn1);
@@ -125,16 +124,6 @@ namespace App
             comboBox2.DataSource = ds;
             conn1.Close();
          
-            //string qs = "SELECT * FROM dbo.staff";
-            //SqlCommand command = new SqlCommand(qs, connection);
-            //System.Data.DataTable tbl = new System.Data.DataTable();
-            //SqlDataAdapter da = new SqlDataAdapter(command);
-            //da.Fill(tbl);
-
-            //comboBox2.DataSource = tbl;
-            //comboBox2.DisplayMember = "first_name";//+ " second_name "+ " patronymic";
-
-            //comboBox2.ValueMember = "Id_staff";
         }
         public void eventsss()
 
@@ -152,8 +141,6 @@ namespace App
         }
         public void VivodD()
         {
-
-            //            //string[] words = tbl.Rows[0][1].ToString().Split(new char[] { ' ' });
             dataGridView1.Visible = true;
             SqlConnection conn = new SqlConnection(stringPath);
             conn.Open();
@@ -206,31 +193,31 @@ namespace App
 
         private void button5_Click(object sender, EventArgs e)
         {
-            //{
-            //    if (comboBox1.Text == "" || comboBox2.Text == "" || comboBox3.Text == "")
-            //    {
+            {
+                if (comboBox1.Text == "" || comboBox2.Text == "" || comboBox3.Text == "")
+                {
 
-            //        MessageBox.Show("Проверьте правильность введеных вами данных!", "Ошибка");
-            //        return;
-            //    }
-            //    SqlConnection conn = new SqlConnection(stringPath);
-            //    conn.Open();
-            //    dataGridView1.Visible = true;
-            //    groupBox1.Visible = false;
-            //    button1.Enabled = true;
-            //    button2.Enabled = true;
-            //    //SqlCommand ID = new SqlCommand(@"select IdMagazine from Magazine where IdMagazine = (select max(IdMagazine) from Magazine)", conn);//последний id
-            //    //ID.ExecuteScalar();
-            //    string sql = "INSERT INTO staff_event(Id_staff_event_staff,Id_staff_event_event) VALUES ('" + Convert.ToInt32(comboBox2.SelectedValue) + "','" + Convert.ToInt32(comboBox1.SelectedValue) + "')";// "','" + Convert.ToInt32(comboBox3.SelectedValue) + "')";
-            //    SqlCommand command = conn.CreateCommand();
-            //    command.CommandText = sql;
-            //    command.ExecuteNonQuery();
-            //    conn.Close();
-            //    VivodD();
-            //    dataGridView1.Rows[dataGridView1.Rows.Count - 1].Selected = true;
-            //    dataGridView1.CurrentCell = dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells[1];
-            //}
-            //EventManagement_Load(sender, e);
+                    MessageBox.Show("Проверьте правильность введеных вами данных!", "Ошибка");
+                    return;
+                }
+                SqlConnection conn = new SqlConnection(stringPath);
+                conn.Open();
+                dataGridView1.Visible = true;
+                groupBox1.Visible = false;
+                button1.Enabled = true;
+                button2.Enabled = true;
+                //SqlCommand ID = new SqlCommand(@"select IdMagazine from Magazine where IdMagazine = (select max(IdMagazine) from Magazine)", conn);//последний id
+                //ID.ExecuteScalar();
+                string sql = "INSERT INTO staff_event(Id_staff_event_staff,Id_staff_event_event) VALUES ('" + Convert.ToInt32(comboBox2.SelectedValue) + "','" + Convert.ToInt32(comboBox1.SelectedValue) + "')";// "','" + Convert.ToInt32(comboBox3.SelectedValue) + "')";
+                SqlCommand command = conn.CreateCommand();
+                command.CommandText = sql;
+                command.ExecuteNonQuery();
+                conn.Close();
+                VivodD();
+                dataGridView1.Rows[dataGridView1.Rows.Count - 1].Selected = true;
+                dataGridView1.CurrentCell = dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells[1];
+            }
+            EventManagement_Load(sender, e);
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = connection;
 
