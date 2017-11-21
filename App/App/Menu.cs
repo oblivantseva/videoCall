@@ -32,11 +32,8 @@ namespace App
             button4.Enabled = false;
             button5.Enabled = false;
         }
-
-        private void button3_Click(object sender, EventArgs e)
+        public string LogIN(string s_login, string s_pass)
         {
-            string s_login = login.Text;
-            string s_pass = pass.Text;
             connection.Open();
 
             command.CommandText = "SELECT COUNT(*) FROM dbo.staff WHERE log = '" + s_login + "'";
@@ -52,54 +49,83 @@ namespace App
                     SqlDataReader dr1 = command.ExecuteReader();
                     if (dr1.Read())
                     {
-                        search = Convert.ToInt32(dr1[0].ToString());
+                        string rol = dr1[0].ToString();
                         dr1.Close();
                         if (search != 0)
                         {
-                            MessageBox.Show("Вы в системе!");
                             command.CommandText = "SELECT Id_staff_type_staff FROM dbo.staff WHERE log = '" + s_login + "' and pass='" + s_pass + "'";
                             SqlDataReader dr2 = command.ExecuteReader();
                             if (dr2.Read())
                             {
                                 search = Convert.ToInt32(dr2[0].ToString());
                                 dr2.Close();
-                                if (search == 1)
-                                {
-                                    button5.Enabled = true;
-
-                                }
-                                else if (search == 2)
-                                {//изменила 4-2
-                                    button2.Enabled = true;
-                                }
-                                else if (search == 3)
-                                {
-                                    button1.Enabled = true;
-                                }
-                                else if (search == 4)//изменила на 4
-                                {//изменила 2-4
-                                    button4.Enabled = true;
-                                }
+                                connection.Close();
+                                return rol;
                             }
+                            else
+                                return null;
                         }
                         else
                         {
-                            MessageBox.Show("Неправильно указан логин/пароль.");
+                            return "";
                         }
                     }
+                    else
+                        return null;
                 }
                 else
                 {
-                    MessageBox.Show("Данный аккаунт не зарегестрирован.");
+                    return null;
                 }
             }
-            connection.Close();
+            else
+                return null;
+            
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string s_login = login.Text;
+            string s_pass = pass.Text;
+
+            string ans = LogIN(s_login, s_pass);
+
+            connection.Open();
+
+            if (ans != null)
+            {
+                MessageBox.Show("Вы в системе!");
+                if (ans == "1")
+                {
+                    button5.Enabled = true;
+                }
+                else if (ans == "2")
+                {//изменила 4-2
+                    button2.Enabled = true;
+                }
+                else if (ans == "3")
+                {
+                    button1.Enabled = true;
+                }
+                else if (ans == "4")//изменила на 4
+                {//изменила 2-4
+                    button4.Enabled = true;
+                }
+            }
+            else if (ans == "")
+            {
+                MessageBox.Show("Неправильно указан логин/пароль.");
+            }
+            else
+            {
+                MessageBox.Show("Данный аккаунт не зарегестрирован.");
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
-            string fio="";
+
+            string fio = "";
             int idT = 0;
             int idM = 0;
             SqlCommand cmd = new SqlCommand();
@@ -107,18 +133,18 @@ namespace App
             connection.Open();
             cmd.CommandText = "SELECT * FROM dbo.staff  WHERE log = '" + login.Text + "' and pass='" + pass.Text + "'";
             cmd.ExecuteNonQuery();
-                        SqlDataReader reader = cmd.ExecuteReader();
+            SqlDataReader reader = cmd.ExecuteReader();
             if (reader != null)
             {
                 if (reader.Read())
                 {
-                    fio = reader[2].ToString()+" "+ reader[1].ToString()+" "+ reader[3].ToString();
+                    fio = reader[2].ToString() + " " + reader[1].ToString() + " " + reader[3].ToString();
                     int.TryParse(reader[8].ToString(), out idT);
                     int.TryParse(reader[0].ToString(), out idM);
                 }
             }
             connection.Close();
-            Moderation mod = new Moderation(fio,idT,idM,this);
+            Moderation mod = new Moderation(fio, idT, idM, this);
             mod.Show();
         }
 
@@ -169,7 +195,7 @@ namespace App
             }
             connection.Close();
             ReceptionCalls reC = new ReceptionCalls(fio, idT, idOper, this);
-       
+
             reC.Show();
         }
         public void ClearForm()

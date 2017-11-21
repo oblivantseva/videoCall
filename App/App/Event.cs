@@ -69,15 +69,17 @@ namespace App
             }
         }
 
+        public bool RegTrue(string mail, string reg)
+        {
+            return Regex.IsMatch(mail, reg);
+        }
+
         private void button3_Click(object sender, EventArgs e)
         {
-            var email = mail.Text;
-            const string cond = @"(\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*)";
-
-            if (Regex.IsMatch(email, cond))
+            if (!RegTrue(mail.Text, @"\A[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\z"))
             {
-                label9.Text = "Ошибка ввода Email";
-
+                label9.Text = "Не правильно введен адрес почты. Повторите попытку.";
+                return;
             }
             else
             {
@@ -148,9 +150,7 @@ namespace App
 
         private void tel_KeyPress(object sender, KeyPressEventArgs e)
         {
-            {
-
-                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
                 {
                     label9.Text = "Неверный ввод";
                     e.Handled = true;
@@ -159,7 +159,6 @@ namespace App
                 {
                     label9.Text = "";
                 }
-            }
         }
         private void mail_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -216,12 +215,21 @@ namespace App
 
         private void tel_TextChanged(object sender, EventArgs e)
         {
-            if (tel.Text.Length > 11)
+            string ans = WriteTel(tel.Text);
+            if (ans == null)
             {
                 label9.Text = "Номер телефона должен состоять из 11 цифр. Попробуйте ввести данные еще раз.";
                 tel.ReadOnly = false;
                 tel.Clear();
             }
+        }
+
+        public string WriteTel (string tel)
+        {
+            if (tel.Length < 11)
+                return null;
+            else
+               return "1";
         }
 
     }
