@@ -46,6 +46,72 @@ namespace App
         }
         public void tableLoad()
         {
+            connection.Open();
+            string sql = "SELECT         [user].*,messages.message_text, popular_group.[content], messages.datatime, message_categories.message_categories, status_message.status_message,messages.Id_message " +
+
+                            "FROM events INNER JOIN " +
+                         "messages ON events.Id_events = messages.Id_message_event INNER JOIN " +
+                         "message_categories ON messages.id_message_message_categories = message_categories.Id_message_categories INNER JOIN " +
+                         "message_processing ON messages.Id_message = message_processing.Id_message_processing_message INNER JOIN " +
+                         "status_message ON message_processing.Id_message_processing_status_message = status_message.Id_status_message INNER JOIN " +
+                         "[user] ON messages.Id_message_user = [user].Id_user INNER JOIN " +
+                         "popular_messages ON messages.Id_message = popular_messages.Id_popular_messages_message INNER JOIN " +
+                        " popular_group ON popular_messages.Id_popular_messages_popular_group = popular_group.Id_popular_group " +
+"WHERE(message_processing.Id_message_processing_status_message = 2)";
+            // cmd.ExecuteNonQuery();
+
+            using (SqlConnection connection = new SqlConnection(stringPath))
+            {
+                connection.Open();
+                SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
+                DataSet ds = new DataSet();
+                adapter.Fill(ds);
+                string query = "";
+                foreach (DataTable dt in ds.Tables)
+                {
+                    // перебор всех столбцов
+                    // foreach (DataColumn column in dt.Columns)
+                    // перебор всех строк таблицы
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        // получаем все ячейки строки
+                        var cells = row.ItemArray;
+                        row[1] = "ФИО:" + cells[1] + " " + cells[2] + " " + cells[3] + ";  Телефон: " + cells[4] + "\n;  email:" + cells[5] + "\n;   Возвраст:" + cells[6];
+                        query = "select media_content from dbo.messages where messages.Id_message_user='" + cells[0] + "'";
+                    }
+                }
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+                SqlCommand command = connection.CreateCommand();
+                command.CommandText = query;
+                //нужно поменять название видео файлов,поэтому заккоментила
+                //SqlDataReader dr1 = command.ExecuteReader();
+                //if (dr1.Read())
+                //{
+                //    axWindowsMediaPlayer1.URL = dr1[0].ToString();
+                //}
+                dataGridView1.DataSource = ds.Tables[0];
+            }
+            dataGridView1.Columns[0].Visible = false;
+            dataGridView1.Columns[2].Visible = false;
+            dataGridView1.Columns[3].Visible = false;
+            dataGridView1.Columns[4].Visible = false;
+            dataGridView1.Columns[5].Visible = false;
+            dataGridView1.Columns[6].Visible = false;
+            dataGridView1.Columns[7].Visible = false;
+            dataGridView1.Columns[12].Visible = false;
+            dataGridView1.Columns[1].Width = 200;
+            dataGridView1.Columns[8].Width = 200;
+            dataGridView1.Columns[9].Width = 200;
+            dataGridView1.Columns[10].Width = 80;
+            dataGridView1.Columns[1].HeaderText = "Информация пользователя";
+            dataGridView1.Columns[8].HeaderText = "Текст сообщения";
+            dataGridView1.Columns[9].HeaderText = "Популярные группы";
+            dataGridView1.Columns[10].HeaderText = "Время обращения";
+            dataGridView1.Columns[11].HeaderText = "Категория сообщения";
+
+            connection.Close();
         }
         public void fillTypeStaff(int idType)
         {
@@ -131,7 +197,7 @@ namespace App
                          "[user] ON messages.Id_message_user = [user].Id_user INNER JOIN " +
                          "popular_messages ON messages.Id_message = popular_messages.Id_popular_messages_message INNER JOIN " +
                         " popular_group ON popular_messages.Id_popular_messages_popular_group = popular_group.Id_popular_group " +
-"WHERE(status_message.status_message = N'В эфир')  " + str + "";
+"WHERE(message_processing.Id_message_processing_status_message = 2)  " + str + "";
             // cmd.ExecuteNonQuery();
 
             using (SqlConnection connection = new SqlConnection(stringPath))
@@ -277,7 +343,12 @@ namespace App
             cmd.Clone();
             connection.Close();
             this.Close();
-            MessageBox.Show("Сообщение помечено, как Отвечен Презедентом");
+            label9.Text = "Сообщение помечено, как Отвечен Презедентом";
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            tableLoad();
         }
     }
 }

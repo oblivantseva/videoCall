@@ -421,7 +421,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(426, 219);
             this.dataGridView1.TabIndex = 28;
             this.dataGridView1.VirtualMode = true;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // Column1
             // 
@@ -450,7 +450,7 @@
             // 
             // id
             // 
-            this.id.Location = new System.Drawing.Point(258, 312);
+            this.id.Location = new System.Drawing.Point(362, 473);
             this.id.Name = "id";
             this.id.ReadOnly = true;
             this.id.Size = new System.Drawing.Size(26, 20);
@@ -473,7 +473,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HotTrack;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(994, 449);
+            this.ClientSize = new System.Drawing.Size(994, 440);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.id);
             this.Controls.Add(this.checkBox4);
@@ -511,7 +511,6 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Name = "Moderation";
             this.Text = "Модерация обращений";
-            this.Load += new System.EventHandler(this.Moderation_Load);
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
